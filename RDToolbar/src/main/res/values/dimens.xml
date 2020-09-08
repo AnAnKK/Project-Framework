@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="toolbar_common_margin">16dp</dimen>
+    <dimen name="toolbar_padding_top">0dp</dimen>
+</resources>

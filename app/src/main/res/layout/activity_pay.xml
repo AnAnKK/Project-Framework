@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <com.runda.toolbar.RDToolbar
+            android:id="@+id/toolbar_payment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:toolbar_backSrc="@drawable/icon_back_white"
+            app:toolbar_rootBackground="@color/color_primary"
+            app:toolbar_titleText="@string/payment" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_background_oval_gray_for_edittext_6px"
+                    android:layout_marginTop="@dimen/qb_px_40"
+                    android:layout_marginEnd="@dimen/qb_px_32"
+                    android:layout_marginStart="@dimen/qb_px_32"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/paymentAmount"
+                        android:textColor="@color/color_000000"
+                        android:paddingTop="@dimen/qb_px_36"
+                        android:paddingStart="@dimen/qb_px_58"
+                        android:textSize="14sp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/color_000000"
+                            android:paddingTop="@dimen/qb_px_44"
+                            android:paddingStart="@dimen/qb_px_58"
+                            android:text="¥"
+                            android:textSize="35sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/textview_payment_money"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/qb_px_10"
+                            android:background="@null"
+                            android:paddingTop="@dimen/qb_px_44"
+                            android:textColor="@color/color_000000"
+                            android:inputType="numberDecimal"
+                            android:textSize="35sp" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/qb_px_1"
+                        android:background="@color/color_DDDDDD"
+                        android:layout_marginStart="@dimen/qb_px_58"
+                        android:layout_marginTop="@dimen/qb_px_52"
+                        android:layout_marginEnd="@dimen/qb_px_58"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/choosePayType"
+                        android:textColor="@color/color_000000"
+                        android:paddingTop="@dimen/qb_px_40"
+                        android:paddingStart="@dimen/qb_px_58"
+                        android:textSize="14sp"
+                        />
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout_activity_Pay_alipay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/qb_px_60"
+                            android:orientation="horizontal"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:layout_marginTop="@dimen/qb_px_60"
+                            >
+                            <ImageView
+                                android:id="@+id/imageView_activity_Pay_alipay"
+                                android:layout_width="@dimen/qb_px_36"
+                                android:layout_height="@dimen/qb_px_36"
+                                android:src="@drawable/icon_alipay"
+                                />
+                            <TextView
+                                android:id="@+id/textview_activity_Pay_alipay"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textSize="14sp"
+                                android:textColor="@color/color_000000"
+                                android:gravity="center_vertical"
+                                android:layout_marginStart="@dimen/qb_px_24"
+                                android:text="@string/alipay"
+                                />
+                            <RadioButton
+                                android:id="@+id/radioButton_alipay"
+                                android:layout_width="@dimen/qb_px_40"
+                                android:layout_height="@dimen/qb_px_40"
+                                android:layout_marginEnd="@dimen/qb_px_60"
+                                android:layout_marginStart="@dimen/qb_px_48"
+                                android:layout_gravity="center_vertical"
+                                android:background="@drawable/selector_drawable_radiobutton_selectlocation"
+                                android:button="@null"
+                                android:checked="true"
+                                android:clickable="false"
+                                />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout_activity_Pay_wechat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/qb_px_40"
+                            android:layout_marginStart="@dimen/qb_px_60"
+                            android:layout_marginBottom="@dimen/qb_px_80"
+                            android:orientation="horizontal"
+                            >
+
+                            <ImageView
+                                android:id="@+id/imageView_activity_Pay_wechat"
+                                android:layout_width="@dimen/qb_px_36"
+                                android:layout_height="@dimen/qb_px_36"
+                                android:src="@drawable/icon_wechat_gray"
+                                />
+                            <TextView
+                                android:id="@+id/textview_activity_Pay_wechat"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textSize="14sp"
+                                android:textColor="@color/color_999999"
+                                android:gravity="center_vertical"
+                                android:layout_marginStart="@dimen/qb_px_24"
+                                android:text="@string/wechat"
+                                />
+                            <RadioButton
+                                android:id="@+id/radioButton_wechat"
+                                android:layout_width="@dimen/qb_px_40"
+                                android:layout_height="@dimen/qb_px_40"
+                                android:layout_marginEnd="@dimen/qb_px_60"
+                                android:layout_marginStart="@dimen/qb_px_48"
+                                android:layout_gravity="center_vertical"
+                                android:background="@drawable/selector_drawable_radiobutton_selectlocation"
+                                android:button="@null"
+                                android:checked="false"
+                                android:clickable="false"
+                                />
+
+                        </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/bt_confirmPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_90"
+                    android:layout_marginEnd="@dimen/qb_px_80"
+                    android:layout_marginStart="@dimen/qb_px_80"
+                    android:layout_marginTop="@dimen/qb_px_80"
+                    android:background="@drawable/shape_background_oval_primarycolor_for_button_96px"
+                    android:gravity="center"
+                    android:text="@string/confirmPayment"
+                    android:textColor="@color/color_FFFFFF"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

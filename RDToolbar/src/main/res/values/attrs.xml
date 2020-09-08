@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="toolbar_RDToolbar">
+        <!--背景色-->
+        <attr name="toolbar_rootBackground" format="color" />
+        <!--按钮src-->
+        <attr name="toolbar_backSrc" format="reference" />
+        <attr name="toolbar_operateSrc" format="reference" />
+        <!--文字内容-->
+        <attr name="toolbar_titleText" format="string" />
+        <attr name="toolbar_txtOperateText" format="string" />
+        <attr name="toolbar_titleTextColor" format="color" />
+        <attr name="toolbar_txtOperateTextColor" format="color" />
+        <attr name="toolbar_titleTextSize" format="dimension" />
+        <attr name="toolbar_txtOperateTextSize" format="dimension" />
+        <!--可见性-->
+        <attr name="toolbar_backVisible" format="boolean" />
+        <attr name="toolbar_titleVisible" format="boolean" />
+        <attr name="toolbar_operateVisible" format="boolean" />
+        <attr name="toolbar_txtOperateVisible" format="boolean" />
+        <!--顶部padding-->
+        <attr name="toolbar_rootPaddingTop" format="dimension" />
+    </declare-styleable>
+</resources>

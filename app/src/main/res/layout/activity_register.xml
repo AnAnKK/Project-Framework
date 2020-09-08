@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout_register_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.runda.toolbar.RDToolbar
+        android:id="@+id/toolbar_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:toolbar_backSrc="@drawable/icon_back_white"
+        app:toolbar_rootBackground="@color/color_primary"
+        app:toolbar_titleText="@string/regist" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/toolbar_padding_top"
+            android:gravity="top|center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/qb_px_48">
+
+            <!--手机号-->
+                <EditText
+                    android:id="@+id/editText_register_phoneNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_95"
+                    android:layout_marginStart="@dimen/qb_px_80"
+                    android:layout_marginEnd="@dimen/qb_px_80"
+                    android:background="@null"
+                    android:gravity="center_vertical|start"
+                    android:hint="@string/resetPassword_phoneNumHint"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:paddingBottom="@dimen/qb_px_24"
+                    android:paddingEnd="@dimen/qb_px_16"
+                    android:paddingStart="@dimen/qb_px_16"
+                    android:paddingTop="@dimen/qb_px_24"
+                    android:textColor="@color/color_333333"
+                    android:textColorHint="@color/color_C0C0C0"
+                    android:textCursorDrawable="@xml/my_cursor"
+                    android:textSize="14sp" />
+                <View
+                    android:id="@+id/bottomLine_register_phoneNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_2"
+                    android:layout_marginEnd="@dimen/qb_px_80"
+                    android:layout_marginStart="@dimen/qb_px_80"
+                    android:background="@drawable/selector_background_rect_special_for_sign_bottom_line" />
+
+
+            <!--验证码-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_96"
+                android:layout_marginEnd="@dimen/qb_px_80"
+                android:layout_marginStart="@dimen/qb_px_80">
+
+
+                <TextView
+                    android:id="@+id/textView_register_getVCode"
+                    android:layout_width="@dimen/qb_px_160"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/selector_background_rect_special_for_get_vcode"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/qb_px_16"
+                    android:paddingTop="@dimen/qb_px_16"
+                    android:text="@string/sign_getVCode"
+                    android:textColor="@drawable/selector_textcolor_get_vcode"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/editText_register_vCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/textView_register_getVCode"
+                    android:background="@null"
+                    android:gravity="center_vertical|start"
+                    android:hint="@string/pleaseInputVCode"
+                    android:textCursorDrawable="@xml/my_cursor"
+                    android:maxLength="6"
+                    android:inputType="number"
+                    android:paddingBottom="@dimen/qb_px_24"
+                    android:paddingEnd="@dimen/qb_px_16"
+                    android:paddingStart="@dimen/qb_px_16"
+                    android:paddingTop="@dimen/qb_px_32"
+                    android:textColor="@color/color_333333"
+                    android:textColorHint="@color/color_C0C0C0"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/bottomLine_register_vCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_2"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_background_rect_special_for_sign_bottom_line" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/qb_px_80"
+                android:layout_marginStart="@dimen/qb_px_80"
+                >
+
+                <EditText
+                    android:id="@+id/editText_register_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_96"
+                    android:layout_alignParentTop="true"
+                    android:background="@null"
+                    android:drawablePadding="@dimen/qb_px_20"
+                    android:gravity="center_vertical|start"
+                    android:hint="@string/pleaseInputPassword"
+                    android:inputType="textPassword"
+                    android:maxLength="16"
+                    android:paddingBottom="@dimen/qb_px_24"
+                    android:paddingEnd="@dimen/qb_px_84"
+                    android:paddingStart="@dimen/qb_px_16"
+                    android:paddingTop="@dimen/qb_px_32"
+                    android:textColor="@color/color_333333"
+                    android:textColorHint="@color/color_C0C0C0"
+                    android:textCursorDrawable="@xml/my_cursor"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/bottomLine_register_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_2"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_background_rect_special_for_sign_bottom_line" />
+
+                <ImageView
+                    android:id="@+id/imageView_register_passwordVisible"
+                    android:layout_width="@dimen/qb_px_64"
+                    android:layout_height="@dimen/qb_px_64"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/style_background_operation_press_square"
+                    android:clickable="true"
+                    android:contentDescription="@null"
+                    android:focusable="true"
+                    android:foreground="@drawable/style_background_operation_press_square"
+                    android:padding="@dimen/qb_px_8"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_drawable_sign_password_visible" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/qb_px_80"
+                android:layout_marginStart="@dimen/qb_px_80"
+                >
+
+                <EditText
+                    android:id="@+id/editText_register_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_96"
+                    android:layout_alignParentTop="true"
+                    android:background="@null"
+                    android:drawablePadding="@dimen/qb_px_20"
+                    android:gravity="center_vertical|start"
+                    android:hint="@string/pleaseInputPasswordAgain"
+                    android:inputType="textPassword"
+                    android:maxLength="16"
+                    android:paddingBottom="@dimen/qb_px_24"
+                    android:paddingEnd="@dimen/qb_px_84"
+                    android:paddingStart="@dimen/qb_px_16"
+                    android:paddingTop="@dimen/qb_px_32"
+                    android:textColor="@color/color_333333"
+                    android:textColorHint="@color/color_C0C0C0"
+                    android:textCursorDrawable="@xml/my_cursor"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/bottomLine_register_confirmpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_2"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_background_rect_special_for_sign_bottom_line" />
+
+                <ImageView
+                    android:id="@+id/imageView_register_passwordConfirmVisible"
+                    android:layout_width="@dimen/qb_px_64"
+                    android:layout_height="@dimen/qb_px_64"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/style_background_operation_press_square"
+                    android:clickable="true"
+                    android:contentDescription="@null"
+                    android:focusable="true"
+                    android:foreground="@drawable/style_background_operation_press_square"
+                    android:padding="@dimen/qb_px_8"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_drawable_sign_password_visible" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/color_C0C0C0"
+                android:paddingTop="@dimen/qb_px_120"
+                android:text="@string/passwordRequirements"
+                android:paddingStart="@dimen/qb_px_16"
+                android:layout_marginStart="@dimen/qb_px_80"
+                android:layout_marginEnd="@dimen/qb_px_80"
+                />
+
+
+            <Button
+                android:id="@+id/button_register"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_90"
+                android:layout_marginBottom="@dimen/qb_px_28"
+                android:layout_marginEnd="@dimen/qb_px_80"
+                android:layout_marginStart="@dimen/qb_px_80"
+                android:layout_marginTop="@dimen/qb_px_50"
+                android:background="@drawable/shape_background_oval_primarycolor_for_button_96px"
+                android:gravity="center"
+                android:text="@string/regist"
+                android:textColor="@color/color_FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textview_aggrement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/qb_px_80"
+                android:layout_marginStart="@dimen/qb_px_80"
+                android:layout_marginTop="@dimen/qb_px_36"
+                android:text="@string/clickRegistTreaty"
+                android:textSize="12sp"
+                android:textColor="@color/color_898989"
+                android:lineSpacingExtra="@dimen/qb_px_5"
+                android:clickable="true"
+                android:focusable="true"
+                />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
+

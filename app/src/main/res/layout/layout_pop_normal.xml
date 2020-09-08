@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginStart="@dimen/qb_px_48"
+    android:layout_marginEnd="@dimen/qb_px_48"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_background_pop_oval_white20px"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/textView_title"
+        android:layout_width="wrap_content"
+        android:minHeight="@dimen/qb_px_112"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="标题标题标题"
+        android:textColor="@color/color_333333"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textView_content"
+        android:layout_width="wrap_content"
+        android:minHeight="@dimen/qb_px_112"
+        android:layout_marginTop="@dimen/qb_px_30"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/qb_px_30"
+        android:paddingRight="@dimen/qb_px_30"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:gravity="left"
+        android:textColor="@color/color_333333"
+        android:text="内容内容内容内容内容内内容内容内容内容内容内容内容容内容"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_60"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/qb_px_80"
+        >
+
+        <TextView
+            android:id="@+id/textViewNo"
+            android:layout_width="@dimen/qb_px_150"
+            android:layout_height="@dimen/qb_px_72"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_marginRight="@dimen/qb_px_50"
+            android:textColor="@color/color_FFFFFF"
+            android:text="@string/no"
+            android:background="@color/color_primary"
+            />
+
+        <TextView
+            android:id="@+id/textViewYes"
+            android:layout_width="@dimen/qb_px_150"
+            android:layout_height="@dimen/qb_px_72"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/color_FFFFFF"
+            android:background="@color/color_primary"
+            android:text="@string/yes"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

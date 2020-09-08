@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/activity_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/bottomBar_mainPage"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        app:bnbActiveColor="@color/color_primary"
+        app:bnbAutoHideEnabled="false"
+        app:bnbBackgroundColor="@color/color_FFFFFF"
+        app:bnbBackgroundStyle="background_style_static"
+        app:bnbElevation="8dp"
+        app:bnbInactiveColor="@color/color_959595"
+        app:bnbMode="mode_fixed" />
+
+</LinearLayout>

@@ -1,0 +1,35 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/color_primary</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary</item>
+        <item name="android:windowBackground">@color/color_FFFFFF</item>
+        <item name="android:windowAnimationStyle">@style/AnimTheme_Activity</item>
+    </style>
+
+    <style name="AppTheme.SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/icon_splash_root</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AnimTheme_Activity" parent="@android:style/Animation.Activity">
+        <item name="android:activityCloseExitAnimation">@anim/anim_activity_close_out</item>
+        <item name="android:activityOpenEnterAnimation">@anim/anim_activity_open_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/anim_activity_open_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/anim_activity_close_in</item>
+    </style>
+
+    <style name="AppTheme.Transparent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppTheme.Toolbar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+</resources>

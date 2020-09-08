@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_rdToolbar_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:minHeight="?android:attr/actionBarSize"
+    android:orientation="vertical"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/textView_rdToolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingEnd="48dp"
+            android:paddingStart="48dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/imageViewButton_rdToolbar_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/toolbar_operation_press_square"
+            android:contentDescription="@null"
+            android:foreground="@drawable/toolbar_operation_press_square"
+            android:padding="4dp"
+            android:scaleType="fitXY" />
+
+        <ImageButton
+            android:id="@+id/imageViewButton_rdToolbar_operate"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/toolbar_operation_press_square"
+            android:contentDescription="@null"
+            android:foreground="@drawable/toolbar_operation_press_square"
+            android:padding="4dp"
+            android:scaleType="fitXY"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textView_rdToolbar_txtOperate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/toolbar_operation_press"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="@drawable/toolbar_operation_press"
+            android:gravity="center|end"
+            android:maxLines="1"
+            android:minHeight="32dp"
+            android:paddingEnd="4dp"
+            android:paddingStart="4dp"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>
