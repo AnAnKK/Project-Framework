@@ -1,5 +1,6 @@
 package com.runda.projectframework.app.page.activity.home.smartrefresh;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.appcompat.widget.Toolbar;
@@ -45,6 +46,11 @@ public class Activity_WeiboPage extends BaseActivity<BaseViewModel> {
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).titleBar(R.id.toolbar).autoStatusBarDarkModeEnable(true,0.2f).init();
@@ -57,6 +63,11 @@ public class Activity_WeiboPage extends BaseActivity<BaseViewModel> {
 
     @Override
     public void initEvents() {
+    }
+
+    @Override
+    public void onNetReload(View v) {
+
     }
 
     @Override
@@ -96,8 +107,4 @@ public class Activity_WeiboPage extends BaseActivity<BaseViewModel> {
 
     }
 
-    @Override
-    public void initStateLayoutEvent() {
-
-    }
 }

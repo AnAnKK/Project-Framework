@@ -66,6 +66,11 @@
     <string name="personalCenter">个人中心</string>
     <string name="no">否</string>
     <string name="yes">是</string>
+    <string name="sir_error">加载失败了呢</string>
+    <string name="sir_error_reTry">轻触重试</string>
+    <string name="sir_noData">暂时没有数据呢</string>
+    <string name="sir_notSigned">您还尚未登录\n点击前往</string>
+    <string name="sir_notNetwork">网络未连接,请检查网络设置\n轻触重试</string>
     <!--Widget-->
     <string name="smartRefreshLayout">SmartRefreshLayout</string>
 </resources>

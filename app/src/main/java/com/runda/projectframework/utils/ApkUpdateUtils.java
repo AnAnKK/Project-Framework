@@ -87,7 +87,7 @@ public class ApkUpdateUtils {
 
                     @Override
                     public void onBefore() {
-                        KProgressHUDUtil.showWaitingView(context,true,context.getString(R.string.pleaseWaiting));
+                        KProgressHUDUtil.showWaitingView(context);
                     }
 
                     @Override

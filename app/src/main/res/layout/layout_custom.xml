@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/buttonChild1"
+        android:text="子类事件1"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="@dimen/qb_px_96"/>
+    <Button
+        android:id="@+id/buttonChild2"
+        android:text="子类事件2"
+        android:layout_marginTop="@dimen/qb_px_40"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/qb_px_96"/>
+    <Button
+        android:id="@+id/buttonChild3"
+        android:text="显示Success页面"
+        android:layout_marginTop="@dimen/qb_px_40"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/qb_px_96"/>
+    <Button
+        android:id="@+id/buttonAll1"
+        android:text="全局事件1"
+        android:layout_marginTop="@dimen/qb_px_40"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/qb_px_96"/>
+    <Button
+        android:id="@+id/buttonAll2"
+        android:text="全局事件2"
+        android:layout_marginTop="@dimen/qb_px_40"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/qb_px_96"/>
+
+</LinearLayout>

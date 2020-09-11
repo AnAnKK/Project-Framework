@@ -1,6 +1,7 @@
 package com.runda.projectframework.app.page.activity;
 
 import android.content.Intent;
+import android.view.View;
 
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -52,6 +53,11 @@ public class Activity_FuncList extends BaseActivity<BaseViewModel> {
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.color_primary).init();
@@ -70,6 +76,11 @@ public class Activity_FuncList extends BaseActivity<BaseViewModel> {
                 .subscribe(o -> finish());
 
         getViewModel().getRxEventManager().addRxEvent(toolBarClick);
+    }
+
+    @Override
+    public void onNetReload(View v) {
+
     }
 
     @Override
@@ -115,8 +126,4 @@ public class Activity_FuncList extends BaseActivity<BaseViewModel> {
 
     }
 
-    @Override
-    public void initStateLayoutEvent() {
-
-    }
 }

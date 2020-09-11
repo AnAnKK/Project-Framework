@@ -86,6 +86,16 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.Activity_Popup"
             android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.loadsir.Activity_LoadSirActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.loadsir.Activity_LoadSirFragment"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.loadsir.FragmentActivity_LoadSir"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.loadsir.Activity_LoadSirCustom"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.Activity_KProgressHud"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

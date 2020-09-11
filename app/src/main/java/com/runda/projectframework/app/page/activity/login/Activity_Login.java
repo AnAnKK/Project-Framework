@@ -13,22 +13,19 @@ import androidx.lifecycle.ViewModelProviders;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
-import com.gyf.immersionbar.ImmersionBar;
 import com.jakewharton.rxbinding2.view.RxView;
-import com.runda.projectframework.ApplicationMine;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseActivity;
-import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.event.Event;
-import com.runda.projectframework.app.others.event.EventBusUtil;
 import com.runda.projectframework.app.others.event.EventCode;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.Activity_MainPage;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_Login;
 import com.runda.projectframework.utils.CheckEmptyUtils;
+import com.runda.projectframework.utils.EventBusUtil;
 import com.runda.projectframework.utils.IntentUtil;
 import com.runda.projectframework.utils.LogUtil;
-import com.tencent.mmkv.MMKV;
+
 import java.util.HashMap;
 import butterknife.BindView;
 import cn.sharesdk.framework.Platform;
@@ -93,6 +90,11 @@ public class Activity_Login extends BaseActivity<ViewModel_Login> implements Pla
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     public ViewModel_Login initViewModel() {
         return ViewModelProviders.of(this, getViewModelFactory()).get(ViewModel_Login.class);
     }
@@ -141,6 +143,11 @@ public class Activity_Login extends BaseActivity<ViewModel_Login> implements Pla
         getViewModel().getRxEventManager().addRxEvent(bt_logininClick);
         getViewModel().getRxEventManager().addRxEvent(imageView_wechatClick);
         getViewModel().getRxEventManager().addRxEvent(imageView_qqClick);
+    }
+
+    @Override
+    public void onNetReload(View v) {
+
     }
 
     private void initUserType() {
@@ -219,7 +226,7 @@ public class Activity_Login extends BaseActivity<ViewModel_Login> implements Pla
             }
             if (wrapper.isSuccess()) {
                 ActivityUtils.startActivity(Activity_MainPage.class);
-                EventBusUtil.sendEvent(new Event(EventCode.LOGININ_PARENT));
+                EventBusUtil.post(new Event(EventCode.SIGN_IN));
                 Activity_Login.this.finish();
             } else {
                 ToastUtils.showShort(wrapper.getError().getErrorMessage());
@@ -234,7 +241,7 @@ public class Activity_Login extends BaseActivity<ViewModel_Login> implements Pla
             }
             if (wrapper.isSuccess()) {
                 ActivityUtils.startActivity(Activity_MainPage.class);
-                EventBusUtil.sendEvent(new Event(EventCode.LOGININ_PARENT));
+                EventBusUtil.post(new Event(EventCode.SIGN_IN));
 //                JPushInterface.setAlias(ApplicationMine.getInstance(),0, MMKV.defaultMMKV().decodeString(Constants.USER_NAME)+"_1");
                 Activity_Login.this.finish();
             } else if(wrapper.getError().getErrorCode()==204){
@@ -275,16 +282,11 @@ public class Activity_Login extends BaseActivity<ViewModel_Login> implements Pla
                 return;
             }
             if (holder.isShow()) {
-                showWaitingView(false,holder.getMessage());
+                getWaitingView(true,holder.getMessage(),"",false).show();
             } else {
                 hideWaitingView();
             }
         });
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
-
     }
 
     //第三方登录回调

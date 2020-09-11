@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout_stateLayout_notSigned"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView_stateLayout_notSigned"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-124dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_not_signed" />
+
+    <TextView
+        android:id="@+id/textView_stateLayout_notSigned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:minLines="2"
+        android:text="@string/sir_notSigned"
+        android:textColor="#727272"
+        android:textSize="12sp" />
+</LinearLayout>

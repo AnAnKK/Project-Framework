@@ -108,21 +108,6 @@ public class Activity_MainPage extends BaseFragmentActivity<BaseViewModel> imple
 
     @Override
     public void initShowOrDismissWaitingEvent() {
-        getViewModel().getShowOrDismissWaitingLiveData().observe(this, holder -> {
-            if (holder == null) {
-                return;
-            }
-            if (holder.isShow()) {
-                showWaitingView(true,holder.getMessage());
-            } else {
-                hideWaitingView();
-            }
-        });
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
-
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.runda.projectframework.app.page.activity.mine;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,11 +15,11 @@ import com.jakewharton.rxbinding2.view.RxView;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseActivity;
 import com.runda.projectframework.app.others.event.Event;
-import com.runda.projectframework.app.others.event.EventBusUtil;
 import com.runda.projectframework.app.others.event.EventCode;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_Pay;
 import com.runda.projectframework.app.repository.bean.others.WechatPayParam;
+import com.runda.projectframework.utils.EventBusUtil;
 import com.runda.toolbar.RDToolbar;
 import com.xgr.alipay.alipay.AliPay;
 import com.xgr.alipay.alipay.AlipayInfoImpli;
@@ -83,6 +84,11 @@ public class Activity_Pay extends BaseActivity<ViewModel_Pay> {
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.color_primary).init();
@@ -142,6 +148,11 @@ public class Activity_Pay extends BaseActivity<ViewModel_Pay> {
     }
 
     @Override
+    public void onNetReload(View v) {
+
+    }
+
+    @Override
     public void start() {
         money = getIntent().getStringExtra("money");
         if(money == null){
@@ -192,7 +203,7 @@ public class Activity_Pay extends BaseActivity<ViewModel_Pay> {
         EasyPay.pay(aliPay, this, alipayInfoImpli, new IPayCallback() {
             @Override
             public void success() {
-                EventBusUtil.sendEvent(new Event(EventCode.MINE_WORKLIST_PARENT_PAYSUCCESS));
+                EventBusUtil.post(new Event(EventCode.PAYMENT));
                 ToastUtils.showShort(getResources().getString(R.string.paySuccess));
                 finish();
             }
@@ -227,7 +238,7 @@ public class Activity_Pay extends BaseActivity<ViewModel_Pay> {
         EasyPay.pay(wxPay, this, wxPayInfoImpli, new IPayCallback() {
             @Override
             public void success() {
-                EventBusUtil.sendEvent(new Event(EventCode.MINE_WORKLIST_PARENT_PAYSUCCESS));
+                EventBusUtil.post(new Event(EventCode.PAYMENT));
                 ToastUtils.showShort(getResources().getString(R.string.paySuccess));
                 finish();
             }
@@ -271,15 +282,10 @@ public class Activity_Pay extends BaseActivity<ViewModel_Pay> {
                 return;
             }
             if (holder.isShow()) {
-                showWaitingView(false,holder.getMessage());
+                showWaitingView();
             } else {
                 hideWaitingView();
             }
         });
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
-
     }
 }

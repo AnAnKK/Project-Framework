@@ -7,8 +7,7 @@ package com.runda.projectframework.app.others.event;
  * Description:
  */
 public class EventCode {
-    public static final int LOGINOUT_PARENT = 0x111111; //家长退出登陆
-    public static final int LOGINOUT_TEACHER = 0x111112; //老师退出登陆
-    public static final int LOGININ_PARENT = 0x222222; //家长登录成功
-    public static final int MINE_WORKLIST_PARENT_PAYSUCCESS = 0x6a5235;//家长端确认完成并支付
+    public static final int SIGN_IN = 1000; //登入
+    public static final int SIGN_OUT = 1001; //登出
+    public static final int PAYMENT = 1002; //支付
 }

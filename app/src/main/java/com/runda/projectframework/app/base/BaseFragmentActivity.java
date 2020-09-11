@@ -3,21 +3,13 @@ package com.runda.projectframework.app.base;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
-
 import com.blankj.utilcode.util.ActivityUtils;
 import com.gyf.immersionbar.ImmersionBar;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.runda.projectframework.app.di.AppViewModelFactory;
-import com.runda.projectframework.app.others.event.Event;
-import com.runda.projectframework.app.others.event.EventBusUtil;
 import com.runda.projectframework.utils.KProgressHUDUtil;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import javax.inject.Inject;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import dagger.android.AndroidInjection;
@@ -47,27 +39,25 @@ public abstract class BaseFragmentActivity<T extends BaseViewModel> extends Supp
         unBinder = ButterKnife.bind(this);
         initImmersionBar();
         viewModel = initViewModel();
-        if (isRegisterEventBus()) {
-            EventBusUtil.register(this);
-        }
         initEvents();
         initNoNetworkEvent();
-        initStateLayoutEvent();
         initTokenOverTimeEvent();
         initShowOrDismissWaitingEvent();
         start();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (isRegisterEventBus()) {
-            EventBusUtil.unregister(this);
-        }
-        if (unBinder != null) {
-            unBinder.unbind();
-        }
-        ActivityUtils.getActivityList().remove(this);
+    public void showWaitingView() {
+        KProgressHUDUtil.showWaitingView(this);
+    }
+
+    public KProgressHUD getWaitingView(boolean cancelable, String title, String detailMsg, boolean hasBackGroudColor) { return KProgressHUDUtil.getWaitingView(this,cancelable,title,detailMsg,hasBackGroudColor);}
+
+    public void hideWaitingView() {
+        KProgressHUDUtil.hideWaitingView();
+    }
+
+    protected void initImmersionBar() {
+        ImmersionBar.with(this).init();
     }
 
     @Override
@@ -81,32 +71,6 @@ public abstract class BaseFragmentActivity<T extends BaseViewModel> extends Supp
         return res;
     }
 
-    protected boolean isRegisterEventBus() {
-        return false;
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEventBusCome(Event event) {
-        if (event != null) {
-            receiveEvent(event);
-        }
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    public void onStickyEventBusCome(Event event) {
-        if (event != null) {
-            receiveStickyEvent(event);
-        }
-    }
-
-    protected void receiveEvent(Event event) {}
-
-    protected void receiveStickyEvent(Event event) {}
-
-    protected void initImmersionBar() {
-        ImmersionBar.with(this).init();
-    }
-
     @Override
     public void onBackPressedSupport() {
         super.onBackPressedSupport();
@@ -116,15 +80,6 @@ public abstract class BaseFragmentActivity<T extends BaseViewModel> extends Supp
     public FragmentAnimator onCreateFragmentAnimator() {
         return new DefaultHorizontalAnimator();
     }
-
-    public void showWaitingView(boolean cancelable, String message) {
-        KProgressHUDUtil.showWaitingView(this,cancelable,message);
-    }
-
-    public void hideWaitingView() {
-        KProgressHUDUtil.hideWaitingView();
-    }
-
 
     public T getViewModel() {
         return viewModel;
@@ -142,12 +97,18 @@ public abstract class BaseFragmentActivity<T extends BaseViewModel> extends Supp
 
     public abstract void start();
 
-
     public abstract void initNoNetworkEvent();
 
     public abstract void initTokenOverTimeEvent();
 
     public abstract void initShowOrDismissWaitingEvent();
 
-    public abstract void initStateLayoutEvent();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (unBinder != null) {
+            unBinder.unbind();
+        }
+        ActivityUtils.getActivityList().remove(this);
+    }
 }

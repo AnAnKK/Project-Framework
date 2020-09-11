@@ -78,6 +78,11 @@ public class Activity_ChangePassword_Setting extends BaseActivity<ViewModel_chan
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.color_primary).init();
@@ -112,6 +117,11 @@ public class Activity_ChangePassword_Setting extends BaseActivity<ViewModel_chan
                 });
         getViewModel().getRxEventManager().addRxEvent(backClick);
         getViewModel().getRxEventManager().addRxEvent(buttonFinishClick);
+    }
+
+    @Override
+    public void onNetReload(View v) {
+
     }
 
     @Override
@@ -274,15 +284,10 @@ public class Activity_ChangePassword_Setting extends BaseActivity<ViewModel_chan
                 return;
             }
             if (holder.isShow()) {
-                showWaitingView(false,holder.getMessage());
+                showWaitingView();
             } else {
                 hideWaitingView();
             }
         });
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
-
     }
 }

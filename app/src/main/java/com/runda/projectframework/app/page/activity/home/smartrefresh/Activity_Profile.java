@@ -1,5 +1,8 @@
 package com.runda.projectframework.app.page.activity.home.smartrefresh;
 
+import android.view.View;
+import android.widget.LinearLayout;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProviders;
 import com.gyf.immersionbar.ImmersionBar;
@@ -28,6 +31,11 @@ public class Activity_Profile extends BaseActivity<BaseViewModel> {
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).titleBar(toolbar).autoStatusBarDarkModeEnable(true,0.2f).init();
@@ -44,16 +52,15 @@ public class Activity_Profile extends BaseActivity<BaseViewModel> {
     }
 
     @Override
-    public void start() {
-
-
+    public void onNetReload(View v) {
 
     }
 
     @Override
-    public void initNoNetworkEvent() {
+    public void start() {}
 
-    }
+    @Override
+    public void initNoNetworkEvent() {}
 
     @Override
     public void initTokenOverTimeEvent() {
@@ -65,8 +72,4 @@ public class Activity_Profile extends BaseActivity<BaseViewModel> {
 
     }
 
-    @Override
-    public void initStateLayoutEvent() {
-
-    }
 }

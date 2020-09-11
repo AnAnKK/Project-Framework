@@ -1,5 +1,7 @@
 package com.runda.projectframework.app.page.activity.home.smartrefresh;
 
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProviders;
@@ -40,6 +42,11 @@ public class Activity_RefreshBasic extends BaseActivity<BaseViewModel> {
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).titleBar(R.id.toolbar).init();
@@ -58,6 +65,11 @@ public class Activity_RefreshBasic extends BaseActivity<BaseViewModel> {
 //        }).setOnLoadMoreListener(refreshLayout -> {
 //
 //        });
+    }
+
+    @Override
+    public void onNetReload(View v) {
+
     }
 
     @Override
@@ -80,8 +92,4 @@ public class Activity_RefreshBasic extends BaseActivity<BaseViewModel> {
 
     }
 
-    @Override
-    public void initStateLayoutEvent() {
-
-    }
 }

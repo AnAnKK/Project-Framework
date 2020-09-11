@@ -3,8 +3,13 @@ package com.runda.projectframework.app.di.modules;
 
 
 import com.runda.projectframework.app.page.Activity_MainPage;
+import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
+import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirActivity;
+import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirCustom;
+import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirFragment;
 import com.runda.projectframework.app.page.activity.home.Activity_Popup;
 import com.runda.projectframework.app.page.activity.home.immersionbar.Activity_ImmersionBarSlideTrans;
+import com.runda.projectframework.app.page.activity.home.loadsir.FragmentActivity_LoadSir;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_Profile;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_RefreshBasic;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WebView;
@@ -81,5 +86,20 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_Popup contributeActivity_Popup();
+
+    @ContributesAndroidInjector
+    abstract Activity_LoadSirFragment contributeActivity_LoadSirFragment();
+
+    @ContributesAndroidInjector
+    abstract Activity_LoadSirActivity contributeActivity_LoadSirActivity();
+
+    @ContributesAndroidInjector
+    abstract FragmentActivity_LoadSir contributeFragmentActivity_LoadSir();
+
+    @ContributesAndroidInjector
+    abstract Activity_LoadSirCustom contributeActivity_LoadSirCustom();
+
+    @ContributesAndroidInjector
+    abstract Activity_KProgressHud contributeActivity_KProgressHud();
 
 }

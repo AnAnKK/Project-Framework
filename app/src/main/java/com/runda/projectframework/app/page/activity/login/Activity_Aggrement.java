@@ -1,5 +1,6 @@
 package com.runda.projectframework.app.page.activity.login;
 
+import android.view.View;
 import android.webkit.WebView;
 
 import androidx.lifecycle.ViewModelProviders;
@@ -37,6 +38,11 @@ public class Activity_Aggrement extends BaseActivity<BaseViewModel> {
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.color_primary).init();
@@ -54,6 +60,11 @@ public class Activity_Aggrement extends BaseActivity<BaseViewModel> {
                 .subscribe(o -> Activity_Aggrement.this.finish());
 
         getViewModel().getRxEventManager().addRxEvent(backClickEvent);
+    }
+
+    @Override
+    public void onNetReload(View v) {
+
     }
 
     @Override
@@ -85,8 +96,4 @@ public class Activity_Aggrement extends BaseActivity<BaseViewModel> {
 
     }
 
-    @Override
-    public void initStateLayoutEvent() {
-
-    }
 }

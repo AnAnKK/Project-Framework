@@ -3,6 +3,7 @@ package com.runda.projectframework.app.page.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.View;
 
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -15,8 +16,13 @@ import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseLazyFragment;
 import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
+import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
+import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirActivity;
+import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirCustom;
+import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirFragment;
 import com.runda.projectframework.app.page.activity.home.Activity_Popup;
 import com.runda.projectframework.app.page.activity.home.immersionbar.Activity_ImmersionBarSlideTrans;
+import com.runda.projectframework.app.page.activity.home.loadsir.FragmentActivity_LoadSir;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_Profile;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_RefreshBasic;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WebView;
@@ -56,6 +62,8 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String SmartRefreshLayout = "SmartRefreshLayout";
     public static final String ImmersionBarString = "ImmersionBar";
     public static final String PopString = "Pop";
+    public static final String LoadSir = "LoadSir";
+    public static final String KProgressHud = "KProgressHud";
 
     private String TAG = getClass().getSimpleName();
 
@@ -69,6 +77,11 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     @Override
     public int getLayout() {
         return R.layout.fragment_home;
+    }
+
+    @Override
+    public View getRegisterLoadSir() {
+        return null;
     }
 
     @Override
@@ -89,6 +102,11 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     }
 
     @Override
+    public void onNetReload(View v) {
+
+    }
+
+    @Override
     public void start() {
         setData();
     }
@@ -98,6 +116,8 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(SmartRefreshLayout, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(ImmersionBarString, Activity_ImmersionBarSlideTrans.class.getSimpleName()));
         list.add(new PageTextClzInfo(PopString, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(LoadSir, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(KProgressHud, Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
         refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -141,6 +161,23 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                         case PopString:
                             IntentUtil.startActivity(_mActivity,Activity_Popup.class);
                             break;
+                        case LoadSir:
+                            List<PageTextClzInfo> list3 = new ArrayList<>();
+                            list3.add(new PageTextClzInfo("Activity", Activity_LoadSirActivity.class.getName()));
+                            list3.add(new PageTextClzInfo("Fragment", Activity_LoadSirFragment.class.getName()));
+                            list3.add(new PageTextClzInfo("FragmentActivity", FragmentActivity_LoadSir.class.getName()));
+                            list3.add(new PageTextClzInfo("自定义CallBack", Activity_LoadSirCustom.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list3);
+                                    intent.putExtra("title",LoadSir);
+                                }
+                            });
+                            break;
+                        case KProgressHud:
+                            IntentUtil.startActivity(_mActivity, Activity_KProgressHud.class);
+                            break;
 
 
                     }
@@ -161,7 +198,6 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
             if (message == null) {
                 return;
             }
-//            hideWaitingView();
         });
     }
 
@@ -174,10 +210,5 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public void initShowOrDismissWaitingEvent() {
 
     }
-
-    @Override
-    public void initStateLayoutEvent() {
-    }
-
 
 }

@@ -1,5 +1,6 @@
 package com.runda.projectframework.app.page.activity.home;
 
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
@@ -49,6 +50,11 @@ public class Activity_Popup extends BaseActivity<BaseViewModel> {
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).titleBar(toolbar).autoStatusBarDarkModeEnable(true,0.2f).init();
@@ -89,6 +95,11 @@ public class Activity_Popup extends BaseActivity<BaseViewModel> {
         getViewModel().getRxEventManager().addRxEvent(bottomPopClick);
     }
 
+    @Override
+    public void onNetReload(View v) {
+
+    }
+
 
     private void showNormalPop(String title,String content,String lText,String rText) {
         PopNormal popNormal = new PopNormal(Activity_Popup.this,title,content,lText,rText);
@@ -113,7 +124,8 @@ public class Activity_Popup extends BaseActivity<BaseViewModel> {
 
 
     @Override
-    public void start() {}
+    public void start() {
+    }
 
 
 
@@ -129,11 +141,6 @@ public class Activity_Popup extends BaseActivity<BaseViewModel> {
 
     @Override
     public void initShowOrDismissWaitingEvent() {
-
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
 
     }
 }

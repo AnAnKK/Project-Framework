@@ -1,6 +1,8 @@
 package com.runda.projectframework.app.di.modules;
 
 
+import com.runda.projectframework.app.page.activity.home.loadsir.FragmentLazy_SirLoad;
+import com.runda.projectframework.app.page.activity.home.loadsir.Fragment_SirLoad;
 import com.runda.projectframework.app.page.fragment.Fragment_Home;
 import com.runda.projectframework.app.page.fragment.Fragment_Mine;
 import com.runda.projectframework.app.page.fragment.Fragment_Function;
@@ -27,5 +29,10 @@ public abstract class FragmentBuildersModule {
     @ContributesAndroidInjector
     abstract Fragment_Mine contributeFragment_Mine();
 
+    @ContributesAndroidInjector
+    abstract Fragment_SirLoad contributeFragment_SirLoad();
+
+    @ContributesAndroidInjector
+    abstract FragmentLazy_SirLoad contributeFragmentLazy_SirLoad();
 
 }

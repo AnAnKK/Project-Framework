@@ -1,5 +1,7 @@
 package com.runda.projectframework.app.page.activity.login;
 
+import android.view.View;
+
 import androidx.lifecycle.ViewModelProviders;
 
 import com.blankj.utilcode.util.ActivityUtils;
@@ -33,6 +35,11 @@ public class Activity_Splash extends BaseActivity<BaseViewModel> {
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     public BaseViewModel initViewModel() {
         return ViewModelProviders.of(this, getViewModelFactory()).get(BaseViewModel.class);
     }
@@ -45,6 +52,11 @@ public class Activity_Splash extends BaseActivity<BaseViewModel> {
 
     @Override
     public void initEvents() {
+    }
+
+    @Override
+    public void onNetReload(View v) {
+
     }
 
     @Override
@@ -88,8 +100,4 @@ public class Activity_Splash extends BaseActivity<BaseViewModel> {
 
     }
 
-    @Override
-    public void initStateLayoutEvent() {
-
-    }
 }

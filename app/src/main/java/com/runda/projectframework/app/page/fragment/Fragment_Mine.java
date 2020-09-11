@@ -1,6 +1,8 @@
 package com.runda.projectframework.app.page.fragment;
 
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.lifecycle.ViewModelProviders;
 
 import com.gyf.immersionbar.ImmersionBar;
@@ -32,6 +34,12 @@ public class Fragment_Mine extends BaseLazyFragment<ViewModel_MainPage_Mine> {
     public int getLayout() {
         return R.layout.fragment_mine;
     }
+
+    @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
     @Override
     public void initImmersionBar() {
         super.initImmersionBar();
@@ -53,6 +61,11 @@ public class Fragment_Mine extends BaseLazyFragment<ViewModel_MainPage_Mine> {
 
     }
 
+    @Override
+    public void onNetReload(View v) {
+
+    }
+
 
     @Override
     public void start() {
@@ -68,11 +81,11 @@ public class Fragment_Mine extends BaseLazyFragment<ViewModel_MainPage_Mine> {
     }
 
     @Override
-    protected void receiveEvent(Event event) {
+    public void onReceiveEvent(Event event) {
         switch (event.getCode()) {
-            case EventCode.LOGINOUT_PARENT:
+            case EventCode.SIGN_OUT:
                 break;
-            case EventCode.LOGININ_PARENT:
+            case EventCode.SIGN_IN:
                 break;
         }
     }
@@ -94,11 +107,6 @@ public class Fragment_Mine extends BaseLazyFragment<ViewModel_MainPage_Mine> {
 
     @Override
     public void initShowOrDismissWaitingEvent() {
-
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
 
     }
 }

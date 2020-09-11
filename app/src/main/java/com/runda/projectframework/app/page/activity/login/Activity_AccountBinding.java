@@ -16,15 +16,15 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseActivity;
-import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.event.Event;
-import com.runda.projectframework.app.others.event.EventBusUtil;
 import com.runda.projectframework.app.others.event.EventCode;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.Activity_MainPage;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_AccountBinding;
 import com.runda.projectframework.utils.CheckEmptyUtils;
+import com.runda.projectframework.utils.EventBusUtil;
 import com.runda.projectframework.utils.IntentUtil;
+import com.runda.projectframework.utils.KProgressHUDUtil;
 import com.runda.toolbar.RDToolbar;
 import butterknife.BindView;
 import io.reactivex.disposables.Disposable;
@@ -72,6 +72,11 @@ public class Activity_AccountBinding extends BaseActivity<ViewModel_AccountBindi
     @Override
     public int getLayout() {
         return R.layout.activity_accountbinding;
+    }
+
+    @Override
+    public View getRegisterLoadSir() {
+        return null;
     }
 
     @Override
@@ -131,6 +136,11 @@ public class Activity_AccountBinding extends BaseActivity<ViewModel_AccountBindi
     }
 
     @Override
+    public void onNetReload(View v) {
+
+    }
+
+    @Override
     public void start() {
 //        getViewModel().getVCodeCountDown();
     }
@@ -175,7 +185,7 @@ public class Activity_AccountBinding extends BaseActivity<ViewModel_AccountBindi
             }
             if (wrapper.isSuccess()) {
                 ActivityUtils.finishActivity(Activity_MainPage.class);
-                EventBusUtil.sendEvent(new Event(EventCode.LOGININ_PARENT));
+                EventBusUtil.post(new Event(EventCode.SIGN_IN));
                 Activity_AccountBinding.this.finish();
             } else {
                 ToastUtils.showShort(wrapper.getError().getErrorMessage());
@@ -224,15 +234,10 @@ public class Activity_AccountBinding extends BaseActivity<ViewModel_AccountBindi
                 return;
             }
             if (holder.isShow()) {
-                showWaitingView(false,holder.getMessage());
+                getWaitingView(true,holder.getMessage(),"",false).show();
             } else {
                 hideWaitingView();
             }
         });
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
-
     }
 }

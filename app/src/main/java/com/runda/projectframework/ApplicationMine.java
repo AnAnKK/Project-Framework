@@ -13,9 +13,17 @@ import androidx.multidex.MultiDex;
 
 import com.blankj.utilcode.util.Utils;
 import com.bumptech.glide.Glide;
+import com.kingja.loadsir.callback.SuccessCallback;
+import com.kingja.loadsir.core.LoadSir;
 import com.lzy.okgo.OkGo;
 import com.mob.MobSDK;
 import com.runda.projectframework.app.di.component.DaggerAppComponent;
+import com.runda.projectframework.app.others.callback.CustomCallback;
+import com.runda.projectframework.app.others.callback.EmptyCallback;
+import com.runda.projectframework.app.others.callback.ErrorCallback;
+import com.runda.projectframework.app.others.callback.LoadingCallback;
+import com.runda.projectframework.app.others.callback.NoNetWorkCallback;
+import com.runda.projectframework.app.others.callback.NoSignCallback;
 import com.runda.projectframework.utils.DynamicTimeFormat;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
@@ -136,6 +144,15 @@ public class ApplicationMine extends Application implements
         DaggerAppComponent.builder().application(this).build().inject(this);
         EventBus.builder().addIndex(new MyEventBusIndex()).installDefaultEventBus();
         initMMKV();
+        LoadSir.beginBuilder()
+                .addCallback(new ErrorCallback())
+                .addCallback(new EmptyCallback())
+                .addCallback(new LoadingCallback())
+                .addCallback(new NoNetWorkCallback())
+                .addCallback(new NoSignCallback())
+                .addCallback(new CustomCallback())
+//                .setDefaultCallback(LoadingCallback.class)//设置默认状态页
+                .commit();
         MobSDK.init(this);
         OkGo.getInstance().init(this);
     }

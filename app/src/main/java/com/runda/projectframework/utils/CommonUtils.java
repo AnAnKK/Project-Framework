@@ -2,7 +2,6 @@ package com.runda.projectframework.utils;
 
 import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.event.Event;
-import com.runda.projectframework.app.others.event.EventBusUtil;
 import com.runda.projectframework.app.others.event.EventCode;
 import com.runda.projectframework.app.repository.bean.user.UserInfo;
 import com.tencent.mmkv.MMKV;
@@ -56,12 +55,7 @@ public class CommonUtils {
         MMKV.defaultMMKV().removeValueForKey(Constants.USER_EXAMINE);
         MMKV.defaultMMKV().removeValueForKey(Constants.TOKEN);
         MMKV.defaultMMKV().removeValueForKey(Constants.REFRESH_TOKEN);
-
-        if (Constants.USER_TEACHER.equals(MMKV.defaultMMKV().decodeString(Constants.USER_USETTYPE))) {
-            EventBusUtil.sendEvent(new Event(EventCode.LOGINOUT_TEACHER));
-        } else {
-            EventBusUtil.sendEvent(new Event(EventCode.LOGINOUT_PARENT));
-        }
+        EventBusUtil.post(new Event(EventCode.SIGN_OUT));
 
     }
 

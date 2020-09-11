@@ -1,6 +1,7 @@
 package com.runda.projectframework.app.page.fragment;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -12,10 +13,11 @@ import com.runda.projectframework.app.others.event.Event;
 import com.runda.projectframework.app.others.event.EventCode;
 
 /**
- * Created by Kongdq
  *
- * @date 2019/12/4
- * Description: 家长端任务
+ * @Description:
+ * @Author:         An_K
+ * @CreateDate:     2020/9/9 11:51
+ * @Version:        1.0
  */
 public class Fragment_Function extends BaseLazyFragment<BaseViewModel> {
 
@@ -36,6 +38,11 @@ public class Fragment_Function extends BaseLazyFragment<BaseViewModel> {
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     public void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).statusBarColor(R.color.color_primary).keyboardEnable(true).init();
@@ -48,6 +55,12 @@ public class Fragment_Function extends BaseLazyFragment<BaseViewModel> {
 
     @Override
     public void initEvents() {
+//        showWaitingView(true,"title");
+    }
+
+    @Override
+    public void onNetReload(View v) {
+
     }
 
 
@@ -64,10 +77,10 @@ public class Fragment_Function extends BaseLazyFragment<BaseViewModel> {
     }
 
     @Override
-    protected void receiveEvent(Event event) {
+    public void onReceiveEvent(Event event) {
         switch (event.getCode()) {
-            case EventCode.LOGINOUT_PARENT:
-            case EventCode.LOGININ_PARENT:
+            case EventCode.SIGN_OUT:
+            case EventCode.SIGN_IN:
                 start();
                 break;
         }
@@ -84,7 +97,6 @@ public class Fragment_Function extends BaseLazyFragment<BaseViewModel> {
             if (message == null) {
                 return;
             }
-//            getNoNetworkAlerter().show();
         });
     }
 
@@ -96,9 +108,5 @@ public class Fragment_Function extends BaseLazyFragment<BaseViewModel> {
     @Override
     public void initShowOrDismissWaitingEvent() {
 
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
     }
 }

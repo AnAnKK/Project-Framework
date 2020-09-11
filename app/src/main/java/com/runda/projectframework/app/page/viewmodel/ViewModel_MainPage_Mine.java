@@ -11,12 +11,11 @@ import com.runda.projectframework.app.repository.RepositorySubscriber;
 import com.runda.projectframework.app.repository.Repository_Common;
 import com.runda.projectframework.app.repository.Repository_User;
 import com.runda.projectframework.app.repository.bean.user.UserInfo;
-import com.runda.projectframework.app.repository.live.LiveDataUtils;
 import com.runda.projectframework.app.repository.live.LiveDataWrapper;
-import com.runda.projectframework.app.repository.live.holder.StateHolder;
 import com.runda.projectframework.utils.CommonUtils;
 
 import javax.inject.Inject;
+
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -40,7 +39,6 @@ public class ViewModel_MainPage_Mine extends BaseViewModel {
     public void getUserInfo() {
         if (!NetworkUtils.isConnected()) {
             noNetworkLiveData.postValue(Constants.ERROR_STRING_NONETWORK);
-            stateLayoutLiveData.postValue(LiveDataUtils.getNoNetworkStateHolder());
             return;
         }
         repository.getUserInfo()
@@ -63,8 +61,6 @@ public class ViewModel_MainPage_Mine extends BaseViewModel {
                     @Override
                     protected void _onError(LiveDataWrapper<UserInfo> e) {
                         userInfoLiveData.postValue(e);
-                        stateLayoutLiveData.postValue(LiveDataUtils.getCustomizedErrorStateHolder(
-                                e.getError().getErrorMessage()));
                     }
                 });
     }

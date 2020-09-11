@@ -64,6 +64,11 @@ public class Activity_ImmersionBarSlideTrans extends BaseActivity<BaseViewModel>
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).titleBar(R.id.toolbar).autoStatusBarDarkModeEnable(true,0.2f).init();
@@ -79,6 +84,11 @@ public class Activity_ImmersionBarSlideTrans extends BaseActivity<BaseViewModel>
     public void initEvents() {
         mBannerHeight = ConvertUtils.dp2px(180) - ImmersionBar.getStatusBarHeight(this);
         toolbar.setNavigationOnClickListener(view -> finish());
+    }
+
+    @Override
+    public void onNetReload(View v) {
+
     }
 
     @Override
@@ -200,11 +210,6 @@ public class Activity_ImmersionBarSlideTrans extends BaseActivity<BaseViewModel>
 
     @Override
     public void initShowOrDismissWaitingEvent() {
-
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
 
     }
 }

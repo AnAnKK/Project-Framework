@@ -10,10 +10,13 @@ import androidx.annotation.Nullable;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.kaopiz.kprogresshud.KProgressHUD;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.core.LoadService;
+import com.kingja.loadsir.core.LoadSir;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.di.AppViewModelFactory;
 import com.runda.projectframework.app.others.event.Event;
-import com.runda.projectframework.app.others.event.EventBusUtil;
+import com.runda.projectframework.utils.EventBusUtil;
 import com.runda.projectframework.utils.KProgressHUDUtil;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -27,9 +30,11 @@ import dagger.android.support.AndroidSupportInjection;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
- * Created by Kongdq
- * @date 2019/10/31
- * Description: 基础Fragment
+ *
+ * @Description:    不需要懒加载/一个Activity中就一个Fragment时
+ * @Author:         An_K
+ * @CreateDate:     2020/9/9 17:42
+ * @Version:        1.0
  */
 
 public abstract class BaseFragment<T extends BaseViewModel> extends SupportFragment {
@@ -39,6 +44,7 @@ public abstract class BaseFragment<T extends BaseViewModel> extends SupportFragm
 
     private T viewModel;
     private Unbinder unBinder;
+    public LoadService loadService;
 
     @Override
     public void onSupportVisible() {
@@ -61,13 +67,21 @@ public abstract class BaseFragment<T extends BaseViewModel> extends SupportFragm
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(getLayout(), null);
+        View rootView = inflater.inflate(getLayout(), container, false);
+        unBinder = ButterKnife.bind(this, rootView);
+        View viewRegisterLoadSir = getRegisterLoadSir();
+        if(viewRegisterLoadSir !=null){
+            loadService = LoadSir.getDefault().register(viewRegisterLoadSir, (Callback.OnReloadListener) this::onNetReload);
+            return loadService.getLoadLayout();
+        }else {
+            return rootView;
+        }
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        unBinder = ButterKnife.bind(this, view);
+
         View titleBar = view.findViewById(setTitleBar());
         ImmersionBar.setTitleBar(_mActivity, titleBar);
         View statusBarView = view.findViewById(setStatusBarView());
@@ -81,27 +95,17 @@ public abstract class BaseFragment<T extends BaseViewModel> extends SupportFragm
         initEvents();
         initNotSignEvent();
         initNoNetworkEvent();
-        initStateLayoutEvent();
         initTokenOverTimeEvent();
         initShowOrDismissWaitingEvent();
         start();
     }
 
+    public void showWaitingView() { KProgressHUDUtil.showWaitingView(_mActivity); }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        if (unBinder != null) {
-            unBinder.unbind();
-        }
-    }
+    public KProgressHUD getWaitingView(boolean cancelable, String title, String detailMsg, boolean hasBackGroudColor) { return KProgressHUDUtil.getWaitingView(_mActivity,cancelable,title,detailMsg,hasBackGroudColor);}
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (isRegisterEventBus()) {
-            EventBusUtil.unregister(this);
-        }
+    public void hideWaitingView() {
+        KProgressHUDUtil.hideWaitingView();
     }
 
     public void initImmersionBar() {
@@ -125,33 +129,10 @@ public abstract class BaseFragment<T extends BaseViewModel> extends SupportFragm
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEventBusCome(Event event) {
-        if (event != null) {
-            receiveEvent(event);
-        }
-    }
+    public void onReceiveEvent(Event event) {}
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    public void onStickyEventBusCome(Event event) {
-        if (event != null) {
-            receiveStickyEvent(event);
-        }
-    }
-    protected void receiveEvent(Event event) {
-
-    }
-    protected void receiveStickyEvent(Event event) {
-
-    }
-
-    public void showWaitingView(boolean cancelable, String message) {
-        KProgressHUDUtil.showWaitingView(_mActivity,cancelable,message);
-    }
-
-    public void hideWaitingView() {
-        KProgressHUDUtil.hideWaitingView();
-    }
-
+    public void onReceiveStickyEvent(Event event) {}
 
     public T getViewModel() {
         return viewModel;
@@ -163,9 +144,13 @@ public abstract class BaseFragment<T extends BaseViewModel> extends SupportFragm
 
     public abstract int getLayout();
 
+    public abstract View getRegisterLoadSir();
+
     public abstract T initViewModel();
 
     public abstract void initEvents();
+
+    public abstract void onNetReload(View v);
 
     public abstract void start();
 
@@ -177,5 +162,15 @@ public abstract class BaseFragment<T extends BaseViewModel> extends SupportFragm
 
     public abstract void initShowOrDismissWaitingEvent();
 
-    public abstract void initStateLayoutEvent();
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (unBinder != null) {unBinder.unbind();}
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (isRegisterEventBus()) {EventBusUtil.unregister(this);}
+    }
 }

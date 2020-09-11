@@ -94,6 +94,11 @@ public class Activity_Registr extends BaseActivity<ViewModel_Register> {
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     public ViewModel_Register initViewModel() {
         return ViewModelProviders.of(this, getViewModelFactory()).get(ViewModel_Register.class);
     }
@@ -140,6 +145,11 @@ public class Activity_Registr extends BaseActivity<ViewModel_Register> {
         getViewModel().getRxEventManager().addRxEvent(backClick);
         getViewModel().getRxEventManager().addRxEvent(event_sendVCode);
         getViewModel().getRxEventManager().addRxEvent(buttonFinishClick);
+
+    }
+
+    @Override
+    public void onNetReload(View v) {
 
     }
 
@@ -413,16 +423,11 @@ public class Activity_Registr extends BaseActivity<ViewModel_Register> {
                 return;
             }
             if (holder.isShow()) {
-                showWaitingView(false,holder.getMessage());
+                getWaitingView(true,holder.getMessage(),"",false).show();
             } else {
                 hideWaitingView();
             }
         });
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
-
     }
 
     private class NoLineClickSpan extends ClickableSpan {

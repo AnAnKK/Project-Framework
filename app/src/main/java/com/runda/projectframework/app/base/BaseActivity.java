@@ -2,9 +2,8 @@ package com.runda.projectframework.app.base;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.WindowManager;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.gyf.immersionbar.ImmersionBar;
 import com.kaopiz.kprogresshud.KProgressHUD;
-import com.runda.projectframework.R;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.core.LoadService;
+import com.kingja.loadsir.core.LoadSir;
 import com.runda.projectframework.app.di.AppViewModelFactory;
 import com.runda.projectframework.app.others.event.Event;
-import com.runda.projectframework.app.others.event.EventBusUtil;
+import com.runda.projectframework.utils.EventBusUtil;
 import com.runda.projectframework.utils.KProgressHUDUtil;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -40,8 +41,7 @@ public abstract class BaseActivity<T extends BaseViewModel> extends AppCompatAct
 
     private T viewModel;
     private Unbinder unBinder;
-
-    private KProgressHUD waitingView;
+    public LoadService loadService;
 
 
     @Override
@@ -53,57 +53,73 @@ public abstract class BaseActivity<T extends BaseViewModel> extends AppCompatAct
         unBinder = ButterKnife.bind(this);
         initImmersionBar();
         viewModel = initViewModel();
-        if (isRegisterEventBus()) {
-            EventBusUtil.register(this);
-        }
+        if (isRegisterEventBus()) {EventBusUtil.register(this);}
+        View viewRegisterLoadSir = getRegisterLoadSir();
+        if(viewRegisterLoadSir !=null){loadService = LoadSir.getDefault().register(viewRegisterLoadSir, (Callback.OnReloadListener) this::onNetReload);}
         initNoNetworkEvent();
-        initStateLayoutEvent();
         initTokenOverTimeEvent();
         initShowOrDismissWaitingEvent();
         initEvents();
         start();
     }
 
+    public void showWaitingView() { KProgressHUDUtil.showWaitingView(this);}
+
+    public KProgressHUD getWaitingView(boolean cancelable, String title, String detailMsg, boolean hasBackGroudColor) { return KProgressHUDUtil.getWaitingView(this,cancelable,title,detailMsg,hasBackGroudColor);}
+
+    public void hideWaitingView() { KProgressHUDUtil.hideWaitingView(); }
+
+    protected void initImmersionBar() { ImmersionBar.with(this).init(); }
+
     /**
-     * 是否注册EventBus,默认为false
+     * EventBus
      * @return
      */
-    protected boolean isRegisterEventBus() {
-        return false;
-    }
-
+    protected boolean isRegisterEventBus() { return false; }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEventBusCome(Event event) {
-        if (event != null) {
-            receiveEvent(event);
-        }
-    }
+    public void onReceiveEvent(Event event) {}
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    public void onStickyEventBusCome(Event event) {
-        if (event != null) {
-            receiveStickyEvent(event);
+    public void onReceiveStickyEvent(Event event) {}
+
+
+    @Override
+    public Resources getResources() {
+        Resources res = super.getResources();
+        if (res.getConfiguration().fontScale != 1) {//非默认值
+            Configuration newConfig = new Configuration();
+            newConfig.setToDefaults();//设置默认
+            res.updateConfiguration(newConfig, res.getDisplayMetrics());
         }
+        return res;
     }
 
-    /**
-     * 接收到分发到事件
-     *
-     * @param event 事件
-     */
-    protected void receiveEvent(Event event) {
-
+    public T getViewModel() {
+        return viewModel;
     }
 
-    /**
-     * 接受到分发的粘性事件
-     *
-     * @param event 粘性事件
-     */
-    protected void receiveStickyEvent(Event event) {
-
+    public AppViewModelFactory getViewModelFactory() {
+        return viewModelFactory;
     }
+
+    public abstract int getLayout();
+
+    public abstract View getRegisterLoadSir();
+
+    public abstract T initViewModel();
+
+    public abstract void initEvents();
+
+    public abstract void onNetReload(View v);
+
+    public abstract void start();
+
+    public abstract void initNoNetworkEvent();
+
+    public abstract void initTokenOverTimeEvent();
+
+    public abstract void initShowOrDismissWaitingEvent();
 
     @Override
     protected void onDestroy() {
@@ -117,52 +133,5 @@ public abstract class BaseActivity<T extends BaseViewModel> extends AppCompatAct
         ActivityUtils.getActivityList().remove(this);
     }
 
-    @Override
-    public Resources getResources() {
-        Resources res = super.getResources();
-        if (res.getConfiguration().fontScale != 1) {//非默认值
-            Configuration newConfig = new Configuration();
-            newConfig.setToDefaults();//设置默认
-            res.updateConfiguration(newConfig, res.getDisplayMetrics());
-        }
-        return res;
-    }
 
-    public void showWaitingView(boolean cancelable, String message) {
-        KProgressHUDUtil.showWaitingView(this,cancelable,message);
-    }
-
-    public void hideWaitingView() {
-        KProgressHUDUtil.hideWaitingView();
-    }
-
-    protected void initImmersionBar() {
-        ImmersionBar.with(this).init();
-    }
-
-
-    public T getViewModel() {
-        return viewModel;
-    }
-
-    public AppViewModelFactory getViewModelFactory() {
-        return viewModelFactory;
-    }
-
-    public abstract int getLayout();
-
-    public abstract T initViewModel();
-
-    public abstract void initEvents();
-
-    public abstract void start();
-
-
-    public abstract void initNoNetworkEvent();
-
-    public abstract void initTokenOverTimeEvent();
-
-    public abstract void initShowOrDismissWaitingEvent();
-
-    public abstract void initStateLayoutEvent();
 }

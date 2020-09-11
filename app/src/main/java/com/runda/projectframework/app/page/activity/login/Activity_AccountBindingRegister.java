@@ -18,15 +18,14 @@ import com.jakewharton.rxbinding2.view.RxView;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseActivity;
-import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.event.Event;
-import com.runda.projectframework.app.others.event.EventBusUtil;
 import com.runda.projectframework.app.others.event.EventCode;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.Activity_MainPage;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_AccountBinding;
 import com.runda.projectframework.utils.CheckEmptyUtils;
 import com.runda.projectframework.utils.CommonUtils;
+import com.runda.projectframework.utils.EventBusUtil;
 import com.runda.projectframework.utils.IntentUtil;
 import com.runda.toolbar.RDToolbar;
 import butterknife.BindView;
@@ -98,6 +97,11 @@ public class Activity_AccountBindingRegister extends BaseActivity<ViewModel_Acco
     }
 
     @Override
+    public View getRegisterLoadSir() {
+        return null;
+    }
+
+    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.color_primary).init();
@@ -164,6 +168,11 @@ public class Activity_AccountBindingRegister extends BaseActivity<ViewModel_Acco
         getViewModel().getRxEventManager().addRxEvent(event_sendVCode);
         getViewModel().getRxEventManager().addRxEvent(event_BindedVCode);
         getViewModel().getRxEventManager().addRxEvent(buttonFinishClick);
+    }
+
+    @Override
+    public void onNetReload(View v) {
+
     }
 
     @Override
@@ -248,7 +257,7 @@ public class Activity_AccountBindingRegister extends BaseActivity<ViewModel_Acco
             }
             if (wrapper.isSuccess()) {
                 ActivityUtils.startActivity(Activity_MainPage.class);
-                EventBusUtil.sendEvent(new Event(EventCode.LOGININ_PARENT));
+                EventBusUtil.post(new Event(EventCode.SIGN_IN));
                 Activity_AccountBindingRegister.this.finish();
             } else {
                 ToastUtils.showShort(wrapper.getError().getErrorMessage());
@@ -413,15 +422,10 @@ public class Activity_AccountBindingRegister extends BaseActivity<ViewModel_Acco
                 return;
             }
             if (holder.isShow()) {
-                showWaitingView(false,holder.getMessage());
+                getWaitingView(true,holder.getMessage(),"",false).show();
             } else {
                 hideWaitingView();
             }
         });
-    }
-
-    @Override
-    public void initStateLayoutEvent() {
-
     }
 }
