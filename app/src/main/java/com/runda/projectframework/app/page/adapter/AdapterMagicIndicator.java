@@ -64,7 +64,7 @@ public class AdapterMagicIndicator extends CommonNavigatorAdapter{
 //            simplePagerTitleView.setOnClickListener(view ->
 //                    listener.getListener().onItemClick(index, view, titleList.get(index)));
             simplePagerTitleView.setOnClickListener(view -> {
-                listener.clickOk(index,titleList.get(index));
+                listener.onClick(index,titleList.get(index));
             });
         }
         return simplePagerTitleView;

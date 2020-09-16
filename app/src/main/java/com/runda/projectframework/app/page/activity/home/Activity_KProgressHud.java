@@ -124,6 +124,8 @@ public class Activity_KProgressHud extends BaseActivity<BaseViewModel> {
                 hud.setLabel("正在下载中...");
                 if (currentProgress < 100) {
                     handler.postDelayed(this, 50);
+                }else {
+                    hud.dismiss();
                 }
             }
         }, 100);

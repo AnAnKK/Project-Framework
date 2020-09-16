@@ -3,44 +3,39 @@ package com.runda.projectframework.app.page.adapter.holder;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.runda.projectframework.R;
-import com.runda.projectframework.app.others.GlideApp;
-import com.runda.projectframework.app.page.adapter.AdapterBanner;
 import com.runda.projectframework.app.page.adapter.listener.RxItemClickEvent;
 import com.runda.projectframework.app.page.adapter.listener.RxOnItemClickListener;
-import com.runda.projectframework.app.repository.bean.BannerInfo;
 import com.runda.projectframework.utils.CheckEmptyUtils;
-import com.youth.banner.Banner;
-import com.youth.banner.indicator.CircleIndicator;
 
 import java.util.List;
 
 import io.reactivex.Observable;
 
-import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
-
 /**
  *
- * @Description:
+ * @Description:    header1
  * @Author:         An_K
- * @CreateDate:     2020/9/4 9:49
+ * @CreateDate:     2020/9/11 15:40
  * @Version:        1.0
  */
-public class Holder_Banner {
+public class Holder_MainPage_Header2 {
 
-    private Banner banner;
+    private View rootView;
+    private ViewGroup viewGroup;
     private Context context;
     private LayoutInflater inflater;
 
-    private List<BannerInfo> data;
-    private RxOnItemClickListener<BannerInfo> clickListener;
+    private List<String> data;
+    private RxOnItemClickListener<String> clickListener;
 
-    private boolean isRefresh = false;
 
-    public Holder_Banner(Context context, List<BannerInfo> data) {
+    public Holder_MainPage_Header2(Context context, List<String> data,ViewGroup viewGroup) {
         this.data = data;
         this.context = context;
+        this.viewGroup = viewGroup;
         this.inflater = LayoutInflater.from(context);
     }
 
@@ -48,13 +43,8 @@ public class Holder_Banner {
         if (CheckEmptyUtils.isEmpty(data)) {
             return;
         }
-        banner = (Banner) inflater.inflate(R.layout.layout_banner, null, false);
+        rootView = inflater.inflate(R.layout.layout_header2, viewGroup, false);
         setup();
-    }
-
-
-    public boolean isRefresh() {
-        return isRefresh;
     }
 
     private void setup() {
@@ -62,21 +52,29 @@ public class Holder_Banner {
             return;
         }
 
-//        AdapterBanner adapter = new AdapterBanner(data,this);
+        rootView.setOnClickListener(view -> clickListener.getListener().onItemClick(0, view, null));
 
-
+        rootView.findViewById(R.id.image)
+                .setOnClickListener(view -> {
+                    clickListener.getListener().onItemClick(1, view, null);
+                });
+        rootView.findViewById(R.id.button)
+                .setOnClickListener(view -> {
+                    clickListener.getListener().onItemClick(2, view, null);
+                });
     }
 
-    public View getBanner() {
-        return banner;
+    public View getRootView() {
+        return rootView;
     }
 
-    public Observable<RxItemClickEvent<BannerInfo>> getClickListener() {
+    public Observable<RxItemClickEvent<String>> getClickListener() {
         if (clickListener == null) {
             clickListener = new RxOnItemClickListener<>();
         }
         return clickListener;
     }
+
 
 
 }

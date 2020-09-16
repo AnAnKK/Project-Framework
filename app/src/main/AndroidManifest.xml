@@ -96,6 +96,22 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.Activity_KProgressHud"
             android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.recycler.Activity_RecyclerDrag"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.recycler.Activity_RecyclerMultiType"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.recycler.Activity_ScrollSticky"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.recycler.Activity_RecyclerTree"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.recycler.Activity_QuickAdapter"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.recycler.Activity_RecyclerSwipe"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.recycler.Activity_RecyclerSwipeDefined"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.recycler.Activity_RecyclerSticky"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

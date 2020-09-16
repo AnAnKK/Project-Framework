@@ -1,28 +1,28 @@
-package com.runda.projectframework.app.page.activity;
+package com.runda.projectframework.app.page.activity.home.recycler;
 
-import android.content.Intent;
 import android.view.View;
 
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blankj.utilcode.util.ToastUtils;
+import com.chad.library.adapter.base.BaseBinderAdapter;
 import com.gyf.immersionbar.ImmersionBar;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseActivity;
 import com.runda.projectframework.app.base.BaseViewModel;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
-import com.runda.projectframework.app.page.adapter.Adapter_FuncItem;
-import com.runda.projectframework.app.repository.bean.PageTextClzInfo;
+import com.runda.projectframework.app.page.adapter.itembinder.TestItemBinder;
+import com.runda.projectframework.app.repository.bean.test.TestInfo1;
+import com.runda.projectframework.app.repository.bean.test.TestInfo2;
+import com.runda.projectframework.app.repository.bean.test.TestInfo3;
 import com.runda.toolbar.RDToolbar;
-import com.scwang.smart.refresh.header.FalsifyFooter;
-import com.scwang.smart.refresh.header.FalsifyHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.scwang.smart.refresh.layout.constant.RefreshState;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -32,12 +32,12 @@ import static androidx.recyclerview.widget.DividerItemDecoration.VERTICAL;
 
 /**
  *
- * @Description:
+ * @Description:    BaseRecyclerViewAdapterHelper
  * @Author:         An_K
- * @CreateDate:     2020/9/11 9:26
+ * @CreateDate:     2020/9/11 10:48
  * @Version:        1.0
  */
-public class Activity_FuncList extends BaseActivity<BaseViewModel> {
+public class Activity_RecyclerMultiType extends BaseActivity<BaseViewModel> {
 
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
@@ -59,11 +59,6 @@ public class Activity_FuncList extends BaseActivity<BaseViewModel> {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
         ImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.color_primary).init();
@@ -76,7 +71,7 @@ public class Activity_FuncList extends BaseActivity<BaseViewModel> {
 
     @Override
     public void initEvents() {
-        toolbar.getTitleView().setText(getIntent().getStringExtra("title"));
+        toolbar.getTitleView().setText("MultiType");
         Disposable toolBarClick = RxView.clicks(toolbar.getBackView())
                 .compose(RxUtil.operateDelay())
                 .subscribe(o -> finish());
@@ -91,30 +86,30 @@ public class Activity_FuncList extends BaseActivity<BaseViewModel> {
 
     @Override
     public void start() {
-        List<PageTextClzInfo> flist = getIntent().getParcelableArrayListExtra("list");
-        setData(flist);
-    }
-
-    private void setData(List<PageTextClzInfo> flist) {
-        refreshLayout.setRefreshHeader(new FalsifyHeader(this));
-        refreshLayout.setRefreshFooter(new FalsifyFooter(this));
-        refreshLayout.setEnableLoadMore(true);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new DividerItemDecoration(this,VERTICAL));
-        Adapter_FuncItem adapter = new Adapter_FuncItem(R.layout.item_text,flist);
-        Disposable event_itemClicked = adapter.getRxOnItemClickListener()
+        BaseBinderAdapter adapter = new BaseBinderAdapter();
+        List<Object> data = new ArrayList<>();
+        data.add(new TestInfo1());
+        data.add(new TestInfo2());
+        data.add(new TestInfo3());
+        data.add(new TestInfo1());
+        data.add(new TestInfo2());
+        data.add(new TestInfo3());
+        adapter.setList(data);
+        //同一class不通布局,可以new TestItemBinder.Test1ItemBinder(type);暂时只想到这个
+        adapter
+                .addItemBinder(TestInfo1.class, new TestItemBinder.Test1ItemBinder())
+                .addItemBinder(TestInfo2.class, new TestItemBinder.Test2ItemBinder())
+                .addItemBinder(TestInfo3.class, new TestItemBinder.Test3ItemBinder());
+        Disposable event_itemClicked = TestItemBinder.getRxOnItemClickListener()
                 .compose(RxUtil.operateDelay())
                 .subscribe(event -> {
-                    if (refreshLayout.getState() != RefreshState.None) {
-                        return;
-                    }
-                    Intent intent = new Intent();
-                    intent.setClassName(this,event.data().getClazzName());
-                    startActivity(intent);
+                    ToastUtils.showShort(event.which()+"");
                 });
         getViewModel().getRxEventManager().addRxEvent(event_itemClicked);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,VERTICAL));
         recyclerView.setAdapter(adapter);
+
     }
 
     @Override

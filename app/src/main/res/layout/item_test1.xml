@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textview"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/qb_px_90"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/qb_px_20"
+    android:text="文件处理单"
+    android:background="@drawable/style_background_operation_press"
+    android:foreground="@drawable/style_background_operation_press"
+    >
+</TextView>

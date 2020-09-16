@@ -8,7 +8,6 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.page.adapter.listener.RxItemClickEvent;
 import com.runda.projectframework.app.page.adapter.listener.RxOnItemClickListener;
-import com.runda.projectframework.app.repository.bean.PageTextClzInfo;
 
 import java.util.List;
 
@@ -21,15 +20,15 @@ import io.reactivex.Observable;
  * @CreateDate:     2020/9/1 10:46
  * @Version:        1.0
  */
-public class Adapter_FuncItem extends BaseQuickAdapter<PageTextClzInfo, BaseViewHolder> {
-    private RxOnItemClickListener<PageTextClzInfo> listener;
+public class Adapter_QucikAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
+    private RxOnItemClickListener<String> listener;
 
-    public Adapter_FuncItem(int layoutResId, @Nullable List<PageTextClzInfo> data) {
+    public Adapter_QucikAdapter(int layoutResId, @Nullable List<String> data) {
         super(layoutResId, data);
 
     }
 
-    public Observable<RxItemClickEvent<PageTextClzInfo>> getRxOnItemClickListener() {
+    public Observable<RxItemClickEvent<String>> getRxOnItemClickListener() {
         if (listener == null) {
             listener = new RxOnItemClickListener<>();
         }
@@ -37,14 +36,14 @@ public class Adapter_FuncItem extends BaseQuickAdapter<PageTextClzInfo, BaseView
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, PageTextClzInfo item) {
+    protected void convert(BaseViewHolder helper, String item) {
 
 
-        helper.setText(R.id.textview,item.getName());
+        helper.setText(R.id.text,item);
         if (listener == null) {
-            helper.getView(R.id.textview).setOnClickListener(null);
+            helper.getView(R.id.cardView).setOnClickListener(null);
         } else {
-            helper.getView(R.id.textview).setOnClickListener(view ->
+            helper.getView(R.id.cardView).setOnClickListener(view ->
                     listener.getListener().onItemClick(helper.getAdapterPosition(), view, item));
         }
 

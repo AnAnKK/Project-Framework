@@ -1,0 +1,120 @@
+{
+    "code": 200,
+    "data": [
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "children": [],
+                            "classifyDesc": "三级分类",
+                            "classifyName": "测试三级分类",
+                            "createId": 1,
+                            "createTime": "2020-06-15 11:24:32",
+                            "hasChildren": false,
+                            "id": 11,
+                            "level": 3,
+                            "parentId": 5,
+                            "updateId": 1,
+                            "updateTime": "2020-06-15 11:24:32"
+                        }
+                    ],
+                    "classifyDesc": "二级分类",
+                    "classifyName": "测试二级分类",
+                    "createId": 1,
+                    "createTime": "2020-06-15 11:24:32",
+                    "hasChildren": true,
+                    "id": 11,
+                    "level": 2,
+                    "parentId": 5,
+                    "updateId": 1,
+                    "updateTime": "2020-06-15 11:24:32"
+                }
+            ],
+            "classifyDesc": "三层结构",
+            "classifyName": "三层结构",
+            "createId": 1,
+            "createTime": "2020-06-15 11:17:25",
+            "hasChildren": true,
+            "id": 5,
+            "level": 1,
+            "updateId": 1,
+            "updateTime": "2020-06-15 14:43:48"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "children": [],
+                            "classifyDesc": "工商贸三级",
+                            "classifyName": "工商贸三级",
+                            "createId": 1,
+                            "createTime": "2020-06-15 11:24:32",
+                            "hasChildren": false,
+                            "id": 11,
+                            "level": 3,
+                            "parentId": 5,
+                            "updateId": 1,
+                            "updateTime": "2020-06-15 11:24:32"
+                        }
+                    ],
+                    "classifyDesc": "工商贸二级",
+                    "classifyName": "工商贸二级",
+                    "classifySort": 1,
+                    "hasChildren": true,
+                    "id": 2,
+                    "level": 2,
+                    "parentId": 1
+                }
+            ],
+            "classifyDesc": "工商贸一级",
+            "classifyName": "工商贸一级",
+            "classifySort": 1,
+            "hasChildren": true,
+            "id": 1,
+            "level": 1
+        },
+        {
+            "children": [
+                {
+                    "children": [],
+                    "classifyDesc": "安全投入",
+                    "classifyName": "安全投入-修改",
+                    "classifySort": 1,
+                    "createId": 1,
+                    "createTime": "2020-06-11 14:54:19",
+                    "hasChildren": false,
+                    "id": 4,
+                    "level": 2,
+                    "parentId": 3,
+                    "updateId": 1,
+                    "updateTime": "2020-06-11 14:55:57"
+                }
+            ],
+            "classifyDesc": "二层结构",
+            "classifyName": "二层结构",
+            "classifySort": 1,
+            "createId": 1,
+            "createTime": "2020-06-11 14:53:34",
+            "hasChildren": true,
+            "id": 3,
+            "level": 1,
+            "updateId": 1,
+            "updateTime": "2020-06-11 14:53:34"
+        },
+        {
+            "children": [],
+            "classifyDesc": "一层结构",
+            "classifyName": "一层结构",
+            "classifySort": 1,
+            "createId": 1,
+            "createTime": "2020-06-11 14:53:34",
+            "hasChildren": false,
+            "id": 3,
+            "level": 1,
+            "updateId": 1,
+            "updateTime": "2020-06-11 14:53:34"
+        }
+    ]
+}

@@ -10,6 +10,14 @@ import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSi
 import com.runda.projectframework.app.page.activity.home.Activity_Popup;
 import com.runda.projectframework.app.page.activity.home.immersionbar.Activity_ImmersionBarSlideTrans;
 import com.runda.projectframework.app.page.activity.home.loadsir.FragmentActivity_LoadSir;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_QuickAdapter;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerDrag;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerMultiType;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerSticky;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_ScrollSticky;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerSwipe;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerSwipeDefined;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerTree;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_Profile;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_RefreshBasic;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WebView;
@@ -101,5 +109,29 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_KProgressHud contributeActivity_KProgressHud();
+
+    @ContributesAndroidInjector
+    abstract Activity_RecyclerDrag contributeActivity_RecyclerDrag();
+
+    @ContributesAndroidInjector
+    abstract Activity_RecyclerMultiType contributeActivity_RecyclerMultiType();
+
+    @ContributesAndroidInjector
+    abstract Activity_ScrollSticky contributeActivity_ScrollSticky();
+
+    @ContributesAndroidInjector
+    abstract Activity_RecyclerTree contributeActivity_RecyclerTree();
+
+    @ContributesAndroidInjector
+    abstract Activity_QuickAdapter contributeActivity_QuickAdapter();
+
+    @ContributesAndroidInjector
+    abstract Activity_RecyclerSwipe contributeActivity_RecyclerSwipe();
+
+    @ContributesAndroidInjector
+    abstract Activity_RecyclerSwipeDefined contributeActivity_RecyclerSwipeDefined();
+
+    @ContributesAndroidInjector
+    abstract Activity_RecyclerSticky contributeActivity_RecyclerSticky();
 
 }

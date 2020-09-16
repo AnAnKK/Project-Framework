@@ -16,17 +16,25 @@ import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseLazyFragment;
 import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
+import com.runda.projectframework.app.page.activity.Activity_FuncList;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
+import com.runda.projectframework.app.page.activity.home.Activity_Popup;
+import com.runda.projectframework.app.page.activity.home.immersionbar.Activity_ImmersionBarSlideTrans;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirActivity;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirCustom;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirFragment;
-import com.runda.projectframework.app.page.activity.home.Activity_Popup;
-import com.runda.projectframework.app.page.activity.home.immersionbar.Activity_ImmersionBarSlideTrans;
 import com.runda.projectframework.app.page.activity.home.loadsir.FragmentActivity_LoadSir;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_QuickAdapter;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerDrag;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerMultiType;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerSticky;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_ScrollSticky;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerSwipe;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerSwipeDefined;
+import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerTree;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_Profile;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_RefreshBasic;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WebView;
-import com.runda.projectframework.app.page.activity.Activity_FuncList;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WeiboPage;
 import com.runda.projectframework.app.page.adapter.Adapter_FuncItem;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_MainPage_Home;
@@ -64,6 +72,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String PopString = "Pop";
     public static final String LoadSir = "LoadSir";
     public static final String KProgressHud = "KProgressHud";
+    public static final String RecyclerViewWidget = "RecyclerView";
 
     private String TAG = getClass().getSimpleName();
 
@@ -118,6 +127,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(PopString, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(LoadSir, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(KProgressHud, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(RecyclerViewWidget, Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
         refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -177,6 +187,24 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                             break;
                         case KProgressHud:
                             IntentUtil.startActivity(_mActivity, Activity_KProgressHud.class);
+                            break;
+                        case RecyclerViewWidget:
+                            List<PageTextClzInfo> list4 = new ArrayList<>();
+                            list4.add(new PageTextClzInfo("BaseRecyclerViewAdapterHelper基本用法", Activity_QuickAdapter.class.getName()));
+                            list4.add(new PageTextClzInfo("拖拽", Activity_RecyclerDrag.class.getName()));
+                            list4.add(new PageTextClzInfo("侧滑+拖拽", Activity_RecyclerSwipe.class.getName()));
+                            list4.add(new PageTextClzInfo("自定义侧边栏内容", Activity_RecyclerSwipeDefined.class.getName()));
+                            list4.add(new PageTextClzInfo("BaseRecyclerViewAdapterHelper不同Item", Activity_RecyclerMultiType.class.getName()));
+                            list4.add(new PageTextClzInfo("粘性头部ScrollView", Activity_ScrollSticky.class.getName()));
+                            list4.add(new PageTextClzInfo("粘性头部RecyclerView", Activity_RecyclerSticky.class.getName()));
+                            list4.add(new PageTextClzInfo("BaseRecyclerViewAdapterHelper基本用法树形", Activity_RecyclerTree.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list4);
+                                    intent.putExtra("title",RecyclerViewWidget);
+                                }
+                            });
                             break;
 
 

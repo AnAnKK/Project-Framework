@@ -6,8 +6,8 @@ package com.runda.projectframework.app.others.interfaces;
  * @CreateDate: 2020/9/10 8:44
  * @Version: 1.0
  */
-public interface MagicItemClick<T> {
+public interface OnSwipeMenuItemClick {
 
-     void onClick(int index, T data);
+     void onClick(int direction, int position, int menuPosition);
 
 }
