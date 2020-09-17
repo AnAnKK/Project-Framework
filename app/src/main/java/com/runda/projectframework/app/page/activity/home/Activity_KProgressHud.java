@@ -10,12 +10,10 @@ import androidx.lifecycle.ViewModelProviders;
 import com.gyf.immersionbar.ImmersionBar;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.kaopiz.kprogresshud.KProgressHUD;
-import com.lxj.xpopup.XPopup;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseActivity;
 import com.runda.projectframework.app.base.BaseViewModel;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
-import com.runda.projectframework.app.widget.PopNormal;
 import com.runda.projectframework.utils.KProgressHUDUtil;
 
 import butterknife.BindView;

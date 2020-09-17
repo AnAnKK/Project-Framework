@@ -24,6 +24,8 @@ import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSi
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirCustom;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirFragment;
 import com.runda.projectframework.app.page.activity.home.loadsir.FragmentActivity_LoadSir;
+import com.runda.projectframework.app.page.activity.home.picture.Activity_PictureAdd;
+import com.runda.projectframework.app.page.activity.home.picture.Activity_PicturePreView;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_QuickAdapter;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerDrag;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerMultiType;
@@ -73,6 +75,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String LoadSir = "LoadSir";
     public static final String KProgressHud = "KProgressHud";
     public static final String RecyclerViewWidget = "RecyclerView";
+    public static final String Picture = "图片";
 
     private String TAG = getClass().getSimpleName();
 
@@ -128,6 +131,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(LoadSir, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(KProgressHud, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(RecyclerViewWidget, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(Picture, Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
         refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -206,7 +210,18 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 }
                             });
                             break;
-
+                        case Picture:
+                            List<PageTextClzInfo> list5 = new ArrayList<>();
+                            list5.add(new PageTextClzInfo("图片添加", Activity_PictureAdd.class.getName()));
+                            list5.add(new PageTextClzInfo("图片展示", Activity_PicturePreView.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list5);
+                                    intent.putExtra("title",Picture);
+                                }
+                            });
+                            break;
 
                     }
                 });

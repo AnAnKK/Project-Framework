@@ -1,4 +1,4 @@
-package com.runda.projectframework.app.page.activity.home;
+package com.runda.projectframework.app.page.activity.home.picture;
 
 import android.view.View;
 import android.widget.TextView;
@@ -20,12 +20,12 @@ import io.reactivex.disposables.Disposable;
 
 /**
  *
- * @Description:    xpop取代dialog popwindow等
+ * @Description:    图片预览
  * @Author:         An_K
  * @CreateDate:     2020/9/8 9:43
  * @Version:        1.0
  */
-public class Activity_Popup extends BaseActivity<BaseViewModel> {
+public class Activity_PicturePreView extends BaseActivity<BaseViewModel> {
 
 
     @BindView(R.id.toolbar)
@@ -102,8 +102,8 @@ public class Activity_Popup extends BaseActivity<BaseViewModel> {
 
 
     private void showNormalPop(String title,String content,String lText,String rText) {
-        PopCenterNormal popNormal = new PopCenterNormal(Activity_Popup.this,title,content,lText,rText);
-        new XPopup.Builder(Activity_Popup.this)
+        PopCenterNormal popNormal = new PopCenterNormal(Activity_PicturePreView.this,title,content,lText,rText);
+        new XPopup.Builder(Activity_PicturePreView.this)
 //                .popupAnimation(PopupAnimation.NoAnimation)
                 .asCustom(popNormal)
                 .show();

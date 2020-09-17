@@ -15,7 +15,7 @@ import com.runda.projectframework.utils.CheckEmptyUtils;
  * @CreateDate:     2020/9/8 10:01
  * @Version:        1.0
  */
-public class PopNormal extends CenterPopupView {
+public class PopCenterNormal extends CenterPopupView {
 
     private Context context;
     private ChooseYesListener ylistener;
@@ -25,11 +25,11 @@ public class PopNormal extends CenterPopupView {
     private String lText;
     private String rText;
 
-    public PopNormal(@NonNull Context context) {
+    public PopCenterNormal(@NonNull Context context) {
         super(context);
     }
 
-    public PopNormal(@NonNull Context context, String title,String content,String lText,String rText) {
+    public PopCenterNormal(@NonNull Context context, String title, String content, String lText, String rText) {
         super(context);
         this.context = context;
         this.title = title;

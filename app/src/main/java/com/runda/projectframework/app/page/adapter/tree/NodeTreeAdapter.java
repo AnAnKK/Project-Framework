@@ -11,10 +11,6 @@ import java.util.List;
 
 public class NodeTreeAdapter extends BaseNodeAdapter {
 
-    private final FirstProvider firstProvider;
-    private final SecondProvider secondProvider;
-    private final ThirdProvider thirdProvider;
-
     private onTreeItemClick listener;
 
     //
@@ -37,9 +33,9 @@ public class NodeTreeAdapter extends BaseNodeAdapter {
 
     public NodeTreeAdapter() {
         super();
-        firstProvider = new FirstProvider();
-        secondProvider = new SecondProvider();
-        thirdProvider = new ThirdProvider();
+        FirstProvider firstProvider = new FirstProvider();
+        SecondProvider secondProvider = new SecondProvider();
+        ThirdProvider thirdProvider = new ThirdProvider();
         addNodeProvider(firstProvider);
         addNodeProvider(secondProvider);
         addNodeProvider(thirdProvider);

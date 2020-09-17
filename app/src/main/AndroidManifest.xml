@@ -112,6 +112,10 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.recycler.Activity_RecyclerSticky"
             android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.picture.Activity_PictureAdd"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.picture.Activity_PicturePreView"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

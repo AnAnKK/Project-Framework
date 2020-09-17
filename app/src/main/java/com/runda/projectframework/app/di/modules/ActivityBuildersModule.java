@@ -10,6 +10,8 @@ import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSi
 import com.runda.projectframework.app.page.activity.home.Activity_Popup;
 import com.runda.projectframework.app.page.activity.home.immersionbar.Activity_ImmersionBarSlideTrans;
 import com.runda.projectframework.app.page.activity.home.loadsir.FragmentActivity_LoadSir;
+import com.runda.projectframework.app.page.activity.home.picture.Activity_PictureAdd;
+import com.runda.projectframework.app.page.activity.home.picture.Activity_PicturePreView;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_QuickAdapter;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerDrag;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerMultiType;
@@ -133,5 +135,11 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_RecyclerSticky contributeActivity_RecyclerSticky();
+
+    @ContributesAndroidInjector
+    abstract Activity_PictureAdd contributeActivity_PictureAdd();
+
+    @ContributesAndroidInjector
+    abstract Activity_PicturePreView contributeActivity_PicturePreView();
 
 }
