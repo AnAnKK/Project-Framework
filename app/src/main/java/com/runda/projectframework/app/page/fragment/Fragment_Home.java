@@ -25,7 +25,7 @@ import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSi
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirFragment;
 import com.runda.projectframework.app.page.activity.home.loadsir.FragmentActivity_LoadSir;
 import com.runda.projectframework.app.page.activity.home.picture.Activity_PictureAdd;
-import com.runda.projectframework.app.page.activity.home.picture.Activity_PicturePreView;
+import com.runda.projectframework.app.page.activity.home.picture.Activity_Transferee;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_QuickAdapter;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerDrag;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerMultiType;
@@ -213,7 +213,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                         case Picture:
                             List<PageTextClzInfo> list5 = new ArrayList<>();
                             list5.add(new PageTextClzInfo("图片添加", Activity_PictureAdd.class.getName()));
-                            list5.add(new PageTextClzInfo("图片展示", Activity_PicturePreView.class.getName()));
+                            list5.add(new PageTextClzInfo("图片展示Transferee", Activity_Transferee.class.getName()));
                             IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
                                 @Override
                                 public void operate(Intent intent) {
