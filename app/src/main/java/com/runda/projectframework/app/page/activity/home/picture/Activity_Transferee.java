@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.ImageUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.blankj.utilcode.util.Utils;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hitomi.tilibrary.style.index.CircleIndexIndicator;
 import com.hitomi.tilibrary.style.progress.ProgressBarIndicator;
@@ -30,7 +29,7 @@ import com.runda.projectframework.app.base.BaseViewModel;
 import com.runda.projectframework.app.others.GlideImageLoader;
 import com.runda.projectframework.app.others.SourceConfig;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
-import com.runda.projectframework.app.page.Adapter_TransImage;
+import com.runda.projectframework.app.page.adapter.Adapter_TransImage;
 import com.runda.projectframework.app.widget.PopBottomNormal;
 
 import java.io.File;
@@ -188,7 +187,7 @@ public class Activity_Transferee extends BaseActivity<BaseViewModel> implements 
                     Bitmap bitmap = ImageUtils.drawable2Bitmap(drawable);
                     File picDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
                     File destFile = new File(picDir, "润达软件/" + fileName);
-                    ImageUtils.save(bitmap,destFile,Bitmap.CompressFormat.PNG); // 这里如果图片是gif的图片,则保存下来是静态的(先这样吧,先不管了)
+                    ImageUtils.save(bitmap,destFile,Bitmap.CompressFormat.PNG); // gif压缩后会成为静态图(先这样吧,先不管了)
                     ToastUtils.showShort("成功保存到"+destFile.getAbsolutePath());
                 }else if(position == 1){
                     ToastUtils.showShort("发送给朋友");
