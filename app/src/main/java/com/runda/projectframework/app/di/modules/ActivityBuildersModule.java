@@ -25,6 +25,7 @@ import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_R
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WebView;
 import com.runda.projectframework.app.page.activity.Activity_FuncList;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WeiboPage;
+import com.runda.projectframework.app.page.activity.home.video.Activity_VideoPlayRecyclerView;
 import com.runda.projectframework.app.page.activity.login.Activity_AccountBinding;
 import com.runda.projectframework.app.page.activity.login.Activity_AccountBindingRegister;
 import com.runda.projectframework.app.page.activity.login.Activity_Aggrement;
@@ -141,5 +142,8 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_Transferee contributeActivity_Transferee();
+
+    @ContributesAndroidInjector
+    abstract Activity_VideoPlayRecyclerView contributeActivity_VideoPlayRecyclerView();
 
 }

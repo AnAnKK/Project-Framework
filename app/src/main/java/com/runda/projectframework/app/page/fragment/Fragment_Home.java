@@ -38,6 +38,7 @@ import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_P
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_RefreshBasic;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WebView;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WeiboPage;
+import com.runda.projectframework.app.page.activity.home.video.Activity_VideoPlayRecyclerView;
 import com.runda.projectframework.app.page.adapter.Adapter_FuncItem;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_MainPage_Home;
 import com.runda.projectframework.app.repository.bean.PageTextClzInfo;
@@ -76,6 +77,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String KProgressHud = "KProgressHud";
     public static final String RecyclerViewWidget = "RecyclerView";
     public static final String Picture = "图片";
+    public static final String Video = "视频";
 
     private String TAG = getClass().getSimpleName();
 
@@ -132,6 +134,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(KProgressHud, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(RecyclerViewWidget, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Picture, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(Video, Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
         refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -219,6 +222,17 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 public void operate(Intent intent) {
                                     intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list5);
                                     intent.putExtra("title",Picture);
+                                }
+                            });
+                            break;
+                        case Video:
+                            List<PageTextClzInfo> list6 = new ArrayList<>();
+                            list6.add(new PageTextClzInfo("recyclerview视频列表", Activity_VideoPlayRecyclerView.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list6);
+                                    intent.putExtra("title",Video);
                                 }
                             });
                             break;

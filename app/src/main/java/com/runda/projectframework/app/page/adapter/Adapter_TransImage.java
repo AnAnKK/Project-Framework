@@ -1,4 +1,4 @@
-package com.runda.projectframework.app.page;
+package com.runda.projectframework.app.page.adapter;
 
 
 import android.view.View;

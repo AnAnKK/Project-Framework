@@ -176,6 +176,11 @@ dependencies {
     implementation 'com.wang.avi:library:2.1.3'//动画
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.9'//图片选择
     implementation 'com.github.Hitomis.transferee:Transferee:1.6.1'//图片查看,可拖拽的
+
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-java:3.2.6'//dkplayer视频播放
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-ui:3.2.6'
+    implementation 'com.github.dueeeke.dkplayer:player-ijk:3.2.6'
+    implementation 'com.github.dueeeke.dkplayer:videocache:3.2.6'
     //微信
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
     implementation 'cn.sharesdk:ShareSDK-Wechat-Core:3.7.1@jar'

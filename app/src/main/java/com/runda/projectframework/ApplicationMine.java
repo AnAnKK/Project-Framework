@@ -13,6 +13,9 @@ import androidx.multidex.MultiDex;
 
 import com.blankj.utilcode.util.Utils;
 import com.bumptech.glide.Glide;
+import com.dueeeke.videoplayer.ijk.IjkPlayerFactory;
+import com.dueeeke.videoplayer.player.VideoViewConfig;
+import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.core.LoadSir;
 import com.lzy.okgo.OkGo;
@@ -144,6 +147,7 @@ public class ApplicationMine extends Application implements
         DaggerAppComponent.builder().application(this).build().inject(this);
         EventBus.builder().addIndex(new MyEventBusIndex()).installDefaultEventBus();
         initMMKV();
+        initDKplayer();
         LoadSir.beginBuilder()
                 .addCallback(new ErrorCallback())
                 .addCallback(new EmptyCallback())
@@ -153,12 +157,20 @@ public class ApplicationMine extends Application implements
                 .addCallback(new CustomCallback())
 //                .setDefaultCallback(LoadingCallback.class)//设置默认状态页
                 .commit();
+
         MobSDK.init(this);
         OkGo.getInstance().init(this);
     }
 
     private void initMMKV(){
         MMKV.initialize(this);
+    }
+
+    private void initDKplayer(){
+        VideoViewManager.setConfig(VideoViewConfig.newBuilder()
+                //使用IjkPlayer解码
+                .setPlayerFactory(IjkPlayerFactory.create())
+                .build());
     }
 
 
