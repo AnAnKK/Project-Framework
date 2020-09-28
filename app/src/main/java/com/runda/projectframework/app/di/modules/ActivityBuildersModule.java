@@ -4,6 +4,11 @@ package com.runda.projectframework.app.di.modules;
 
 import com.runda.projectframework.app.page.Activity_MainPage;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_AppBarLayout;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic2;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic3;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic4;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirActivity;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirCustom;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirFragment;
@@ -146,4 +151,18 @@ public abstract class ActivityBuildersModule {
     @ContributesAndroidInjector
     abstract Activity_VideoPlayRecyclerView contributeActivity_VideoPlayRecyclerView();
 
+    @ContributesAndroidInjector
+    abstract Activity_CoordinatorLayoutBasic contributeActivity_CoordinatorLayoutBasic();
+
+    @ContributesAndroidInjector
+    abstract Activity_CoordinatorLayoutBasic2 contributeActivity_CoordinatorLayoutBasic2();
+
+    @ContributesAndroidInjector
+    abstract Activity_CoordinatorLayoutBasic3 contributeActivity_CoordinatorLayoutBasic3();
+
+    @ContributesAndroidInjector
+    abstract Activity_CoordinatorLayoutBasic4 contributeActivity_CoordinatorLayoutBasic4();
+
+    @ContributesAndroidInjector
+    abstract Activity_AppBarLayout contributeActivity_AppBarLayout();
 }

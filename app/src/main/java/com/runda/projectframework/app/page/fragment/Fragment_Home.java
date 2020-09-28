@@ -19,6 +19,11 @@ import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.activity.Activity_FuncList;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
 import com.runda.projectframework.app.page.activity.home.Activity_Popup;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_AppBarLayout;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic2;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic3;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic4;
 import com.runda.projectframework.app.page.activity.home.immersionbar.Activity_ImmersionBarSlideTrans;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirActivity;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirCustom;
@@ -78,6 +83,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String RecyclerViewWidget = "RecyclerView";
     public static final String Picture = "图片";
     public static final String Video = "视频";
+    public static final String CoordinatorLayoutString = "CoordinatorLayout";
 
     private String TAG = getClass().getSimpleName();
 
@@ -135,6 +141,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(RecyclerViewWidget, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Picture, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Video, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(CoordinatorLayoutString,Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
         refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -236,7 +243,21 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 }
                             });
                             break;
-
+                        case CoordinatorLayoutString:
+                            List<PageTextClzInfo> list7 = new ArrayList<>();
+                            list7.add(new PageTextClzInfo("AppBarLayout用法", Activity_AppBarLayout.class.getName()));
+                            list7.add(new PageTextClzInfo("CoordinatorLayout基本用法1", Activity_CoordinatorLayoutBasic.class.getName()));
+                            list7.add(new PageTextClzInfo("CoordinatorLayout基本用法2", Activity_CoordinatorLayoutBasic2.class.getName()));
+                            list7.add(new PageTextClzInfo("CoordinatorLayout基本用法3", Activity_CoordinatorLayoutBasic3.class.getName()));
+                            list7.add(new PageTextClzInfo("CoordinatorLayout带搜索", Activity_CoordinatorLayoutBasic4.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list7);
+                                    intent.putExtra("title",CoordinatorLayoutString);
+                                }
+                            });
+                            break;
                     }
                 });
         getViewModel().getRxEventManager().addRxEvent(event_itemClicked);

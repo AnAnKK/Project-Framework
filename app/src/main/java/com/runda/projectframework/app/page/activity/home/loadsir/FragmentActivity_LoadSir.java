@@ -84,7 +84,6 @@ public class FragmentActivity_LoadSir extends BaseFragmentActivity<BaseViewModel
 //        initMagicIndicator7();
     }
 
-    //卡顿
     private void bindMagicIndicatorFragment() {
         List<String> titleList = new ArrayList<>();
         titleList.add("语文");

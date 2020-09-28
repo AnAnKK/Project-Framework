@@ -135,6 +135,16 @@
         <activity android:name=".app.page.activity.home.video.Activity_VideoPlayRecyclerView"
             android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
             android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic3"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic4"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.coordinatorLayout.Activity_AppBarLayout"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

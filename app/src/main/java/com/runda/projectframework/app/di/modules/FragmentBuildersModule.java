@@ -6,6 +6,7 @@ import com.runda.projectframework.app.page.activity.home.loadsir.Fragment_SirLoa
 import com.runda.projectframework.app.page.fragment.Fragment_Home;
 import com.runda.projectframework.app.page.fragment.Fragment_Mine;
 import com.runda.projectframework.app.page.fragment.Fragment_Function;
+import com.runda.projectframework.app.page.fragment.home.FragmentLazy_CorrdinatorLayout;
 import com.runda.projectframework.app.page.fragment.home.Fragment_VideoPlayRecyclerView;
 
 import dagger.Module;
@@ -38,5 +39,8 @@ public abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract Fragment_VideoPlayRecyclerView contributeFragment_VideoPlayRecyclerView();
+
+    @ContributesAndroidInjector
+    abstract FragmentLazy_CorrdinatorLayout contributeFragmentLazy_CorrdinatorLayout();
 
 }
