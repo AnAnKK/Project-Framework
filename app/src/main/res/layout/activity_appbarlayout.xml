@@ -76,11 +76,25 @@
            </LinearLayout>
        </HorizontalScrollView>
 
-       <androidx.appcompat.widget.SearchView
-           android:layout_margin="10dp"
-           android:background="@drawable/shape_background_oval_orange_for_button_96px"
+
+
+       <LinearLayout
            android:layout_width="match_parent"
-           android:layout_height="50dp"/>
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           >
+           <View
+               android:id="@+id/view_stats_height"
+               android:layout_width="match_parent"
+               android:visibility="gone"
+               android:layout_height="@dimen/toolbar_padding_top" />
+           <androidx.appcompat.widget.SearchView
+               android:layout_margin="10dp"
+               android:background="@drawable/shape_background_oval_orange_for_button_96px"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"/>
+       </LinearLayout>
+
 
    </com.google.android.material.appbar.AppBarLayout>
 

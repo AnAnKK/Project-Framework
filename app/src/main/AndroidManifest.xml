@@ -145,6 +145,10 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.coordinatorLayout.Activity_AppBarLayout"
             android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorProfile"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorSearch"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

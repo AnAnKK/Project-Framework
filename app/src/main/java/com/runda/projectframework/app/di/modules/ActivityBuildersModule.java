@@ -9,6 +9,8 @@ import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activ
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic2;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic3;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic4;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorProfile;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorSearch;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirActivity;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirCustom;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirFragment;
@@ -165,4 +167,10 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_AppBarLayout contributeActivity_AppBarLayout();
+
+    @ContributesAndroidInjector
+    abstract Activity_BehaviorProfile contributeActivity_BehaviorProfile();
+
+    @ContributesAndroidInjector
+    abstract Activity_BehaviorSearch contributeActivity_BehaviorSearch();
 }
