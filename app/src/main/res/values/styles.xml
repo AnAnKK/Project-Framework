@@ -32,6 +32,12 @@
         <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     </style>
 
+    <!--控制头部据appbar的样式-->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <!--用于控制toolbar溢出菜单的样式-->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
     <style name="BaseNoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar" />
     <!--新浪微博样式，注意每一项都不能少-->
     <style name="picture.Sina.style" parent="BaseNoActionBarTheme">

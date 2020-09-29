@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.android.material.appbar.AppBarLayout;
 import com.gyf.immersionbar.ImmersionBar;
@@ -48,6 +47,9 @@ public class Activity_AppBarLayout extends BaseActivity<BaseViewModel> {
     @BindView(R.id.appBarLayout)
     AppBarLayout appBarLayout;
 
+    @BindView(R.id.view_stats_height)
+    View view_stats_height;
+
     @Override
     public int getLayout() {
         return R.layout.activity_appbarlayout;
@@ -85,10 +87,27 @@ public class Activity_AppBarLayout extends BaseActivity<BaseViewModel> {
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                boolean statusBarDarkFont = ImmersionBar.with(Activity_AppBarLayout.this).getBarParams().statusBarDarkFont;
+//                boolean fits = ImmersionBar.with(Activity_AppBarLayout.this).getBarParams().fits;
                 if(Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()){
-                    ImmersionBar.with(Activity_AppBarLayout.this).fitsSystemWindows(true).init();
+
+                    if(!statusBarDarkFont){
+                        ImmersionBar.with(Activity_AppBarLayout.this).statusBarDarkFont(true).fitsSystemWindows(true).init();
+                    }
+
+//                    if(!fits){
+//                        ImmersionBar.with(Activity_AppBarLayout.this).fitsSystemWindows(true).init();
+//                    }
+
                 }else{
-                    ImmersionBar.with(Activity_AppBarLayout.this).fitsSystemWindows(false).init();
+                    if(statusBarDarkFont){
+                        ImmersionBar.with(Activity_AppBarLayout.this).statusBarDarkFont(false).fitsSystemWindows(false).init();
+                    }
+
+//                    if(fits){
+//                        ImmersionBar.with(Activity_AppBarLayout.this).fitsSystemWindows(false).init();
+//                    }
+
                 }
             }
         });

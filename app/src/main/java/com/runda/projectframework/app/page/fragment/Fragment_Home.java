@@ -24,6 +24,7 @@ import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activ
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic2;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic3;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic4;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorMoveTitle;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorProfile;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorSearch;
 import com.runda.projectframework.app.page.activity.home.immersionbar.Activity_ImmersionBarSlideTrans;
@@ -254,6 +255,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                             list7.add(new PageTextClzInfo("CoordinatorLayout带搜索", Activity_CoordinatorLayoutBasic4.class.getName()));
                             list7.add(new PageTextClzInfo("Behavior个人中心", Activity_BehaviorProfile.class.getName()));
                             list7.add(new PageTextClzInfo("Behavior搜索", Activity_BehaviorSearch.class.getName()));
+                            list7.add(new PageTextClzInfo("Behavior标题向下移动", Activity_BehaviorMoveTitle.class.getName()));
                             IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
                                 @Override
                                 public void operate(Intent intent) {

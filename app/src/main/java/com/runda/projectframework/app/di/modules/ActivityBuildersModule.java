@@ -9,6 +9,7 @@ import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activ
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic2;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic3;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic4;
+import com.runda.projectframework.app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorMoveTitle;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorProfile;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorSearch;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirActivity;
@@ -173,4 +174,7 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_BehaviorSearch contributeActivity_BehaviorSearch();
+
+    @ContributesAndroidInjector
+    abstract Activity_BehaviorMoveTitle contributeActivity_BehaviorMoveTitle();
 }

@@ -149,6 +149,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorSearch"
             android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.coordinatorLayout.behavior.Activity_BehaviorMoveTitle"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

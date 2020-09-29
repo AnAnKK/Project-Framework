@@ -135,5 +135,14 @@
                android:text="哈哈哈"/>
        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right|end"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="25dp"
+        android:background="@color/color_primary"
+        android:src="@drawable/icon_floatbar_add"
+        app:layout_behavior=".app.widget.behavior.TranslateUpDownBehavior"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
