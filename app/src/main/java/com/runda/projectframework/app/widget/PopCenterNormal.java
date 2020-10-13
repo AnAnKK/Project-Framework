@@ -64,6 +64,11 @@ public class PopCenterNormal extends CenterPopupView {
         textViewYes.setVisibility(CheckEmptyUtils.isEmpty(rText)?GONE:VISIBLE);
         textViewNo.setVisibility(CheckEmptyUtils.isEmpty(lText)?GONE:VISIBLE);
 
+        textViewTitle.setText(title);
+        textViewContent.setText(content);
+        textViewYes.setText(rText);
+        textViewNo.setText(lText);
+
         textViewNo.setOnClickListener(v -> {
             if (nlistener != null) {
                 dismiss();

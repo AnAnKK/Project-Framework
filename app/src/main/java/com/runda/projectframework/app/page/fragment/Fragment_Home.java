@@ -19,6 +19,7 @@ import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.activity.Activity_FuncList;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
 import com.runda.projectframework.app.page.activity.home.Activity_Popup;
+import com.runda.projectframework.app.page.activity.home.Activity_VersionUpdate;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_AppBarLayout;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic2;
@@ -50,7 +51,6 @@ import com.runda.projectframework.app.page.activity.home.video.Activity_VideoPla
 import com.runda.projectframework.app.page.adapter.Adapter_FuncItem;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_MainPage_Home;
 import com.runda.projectframework.app.repository.bean.PageTextClzInfo;
-import com.runda.projectframework.utils.ApkUpdateUtils;
 import com.runda.projectframework.utils.IntentUtil;
 import com.scwang.smart.refresh.header.FalsifyFooter;
 import com.scwang.smart.refresh.header.FalsifyHeader;
@@ -87,6 +87,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String Picture = "图片";
     public static final String Video = "视频";
     public static final String CoordinatorLayoutString = "CoordinatorLayout";
+    public static final String VersionUpdate = "版本更新";
 
     private String TAG = getClass().getSimpleName();
 
@@ -121,7 +122,6 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     @Override
     public void initEvents() {
 //        版本更新
-        ApkUpdateUtils.appUpdate(_mActivity,Constants.APP_UPDATEURL,false);
     }
 
     @Override
@@ -145,6 +145,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(Picture, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Video, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(CoordinatorLayoutString,Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(VersionUpdate,Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
         refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -261,6 +262,17 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 public void operate(Intent intent) {
                                     intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list7);
                                     intent.putExtra("title",CoordinatorLayoutString);
+                                }
+                            });
+                            break;
+                        case VersionUpdate:
+                            List<PageTextClzInfo> list8 = new ArrayList<>();
+                            list8.add(new PageTextClzInfo("版本更新", Activity_VersionUpdate.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list8);
+                                    intent.putExtra("title",VersionUpdate);
                                 }
                             });
                             break;

@@ -4,6 +4,7 @@ package com.runda.projectframework.app.di.modules;
 
 import com.runda.projectframework.app.page.Activity_MainPage;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
+import com.runda.projectframework.app.page.activity.home.Activity_VersionUpdate;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_AppBarLayout;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic2;
@@ -177,4 +178,7 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_BehaviorMoveTitle contributeActivity_BehaviorMoveTitle();
+
+    @ContributesAndroidInjector
+    abstract Activity_VersionUpdate contributeActivity_VersionUpdate();
 }

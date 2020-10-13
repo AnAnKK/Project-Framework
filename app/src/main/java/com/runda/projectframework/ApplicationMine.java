@@ -18,7 +18,6 @@ import com.dueeeke.videoplayer.player.VideoViewConfig;
 import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.core.LoadSir;
-import com.lzy.okgo.OkGo;
 import com.mob.MobSDK;
 import com.runda.projectframework.app.di.component.DaggerAppComponent;
 import com.runda.projectframework.app.others.callback.CustomCallback;
@@ -159,7 +158,6 @@ public class ApplicationMine extends Application implements
                 .commit();
 
         MobSDK.init(this);
-        OkGo.getInstance().init(this);
     }
 
     private void initMMKV(){
