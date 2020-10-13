@@ -11,8 +11,8 @@
 
    <!-- <ProgressBar
         android:id="@+id/reg_req_code_gif_view"
-        android:layout_width="@dimen/qb_px_60"
-        android:layout_height="@dimen/qb_px_60"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:indeterminateDrawable="@drawable/anim_ios_loading"
         android:indeterminateBehavior="repeat"/>-->
 

@@ -26,7 +26,7 @@ public class MSwipeMenuCrator implements SwipeMenuCreator {
 
     @Override
     public void onCreateMenu(SwipeMenu leftMenu, SwipeMenu rightMenu, int position) {
-        int width = context.getResources().getDimensionPixelSize(R.dimen.qb_px_140);
+        int width = 70;
 
         // 1. MATCH_PARENT 自适应高度，保持和Item一样高;
         // 2. 指定具体的高，比如80;

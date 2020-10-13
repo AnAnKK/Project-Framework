@@ -28,7 +28,7 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:background="@color/color_E45753"
                 android:gravity="center"
                 android:text="AAA"
@@ -38,17 +38,17 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="空数据"
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -56,11 +56,11 @@
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -70,7 +70,7 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:background="@color/color_4DD3FF"
                 android:gravity="center"
                 android:text="BBB"
@@ -80,17 +80,17 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="空数据"
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -98,11 +98,11 @@
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -112,7 +112,7 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:background="@color/color_FFA800"
                 android:gravity="center"
                 android:text="CCC"
@@ -122,17 +122,17 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="空数据"
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -140,11 +140,11 @@
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -154,7 +154,7 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:background="@color/color_35C58B"
                 android:gravity="center"
                 android:text="DDDD"
@@ -164,17 +164,17 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="空数据"
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -182,11 +182,11 @@
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -196,7 +196,7 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:background="@color/color_35C58B"
                 android:gravity="center"
                 android:text="EEEE"
@@ -206,17 +206,17 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="空数据"
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -224,11 +224,11 @@
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -238,7 +238,7 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:background="@color/color_35C58B"
                 android:gravity="center"
                 android:text="FFFF"
@@ -248,17 +248,17 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="空数据"
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -266,11 +266,11 @@
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -280,7 +280,7 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:background="@color/color_35C58B"
                 android:gravity="center"
                 android:text="GGGG"
@@ -290,17 +290,17 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="空数据"
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -308,11 +308,11 @@
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -322,7 +322,7 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:background="@color/color_35C58B"
                 android:gravity="center"
                 android:text="HHHH"
@@ -332,17 +332,17 @@
                 android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="空数据"
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"
@@ -350,11 +350,11 @@
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_1"
+                android:layout_height="0.5dp"
                 android:background="@color/color_666666"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="center"

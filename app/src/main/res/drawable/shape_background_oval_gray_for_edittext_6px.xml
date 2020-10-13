@@ -3,8 +3,8 @@
     <solid android:color="@color/color_F6F6F6" />
 
     <corners
-        android:bottomLeftRadius="@dimen/qb_px_6"
-        android:bottomRightRadius="@dimen/qb_px_6"
-        android:topLeftRadius="@dimen/qb_px_6"
-        android:topRightRadius="@dimen/qb_px_6" />
+        android:bottomLeftRadius="3dp"
+        android:bottomRightRadius="3dp"
+        android:topLeftRadius="3dp"
+        android:topRightRadius="3dp" />
 </shape>

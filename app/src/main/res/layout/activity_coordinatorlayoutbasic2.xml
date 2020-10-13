@@ -48,7 +48,7 @@
                 app:layout_collapseMode="pin"
                 android:background="@color/color_primary"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_100"
+                android:layout_height="50dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
                 >
@@ -67,7 +67,7 @@
             android:id="@+id/magicIndicator"
             android:background="@color/color_FFFFFF"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_96"/>
+            android:layout_height="48dp"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager

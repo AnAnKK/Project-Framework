@@ -20,8 +20,8 @@
         android:clickable="true"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_marginTop="@dimen/qb_px_100"
-        android:layout_height="@dimen/qb_px_96"
+        android:layout_marginTop="50dp"
+        android:layout_height="48dp"
         android:gravity="center"
         android:text="单张图片不绑定View"
         android:background="@color/color_primary"
@@ -29,7 +29,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_marginTop="@dimen/qb_px_100"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

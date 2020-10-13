@@ -18,7 +18,7 @@
         android:id="@+id/magicIndicator"
         android:background="@color/color_FFFFFF"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/qb_px_96"/>
+        android:layout_height="48dp"/>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPage"
         android:layout_width="match_parent"

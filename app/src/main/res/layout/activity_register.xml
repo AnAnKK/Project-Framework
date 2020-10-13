@@ -4,6 +4,8 @@
     android:id="@+id/linearLayout_register_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <com.runda.toolbar.RDToolbar
@@ -26,24 +28,24 @@
             android:layout_marginTop="@dimen/toolbar_padding_top"
             android:gravity="top|center_horizontal"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/qb_px_48">
+            android:paddingBottom="24dp">
 
             <!--手机号-->
                 <EditText
                     android:id="@+id/editText_register_phoneNum"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_95"
-                    android:layout_marginStart="@dimen/qb_px_80"
-                    android:layout_marginEnd="@dimen/qb_px_80"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
                     android:background="@null"
                     android:gravity="center_vertical|start"
                     android:hint="@string/resetPassword_phoneNumHint"
                     android:inputType="phone"
                     android:maxLength="11"
-                    android:paddingBottom="@dimen/qb_px_24"
-                    android:paddingEnd="@dimen/qb_px_16"
-                    android:paddingStart="@dimen/qb_px_16"
-                    android:paddingTop="@dimen/qb_px_24"
+                    android:paddingBottom="12dp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:paddingTop="12dp"
                     android:textColor="@color/color_333333"
                     android:textColorHint="@color/color_C0C0C0"
                     android:textCursorDrawable="@xml/my_cursor"
@@ -51,23 +53,23 @@
                 <View
                     android:id="@+id/bottomLine_register_phoneNum"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_2"
-                    android:layout_marginEnd="@dimen/qb_px_80"
-                    android:layout_marginStart="@dimen/qb_px_80"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginStart="40dp"
                     android:background="@drawable/selector_background_rect_special_for_sign_bottom_line" />
 
 
             <!--验证码-->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
-                android:layout_marginEnd="@dimen/qb_px_80"
-                android:layout_marginStart="@dimen/qb_px_80">
+                android:layout_height="48dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp">
 
 
                 <TextView
                     android:id="@+id/textView_register_getVCode"
-                    android:layout_width="@dimen/qb_px_160"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
@@ -75,8 +77,8 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"
-                    android:paddingBottom="@dimen/qb_px_16"
-                    android:paddingTop="@dimen/qb_px_16"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
                     android:text="@string/sign_getVCode"
                     android:textColor="@drawable/selector_textcolor_get_vcode"
                     android:textSize="13sp" />
@@ -93,10 +95,10 @@
                     android:textCursorDrawable="@xml/my_cursor"
                     android:maxLength="6"
                     android:inputType="number"
-                    android:paddingBottom="@dimen/qb_px_24"
-                    android:paddingEnd="@dimen/qb_px_16"
-                    android:paddingStart="@dimen/qb_px_16"
-                    android:paddingTop="@dimen/qb_px_32"
+                    android:paddingBottom="12dp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:paddingTop="16dp"
                     android:textColor="@color/color_333333"
                     android:textColorHint="@color/color_C0C0C0"
                     android:textSize="14sp" />
@@ -104,7 +106,7 @@
                 <View
                     android:id="@+id/bottomLine_register_vCode"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_2"
+                    android:layout_height="1dp"
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/selector_background_rect_special_for_sign_bottom_line" />
             </RelativeLayout>
@@ -112,25 +114,25 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/qb_px_80"
-                android:layout_marginStart="@dimen/qb_px_80"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
                 >
 
                 <EditText
                     android:id="@+id/editText_register_password"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_96"
+                    android:layout_height="48dp"
                     android:layout_alignParentTop="true"
                     android:background="@null"
-                    android:drawablePadding="@dimen/qb_px_20"
+                    android:drawablePadding="10dp"
                     android:gravity="center_vertical|start"
                     android:hint="@string/pleaseInputPassword"
                     android:inputType="textPassword"
                     android:maxLength="16"
-                    android:paddingBottom="@dimen/qb_px_24"
-                    android:paddingEnd="@dimen/qb_px_84"
-                    android:paddingStart="@dimen/qb_px_16"
-                    android:paddingTop="@dimen/qb_px_32"
+                    android:paddingBottom="12dp"
+                    android:paddingEnd="42dp"
+                    android:paddingStart="8dp"
+                    android:paddingTop="16dp"
                     android:textColor="@color/color_333333"
                     android:textColorHint="@color/color_C0C0C0"
                     android:textCursorDrawable="@xml/my_cursor"
@@ -139,14 +141,14 @@
                 <View
                     android:id="@+id/bottomLine_register_password"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_2"
+                    android:layout_height="1dp"
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/selector_background_rect_special_for_sign_bottom_line" />
 
                 <ImageView
                     android:id="@+id/imageView_register_passwordVisible"
-                    android:layout_width="@dimen/qb_px_64"
-                    android:layout_height="@dimen/qb_px_64"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/style_background_operation_press_square"
@@ -154,32 +156,32 @@
                     android:contentDescription="@null"
                     android:focusable="true"
                     android:foreground="@drawable/style_background_operation_press_square"
-                    android:padding="@dimen/qb_px_8"
+                    android:padding="4dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/selector_drawable_sign_password_visible" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/qb_px_80"
-                android:layout_marginStart="@dimen/qb_px_80"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
                 >
 
                 <EditText
                     android:id="@+id/editText_register_confirm"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_96"
+                    android:layout_height="48dp"
                     android:layout_alignParentTop="true"
                     android:background="@null"
-                    android:drawablePadding="@dimen/qb_px_20"
+                    android:drawablePadding="10dp"
                     android:gravity="center_vertical|start"
                     android:hint="@string/pleaseInputPasswordAgain"
                     android:inputType="textPassword"
                     android:maxLength="16"
-                    android:paddingBottom="@dimen/qb_px_24"
-                    android:paddingEnd="@dimen/qb_px_84"
-                    android:paddingStart="@dimen/qb_px_16"
-                    android:paddingTop="@dimen/qb_px_32"
+                    android:paddingBottom="12dp"
+                    android:paddingEnd="42dp"
+                    android:paddingStart="8dp"
+                    android:paddingTop="16dp"
                     android:textColor="@color/color_333333"
                     android:textColorHint="@color/color_C0C0C0"
                     android:textCursorDrawable="@xml/my_cursor"
@@ -188,14 +190,14 @@
                 <View
                     android:id="@+id/bottomLine_register_confirmpassword"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_2"
+                    android:layout_height="1dp"
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/selector_background_rect_special_for_sign_bottom_line" />
 
                 <ImageView
                     android:id="@+id/imageView_register_passwordConfirmVisible"
-                    android:layout_width="@dimen/qb_px_64"
-                    android:layout_height="@dimen/qb_px_64"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/style_background_operation_press_square"
@@ -203,7 +205,7 @@
                     android:contentDescription="@null"
                     android:focusable="true"
                     android:foreground="@drawable/style_background_operation_press_square"
-                    android:padding="@dimen/qb_px_8"
+                    android:padding="4dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/selector_drawable_sign_password_visible" />
             </RelativeLayout>
@@ -213,22 +215,22 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/sp_14"
                 android:textColor="@color/color_C0C0C0"
-                android:paddingTop="@dimen/qb_px_120"
+                android:paddingTop="60dp"
                 android:text="@string/passwordRequirements"
-                android:paddingStart="@dimen/qb_px_16"
-                android:layout_marginStart="@dimen/qb_px_80"
-                android:layout_marginEnd="@dimen/qb_px_80"
+                android:paddingStart="8dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
                 />
 
 
             <Button
                 android:id="@+id/button_register"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_90"
-                android:layout_marginBottom="@dimen/qb_px_28"
-                android:layout_marginEnd="@dimen/qb_px_80"
-                android:layout_marginStart="@dimen/qb_px_80"
-                android:layout_marginTop="@dimen/qb_px_50"
+                android:layout_height="45dp"
+                android:layout_marginBottom="14dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/shape_background_oval_primarycolor_for_button_96px"
                 android:gravity="center"
                 android:text="@string/regist"
@@ -239,13 +241,13 @@
                 android:id="@+id/textview_aggrement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/qb_px_80"
-                android:layout_marginStart="@dimen/qb_px_80"
-                android:layout_marginTop="@dimen/qb_px_36"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="18dp"
                 android:text="@string/clickRegistTreaty"
                 android:textSize="12sp"
                 android:textColor="@color/color_898989"
-                android:lineSpacingExtra="@dimen/qb_px_5"
+                android:lineSpacingExtra="2.5dp"
                 android:clickable="true"
                 android:focusable="true"
                 />

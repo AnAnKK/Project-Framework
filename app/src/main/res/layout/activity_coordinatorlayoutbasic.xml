@@ -13,7 +13,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_400"
+                android:layout_height="200dp"
                 android:src="@drawable/imagetest"
                 app:layout_collapseMode="parallax"
                 android:scaleType="fitXY"/>
@@ -22,7 +22,7 @@
                 android:id="@+id/toolbar"
                 app:layout_collapseMode="pin"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_100"
+                android:layout_height="50dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
                 >
@@ -35,7 +35,7 @@
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="@dimen/qb_px_10"
+                        android:layout_marginBottom="5dp"
                         android:background="@drawable/style_background_operation_press_square"
                         android:clickable="true"
                         android:contentDescription="@null"
@@ -52,7 +52,7 @@
                         android:layout_height="32dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="@dimen/qb_px_10"
+                        android:layout_marginBottom="5dp"
                         android:layout_marginEnd="15dp"
                         android:background="@drawable/style_background_operation_press_square"
                         android:clickable="true"
@@ -68,7 +68,7 @@
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="@dimen/qb_px_10"
+                        android:layout_marginBottom="5dp"
                         android:layout_marginEnd="6dp"
                         android:layout_toStartOf="@+id/imageLike"
                         android:background="@drawable/style_background_operation_press_square"
@@ -85,7 +85,7 @@
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="@dimen/qb_px_10"
+                        android:layout_marginBottom="5dp"
                         android:layout_marginEnd="6dp"
                         android:layout_toStartOf="@+id/imageShare"
                         android:background="@drawable/style_background_operation_press_square"
@@ -105,7 +105,7 @@
                 android:id="@+id/toolbar"
                 app:layout_collapseMode="pin"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_100"/>-->
+                android:layout_height="50dp"/>-->
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 

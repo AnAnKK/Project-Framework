@@ -14,30 +14,30 @@
         android:text="子类事件1"
         android:layout_width="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_height="@dimen/qb_px_96"/>
+        android:layout_height="48dp"/>
     <Button
         android:id="@+id/buttonChild2"
         android:text="子类事件2"
-        android:layout_marginTop="@dimen/qb_px_40"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/qb_px_96"/>
+        android:layout_height="48dp"/>
     <Button
         android:id="@+id/buttonChild3"
         android:text="显示Success页面"
-        android:layout_marginTop="@dimen/qb_px_40"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/qb_px_96"/>
+        android:layout_height="48dp"/>
     <Button
         android:id="@+id/buttonAll1"
         android:text="全局事件1"
-        android:layout_marginTop="@dimen/qb_px_40"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/qb_px_96"/>
+        android:layout_height="48dp"/>
     <Button
         android:id="@+id/buttonAll2"
         android:text="全局事件2"
-        android:layout_marginTop="@dimen/qb_px_40"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/qb_px_96"/>
+        android:layout_height="48dp"/>
 
 </LinearLayout>

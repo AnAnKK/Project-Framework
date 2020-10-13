@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@id/content_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/qb_px_200"
+        android:layout_height="100dp"
         android:gravity="center">
 
         <Button
@@ -28,12 +28,12 @@
     <Button
         android:id="@id/left_view"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/qb_px_200"
+        android:layout_height="100dp"
         android:text="左面Button"/>
 
     <Button
         android:id="@id/right_view"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/qb_px_200"
+        android:layout_height="100dp"
         android:text="右面Button"/>
 </com.yanzhenjie.recyclerview.SwipeMenuLayout>

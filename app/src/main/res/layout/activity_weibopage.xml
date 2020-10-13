@@ -89,7 +89,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:gravity="center_vertical"
-                            android:paddingLeft="@dimen/qb_px_20"
+                            android:paddingLeft="10dp"
                             android:text="发布动态"/>
                     </LinearLayout>
                 </LinearLayout>

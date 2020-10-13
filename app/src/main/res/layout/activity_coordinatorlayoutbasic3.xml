@@ -18,7 +18,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_400"
+                android:layout_height="200dp"
                 android:src="@drawable/imagetest"
                 android:scaleType="fitXY"/>
 
@@ -33,7 +33,7 @@
         <net.lucode.hackware.magicindicator.MagicIndicator
             android:id="@+id/magicIndicator"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_96"/>
+            android:layout_height="48dp"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager

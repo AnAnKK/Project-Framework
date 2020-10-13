@@ -73,21 +73,21 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:textColor="@color/color_333333"
-                android:layout_width="@dimen/qb_px_0"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"/>
             <TextView
                 android:text="任务"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:textColor="@color/color_333333"
-                android:layout_width="@dimen/qb_px_0"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"/>
             <TextView
                 android:text="DING"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:textColor="@color/color_333333"
-                android:layout_width="@dimen/qb_px_0"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"/>
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -182,7 +182,7 @@
         android:alpha="0"
         android:elevation="10dp"
         android:gravity="center_vertical"
-        android:text="OkGo-让网络请求更简单"
+        android:text="标题王老吉"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold"

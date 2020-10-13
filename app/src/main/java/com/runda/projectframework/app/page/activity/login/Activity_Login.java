@@ -21,6 +21,7 @@ import com.runda.projectframework.app.others.event.EventCode;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.Activity_MainPage;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_Login;
+import com.runda.projectframework.app.widget.xui.ShadowButton;
 import com.runda.projectframework.utils.CheckEmptyUtils;
 import com.runda.projectframework.utils.EventBusUtil;
 import com.runda.projectframework.utils.IntentUtil;
@@ -69,10 +70,10 @@ public class Activity_Login extends BaseActivity<ViewModel_Login> implements Pla
     Button bt_loginin;
 
     @BindView(R.id.imageView_signIn_signInByThirdPart_wechat)
-    ImageView imageView_wechat;
+    ShadowButton imageView_wechat;
 
     @BindView(R.id.imageView_signIn_signInByThirdPart_qq)
-    ImageView imageView_qq;
+    ShadowButton imageView_qq;
 
     @BindView(R.id.imageView_login_type)
     ImageView imageView_login_type;
@@ -151,7 +152,6 @@ public class Activity_Login extends BaseActivity<ViewModel_Login> implements Pla
     }
 
     private void initUserType() {
-        Glide.with(Activity_Login.this).load(R.drawable.icon_login_logo).into(imageView_login_type);
     }
 
 

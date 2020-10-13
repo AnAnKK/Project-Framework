@@ -1,0 +1,5 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!-- ShadowButton-->
+    <dimen name="default_shadow_button_radius">2dp</dimen>
+</resources>

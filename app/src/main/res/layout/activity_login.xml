@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,49 +15,39 @@
         android:focusableInTouchMode="true"
        >
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_328"
-            android:src="@drawable/icon_login_top"
-            />
         <ImageView
             android:id="@+id/imageView_login_type"
-            android:layout_width="@dimen/qb_px_250"
-            android:layout_height="@dimen/qb_px_160"
+            android:layout_width="125dp"
+            android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/qb_px_210"
-            android:src="@drawable/icon_login_logo"
+            android:layout_marginTop="105dp"
+            android:src="@drawable/icon_logo"
             />
-    </FrameLayout>
 
     <!--用户名,密码-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top|center_horizontal"
-        android:layout_marginTop="@dimen/qb_px_50"
+        android:layout_marginTop="25dp"
         android:orientation="vertical">
 
         <EditText
             android:id="@+id/editText_login_signName"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_96"
-            android:layout_marginEnd="@dimen/qb_px_80"
-            android:layout_marginStart="@dimen/qb_px_80"
+            android:layout_height="48dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
             android:background="@null"
-            android:drawablePadding="@dimen/qb_px_20"
+            android:drawablePadding="10dp"
             android:gravity="center_vertical|start"
             android:hint="@string/pleaseInputUserName"
             android:inputType="phone"
             android:maxLength="11"
-            android:paddingBottom="@dimen/qb_px_24"
-            android:paddingEnd="@dimen/qb_px_16"
-            android:paddingStart="@dimen/qb_px_16"
-            android:paddingTop="@dimen/qb_px_24"
+            android:paddingBottom="12dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="12dp"
             android:textColor="@color/color_333333"
             android:textColorHint="@color/color_C0C0C0"
             android:textCursorDrawable="@xml/my_cursor"
@@ -67,34 +56,34 @@
         <View
             android:id="@+id/bottomLine_login_signName"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_2"
-            android:layout_marginEnd="@dimen/qb_px_80"
-            android:layout_marginStart="@dimen/qb_px_80"
+            android:layout_height="1dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
             android:background="@drawable/selector_background_rect_special_for_sign_bottom_line" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/qb_px_80"
-            android:layout_marginStart="@dimen/qb_px_80"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
             >
 
             <EditText
                 android:id="@+id/editText_login_password"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_96"
+                android:layout_height="48dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="2dp"
                 android:background="@null"
-                android:drawablePadding="@dimen/qb_px_20"
+                android:drawablePadding="10dp"
                 android:gravity="center_vertical|start"
                 android:hint="@string/pleaseInputPassword"
                 android:inputType="textPassword"
                 android:maxLength="16"
-                android:paddingStart="@dimen/qb_px_16"
-                android:paddingTop="@dimen/qb_px_32"
-                android:paddingEnd="@dimen/qb_px_84"
-                android:paddingBottom="@dimen/qb_px_24"
+                android:paddingStart="8dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="42dp"
+                android:paddingBottom="12dp"
                 android:textColor="@color/color_333333"
                 android:textColorHint="@color/color_C0C0C0"
                 android:textCursorDrawable="@xml/my_cursor"
@@ -103,14 +92,14 @@
             <View
                 android:id="@+id/bottomLine_login_password"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_2"
+                android:layout_height="1dp"
                 android:layout_alignParentBottom="true"
                 android:background="@drawable/selector_background_rect_special_for_sign_bottom_line" />
 
             <ImageView
                 android:id="@+id/imageView_login_passwordVisible"
-                android:layout_width="@dimen/qb_px_64"
-                android:layout_height="@dimen/qb_px_64"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/style_background_operation_press_square"
@@ -118,7 +107,7 @@
                 android:contentDescription="@null"
                 android:focusable="true"
                 android:foreground="@drawable/style_background_operation_press_square"
-                android:padding="@dimen/qb_px_8"
+                android:padding="4dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/selector_drawable_sign_password_visible" />
         </RelativeLayout>
@@ -128,10 +117,10 @@
     <Button
         android:id="@+id/bt_loginin"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/qb_px_90"
-        android:layout_marginEnd="@dimen/qb_px_80"
-        android:layout_marginStart="@dimen/qb_px_80"
-        android:layout_marginTop="@dimen/qb_px_36"
+        android:layout_height="45dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/shape_background_oval_primarycolor_for_button_96px"
         android:gravity="center"
         android:text="@string/login"
@@ -148,8 +137,8 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:text="@string/userRegister"
-            android:layout_marginStart="@dimen/qb_px_80"
-            android:layout_marginTop="@dimen/qb_px_40"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/style_background_operation_press"
             android:clickable="true"
             android:focusable="true"
@@ -162,8 +151,8 @@
             android:textSize="14sp"
             android:text="@string/forgetPassword"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/qb_px_80"
-            android:layout_marginTop="@dimen/qb_px_40"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/style_background_operation_press"
             android:clickable="true"
             android:focusable="true"
@@ -175,7 +164,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/qb_px_50"
+        android:layout_marginTop="25dp"
         android:gravity="center"
         android:orientation="horizontal">
         <LinearLayout
@@ -183,28 +172,25 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
-            <ImageView
+            <com.runda.projectframework.app.widget.xui.ShadowButton
                 android:id="@+id/imageView_signIn_signInByThirdPart_wechat"
-                android:layout_width="@dimen/qb_px_112"
-                android:layout_height="@dimen/qb_px_112"
-                android:clickable="true"
-                android:contentDescription="@null"
-                android:focusable="true"
-                android:scaleType="fitXY"
-                android:background="@drawable/style_background_operation_press"
-                android:src="@drawable/icon_login_wx" />
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/icon_login_wx"
+                app:sb_shape_type="round"
+                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/wechat"
                 android:textSize="12sp"
-                android:layout_marginTop="@dimen/qb_px_24"
+                android:layout_marginTop="12dp"
                 />
         </LinearLayout>
 
         <Space
-            android:layout_width="@dimen/qb_px_90"
+            android:layout_width="45dp"
             android:layout_height="wrap_content" />
 
         <LinearLayout
@@ -212,21 +198,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
-            <ImageView
+            <com.runda.projectframework.app.widget.xui.ShadowButton
                 android:id="@+id/imageView_signIn_signInByThirdPart_qq"
-                android:layout_width="@dimen/qb_px_112"
-                android:layout_height="@dimen/qb_px_112"
-                android:clickable="true"
-                android:contentDescription="@null"
-                android:focusable="true"
-                android:scaleType="fitXY"
-                android:background="@drawable/style_background_operation_press"
-                android:src="@drawable/icon_login_qq" />
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/icon_login_qq"
+                app:sb_shape_type="round"
+                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginTop="@dimen/qb_px_24"
+                android:layout_marginTop="12dp"
                 android:text="@string/qq"
                 android:textSize="12sp"
                 />
@@ -236,10 +219,4 @@
 
 </LinearLayout>
 </androidx.core.widget.NestedScrollView>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/qb_px_150"
-        android:src="@drawable/icon_login_bottom"
-        android:layout_alignParentBottom="true"
-        />
 </RelativeLayout>
