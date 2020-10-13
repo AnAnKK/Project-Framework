@@ -139,4 +139,27 @@ public class SourceConfig {
 
         return videoList;
     }
+
+    /**
+     * <item>Android</item>
+     *         <item>Javascript</item>
+     *         <item>React Native</item>
+     *         <item>Kotlin</item>
+     *         <item>C++</item>
+     *         <item>C#</item>
+     *         <item>Object-C</item>
+     * @return
+     */
+    public static List<String> getFlexboxString(){
+        List<String>list = new ArrayList<>();
+        list.add("Android");
+        list.add("Javascript");
+        list.add("React Native");
+        list.add("Kotlin");
+        list.add("C++");
+        list.add("C");
+        list.add("Object-C");
+        return list;
+    }
+
 }

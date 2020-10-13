@@ -159,6 +159,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.Activity_VersionUpdate"
             android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.Activity_Flexbox"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

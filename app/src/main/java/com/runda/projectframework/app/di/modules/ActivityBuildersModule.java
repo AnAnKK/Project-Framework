@@ -3,6 +3,7 @@ package com.runda.projectframework.app.di.modules;
 
 
 import com.runda.projectframework.app.page.Activity_MainPage;
+import com.runda.projectframework.app.page.activity.home.Activity_Flexbox;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
 import com.runda.projectframework.app.page.activity.home.Activity_VersionUpdate;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_AppBarLayout;
@@ -181,4 +182,7 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_VersionUpdate contributeActivity_VersionUpdate();
+
+    @ContributesAndroidInjector
+    abstract Activity_Flexbox contributeActivity_Flexbox();
 }

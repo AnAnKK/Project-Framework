@@ -17,6 +17,7 @@ import com.runda.projectframework.app.base.BaseLazyFragment;
 import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.activity.Activity_FuncList;
+import com.runda.projectframework.app.page.activity.home.Activity_Flexbox;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
 import com.runda.projectframework.app.page.activity.home.Activity_Popup;
 import com.runda.projectframework.app.page.activity.home.Activity_VersionUpdate;
@@ -88,6 +89,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String Video = "视频";
     public static final String CoordinatorLayoutString = "CoordinatorLayout";
     public static final String VersionUpdate = "版本更新";
+    public static final String Flexbox = "流布局";
 
     private String TAG = getClass().getSimpleName();
 
@@ -146,6 +148,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(Video, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(CoordinatorLayoutString,Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(VersionUpdate,Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(Flexbox, Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
         refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -273,6 +276,17 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 public void operate(Intent intent) {
                                     intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list8);
                                     intent.putExtra("title",VersionUpdate);
+                                }
+                            });
+                            break;
+                        case Flexbox:
+                            List<PageTextClzInfo> list9 = new ArrayList<>();
+                            list9.add(new PageTextClzInfo("流布局", Activity_Flexbox.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list9);
+                                    intent.putExtra("title",Flexbox);
                                 }
                             });
                             break;

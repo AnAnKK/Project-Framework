@@ -174,7 +174,7 @@ dependencies {
     implementation 'com.wang.avi:library:2.1.3'//动画
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.9'//图片选择
     implementation 'com.github.Hitomis.transferee:Transferee:1.6.1'//图片查看,可拖拽的
-
+    implementation 'com.google.android:flexbox:0.3.1'
     implementation 'com.github.dueeeke.dkplayer:dkplayer-java:3.2.6'//dkplayer视频播放
     implementation 'com.github.dueeeke.dkplayer:dkplayer-ui:3.2.6'
     implementation 'com.github.dueeeke.dkplayer:player-ijk:3.2.6'
