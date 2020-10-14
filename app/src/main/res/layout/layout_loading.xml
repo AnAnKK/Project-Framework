@@ -5,26 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@android:color/white"
     android:gravity="center"
     android:orientation="vertical">
 
-   <!-- <ProgressBar
-        android:id="@+id/reg_req_code_gif_view"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:indeterminateDrawable="@drawable/anim_ios_loading"
-        android:indeterminateBehavior="repeat"/>-->
-
-<!--BallPulseIndicator BallSpinFadeLoaderIndicator  BallTrianglePathIndicator LineScalePartyIndicator -->
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/avi"
+    <com.runda.projectframework.app.widget.xui.MiniLoadingView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/AVLoadingIndicatorView"
-        android:visibility="visible"
-        app:indicatorName="BallSpinFadeLoaderIndicator"
-        app:indicatorColor="@color/color_primary"
+        app:mlv_loading_view_color="#858C96"
         />
 
 </LinearLayout>

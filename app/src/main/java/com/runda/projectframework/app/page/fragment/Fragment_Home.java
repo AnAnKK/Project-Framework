@@ -92,6 +92,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String VersionUpdate = "版本更新";
     public static final String Flexbox = "流布局";
     public static final String Marquee = "文字滚动";
+    public static final String Drop = "下拉框";//
 
     private String TAG = getClass().getSimpleName();
 
@@ -152,6 +153,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(VersionUpdate,Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Flexbox, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Marquee, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(Drop, Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
         refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -302,6 +304,16 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 public void operate(Intent intent) {
                                     intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list10);
                                     intent.putExtra("title",Marquee);
+                                }
+                            });
+                            break;
+                        case Drop:
+                            List<PageTextClzInfo> list11 = new ArrayList<>();
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list11);
+                                    intent.putExtra("title",Drop);
                                 }
                             });
                             break;

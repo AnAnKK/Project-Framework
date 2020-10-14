@@ -92,4 +92,16 @@
         <attr name="mq_animIn" format="reference" />
         <attr name="mq_animOut" format="reference" />
     </declare-styleable>
+
+    <!--MiniLoadingView-->
+
+    <attr name="MiniLoadingStyle" format="reference" />
+    <declare-styleable name="MiniLoadingView">
+        <!--loading控件的大小，默认32dp-->
+        <attr name="mlv_loading_view_size" format="dimension" />
+        <!--loading控件的颜色，默认白色-->
+        <attr name="mlv_loading_view_color" format="color" />
+    </declare-styleable>
+
+
 </resources>
