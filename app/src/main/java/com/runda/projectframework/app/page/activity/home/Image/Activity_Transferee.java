@@ -1,4 +1,4 @@
-package com.runda.projectframework.app.page.activity.home.picture;
+package com.runda.projectframework.app.page.activity.home.Image;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;

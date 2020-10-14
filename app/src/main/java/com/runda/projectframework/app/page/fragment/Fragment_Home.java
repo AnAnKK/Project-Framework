@@ -14,13 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.gyf.immersionbar.ImmersionBar;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseLazyFragment;
-import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.activity.Activity_FuncList;
 import com.runda.projectframework.app.page.activity.home.Activity_Flexbox;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
+import com.runda.projectframework.app.page.activity.home.Activity_Marquee;
 import com.runda.projectframework.app.page.activity.home.Activity_Popup;
 import com.runda.projectframework.app.page.activity.home.Activity_VersionUpdate;
+import com.runda.projectframework.app.page.activity.home.Image.Activity_RadiusImageView;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_AppBarLayout;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic2;
@@ -34,8 +35,8 @@ import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSi
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirCustom;
 import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSirFragment;
 import com.runda.projectframework.app.page.activity.home.loadsir.FragmentActivity_LoadSir;
-import com.runda.projectframework.app.page.activity.home.picture.Activity_PictureAdd;
-import com.runda.projectframework.app.page.activity.home.picture.Activity_Transferee;
+import com.runda.projectframework.app.page.activity.home.Image.Activity_PictureAdd;
+import com.runda.projectframework.app.page.activity.home.Image.Activity_Transferee;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_QuickAdapter;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerDrag;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerMultiType;
@@ -85,11 +86,12 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String LoadSir = "LoadSir";
     public static final String KProgressHud = "KProgressHud";
     public static final String RecyclerViewWidget = "RecyclerView";
-    public static final String Picture = "图片";
+    public static final String Image = "图片";
     public static final String Video = "视频";
     public static final String CoordinatorLayoutString = "CoordinatorLayout";
     public static final String VersionUpdate = "版本更新";
     public static final String Flexbox = "流布局";
+    public static final String Marquee = "文字滚动";
 
     private String TAG = getClass().getSimpleName();
 
@@ -144,11 +146,12 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(LoadSir, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(KProgressHud, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(RecyclerViewWidget, Activity_FuncList.class.getSimpleName()));
-        list.add(new PageTextClzInfo(Picture, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(Image, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Video, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(CoordinatorLayoutString,Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(VersionUpdate,Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Flexbox, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(Marquee, Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
         refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -227,15 +230,16 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 }
                             });
                             break;
-                        case Picture:
+                        case Image:
                             List<PageTextClzInfo> list5 = new ArrayList<>();
                             list5.add(new PageTextClzInfo("图片添加", Activity_PictureAdd.class.getName()));
                             list5.add(new PageTextClzInfo("图片展示Transferee", Activity_Transferee.class.getName()));
+                            list5.add(new PageTextClzInfo("RadiusImageView", Activity_RadiusImageView.class.getName()));
                             IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
                                 @Override
                                 public void operate(Intent intent) {
                                     intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list5);
-                                    intent.putExtra("title",Picture);
+                                    intent.putExtra("title", Image);
                                 }
                             });
                             break;
@@ -287,6 +291,17 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 public void operate(Intent intent) {
                                     intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list9);
                                     intent.putExtra("title",Flexbox);
+                                }
+                            });
+                            break;
+                        case Marquee:
+                            List<PageTextClzInfo> list10 = new ArrayList<>();
+                            list10.add(new PageTextClzInfo(Marquee, Activity_Marquee.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list10);
+                                    intent.putExtra("title",Marquee);
                                 }
                             });
                             break;

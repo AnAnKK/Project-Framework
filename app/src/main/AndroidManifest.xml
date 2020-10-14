@@ -134,9 +134,9 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.recycler.Activity_RecyclerSticky"
             android:screenOrientation="portrait"/>
-        <activity android:name=".app.page.activity.home.picture.Activity_PictureAdd"
+        <activity android:name=".app.page.activity.home.Image.Activity_PictureAdd"
             android:screenOrientation="portrait"/>
-        <activity android:name=".app.page.activity.home.picture.Activity_Transferee"
+        <activity android:name=".app.page.activity.home.Image.Activity_Transferee"
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.video.Activity_VideoPlayRecyclerView"
             android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
@@ -160,6 +160,10 @@
         <activity android:name=".app.page.activity.home.Activity_VersionUpdate"
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.Activity_Flexbox"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.Image.Activity_RadiusImageView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.Activity_Marquee"
             android:screenOrientation="portrait"/>
     </application>
 

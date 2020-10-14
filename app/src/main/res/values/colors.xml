@@ -47,4 +47,7 @@
     <color name="color_9B9B9B">#9B9B9B</color>
     <color name="color_E0DBDBDB">#E0DBDBDB</color>
     <color name="color_E0FF6100">#E0FF6100</color>
+    <color name="xui_config_color_gray_4">#717882</color>
+    <color name="xui_config_color_gray_6">#99A0AA</color>
+    <color name="xui_config_color_gray_8">#C4C8D0</color>
 </resources>

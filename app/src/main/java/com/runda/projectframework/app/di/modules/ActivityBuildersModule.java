@@ -5,7 +5,9 @@ package com.runda.projectframework.app.di.modules;
 import com.runda.projectframework.app.page.Activity_MainPage;
 import com.runda.projectframework.app.page.activity.home.Activity_Flexbox;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
+import com.runda.projectframework.app.page.activity.home.Activity_Marquee;
 import com.runda.projectframework.app.page.activity.home.Activity_VersionUpdate;
+import com.runda.projectframework.app.page.activity.home.Image.Activity_RadiusImageView;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_AppBarLayout;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic;
 import com.runda.projectframework.app.page.activity.home.coordinatorLayout.Activity_CoordinatorLayoutBasic2;
@@ -20,8 +22,8 @@ import com.runda.projectframework.app.page.activity.home.loadsir.Activity_LoadSi
 import com.runda.projectframework.app.page.activity.home.Activity_Popup;
 import com.runda.projectframework.app.page.activity.home.immersionbar.Activity_ImmersionBarSlideTrans;
 import com.runda.projectframework.app.page.activity.home.loadsir.FragmentActivity_LoadSir;
-import com.runda.projectframework.app.page.activity.home.picture.Activity_PictureAdd;
-import com.runda.projectframework.app.page.activity.home.picture.Activity_Transferee;
+import com.runda.projectframework.app.page.activity.home.Image.Activity_PictureAdd;
+import com.runda.projectframework.app.page.activity.home.Image.Activity_Transferee;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_QuickAdapter;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerDrag;
 import com.runda.projectframework.app.page.activity.home.recycler.Activity_RecyclerMultiType;
@@ -185,4 +187,10 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_Flexbox contributeActivity_Flexbox();
+
+    @ContributesAndroidInjector
+    abstract Activity_RadiusImageView contributeActivity_RadiusImageView();
+
+    @ContributesAndroidInjector
+    abstract Activity_Marquee contributeActivity_Marquee();
 }

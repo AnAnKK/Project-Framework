@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:alpha="1"
+        android:background="@drawable/shape_immsersion_main"
+        app:navigationIcon="@drawable/icon_back_white"
+        app:titleTextColor="@android:color/white" />
+
+    <com.runda.projectframework.app.widget.xui.marquee.MarqueeView
+        android:id="@+id/marqueeView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#88dddddd" />
+
+    <com.runda.projectframework.app.widget.xui.marquee.MarqueeView
+        android:id="@+id/marqueeView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#88dddddd"
+        app:mq_animDuration="2000"
+        app:mq_animIn="@anim/marquee_right_in"
+        app:mq_animOut="@anim/marquee_left_out"
+        app:mq_interval="2500" />
+
+    <com.runda.projectframework.app.widget.xui.marquee.MarqueeView
+        android:id="@+id/marqueeView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#88dddddd" />
+
+    <com.runda.projectframework.app.widget.xui.marquee.MarqueeView
+        android:id="@+id/marqueeView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#88dddddd" />
+
+    <com.runda.projectframework.app.widget.xui.marquee.MarqueeView
+        android:id="@+id/marqueeView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#88dddddd" />
+
+
+</LinearLayout>

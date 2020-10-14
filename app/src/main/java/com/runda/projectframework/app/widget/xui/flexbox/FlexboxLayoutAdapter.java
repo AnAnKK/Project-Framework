@@ -23,6 +23,7 @@ import androidx.annotation.NonNull;
 
 
 import com.runda.projectframework.R;
+import com.runda.projectframework.app.widget.xui.BaseRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

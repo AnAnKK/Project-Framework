@@ -15,11 +15,14 @@
  *
  */
 
-package com.runda.projectframework.app.widget.xui.flexbox;
+package com.runda.projectframework.app.widget.xui;
 
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+
+import com.runda.projectframework.app.widget.xui.flexbox.RecyclerViewHolder;
+import com.runda.projectframework.app.widget.xui.flexbox.XRecyclerAdapter;
 
 import java.util.Collection;
 

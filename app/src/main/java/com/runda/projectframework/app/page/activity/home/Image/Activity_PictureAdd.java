@@ -1,4 +1,4 @@
-package com.runda.projectframework.app.page.activity.home.picture;
+package com.runda.projectframework.app.page.activity.home.Image;
 
 import android.Manifest;
 import android.content.pm.ActivityInfo;
