@@ -8,5 +8,9 @@
         android:layout_height="match_parent"
         android:gravity="center"
         tools:text="功能"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/imagetest2"/>
 </RelativeLayout>
 

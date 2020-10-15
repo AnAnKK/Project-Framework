@@ -114,7 +114,7 @@ public class FragmentActivity_LoadSir extends BaseFragmentActivity<BaseViewModel
         adapterMagicIndicator.setOnMagicItemClick(new MagicItemClick<String>() {
             @Override
             public void onClick(int index, String data) {
-                viewPage.setCurrentItem(index);
+                viewPage.setCurrentItem(index,false);
             }
         });
         commonNavigator.setAdapter(adapterMagicIndicator);

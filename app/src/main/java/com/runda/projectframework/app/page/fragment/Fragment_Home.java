@@ -93,7 +93,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String VersionUpdate = "版本更新";
     public static final String Flexbox = "流布局";
     public static final String Marquee = "文字滚动";
-    public static final String Drop = "下拉框";//
+    public static final String Drop = "下拉框看github/DropDownMenu-plus";//
     public static final String TBSStatic = "TBS静态集成";
 
     private String TAG = getClass().getSimpleName();

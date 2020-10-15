@@ -1,15 +1,16 @@
 package com.runda.projectframework.app.page;
 
 import android.view.KeyEvent;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
-import com.ashokvarma.bottomnavigation.BottomNavigationBar;
-import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseFragmentActivity;
 import com.runda.projectframework.app.base.BaseViewModel;
@@ -17,7 +18,6 @@ import com.runda.projectframework.app.page.adapter.Adapter_MainPage;
 import com.runda.projectframework.app.page.fragment.Fragment_Function;
 import com.runda.projectframework.app.page.fragment.Fragment_Home;
 import com.runda.projectframework.app.page.fragment.Fragment_Mine;
-import com.runda.projectframework.utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +31,10 @@ import butterknife.BindView;
  * @date 2019/11/1
  * Description: 首页
  */
-public class Activity_MainPage extends BaseFragmentActivity<BaseViewModel> implements BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener {
+public class Activity_MainPage extends BaseFragmentActivity<BaseViewModel> implements BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener {
 
-    @BindView(R.id.bottomBar_mainPage)
-    BottomNavigationBar bottomBar;
+    @BindView(R.id.bottomNavigationView)
+    BottomNavigationView bottomNavigationView;
 
     @BindView(R.id.view_pager)
     ViewPager viewPager;
@@ -54,7 +54,7 @@ public class Activity_MainPage extends BaseFragmentActivity<BaseViewModel> imple
 
     @Override
     public void initEvents() {
-        setupBottomBar();
+        setupBottomNatigation();
         setupViewPager();
     }
 
@@ -62,23 +62,9 @@ public class Activity_MainPage extends BaseFragmentActivity<BaseViewModel> imple
     public void start() {
     }
 
-
-
-    private void setupBottomBar() {
-        //添加item
-        bottomBar.setTabSelectedListener(this);
-        bottomBar.clearAll();
-        bottomBar.addItem(
-                new BottomNavigationItem(R.drawable.icon_main_tab_main_selected, R.string.homePage)
-                        .setInactiveIconResource(R.drawable.icon_main_tab_main))
-                .addItem(new BottomNavigationItem(R.drawable.icon_main_tab_function_selected, R.string.function)
-                        .setInactiveIconResource(R.drawable.icon_main_tab_function))
-                .addItem(new BottomNavigationItem(R.drawable.icon_main_tab_mine_selected, R.string.mine)
-                        .setInactiveIconResource(R.drawable.icon_main_tab_mine))
-        .initialise();
-        bottomBar.setFirstSelectedPosition(0);
+    private void setupBottomNatigation(){
+        bottomNavigationView.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
     }
-
     private void setupViewPager() {
 
         List<Fragment> fragments = new ArrayList<Fragment>();
@@ -117,7 +103,7 @@ public class Activity_MainPage extends BaseFragmentActivity<BaseViewModel> imple
 
     @Override
     public void onPageSelected(int position) {
-        bottomBar.selectTab(position);
+        bottomNavigationView.getMenu().getItem(position).setChecked(true);
     }
 
     @Override
@@ -125,20 +111,6 @@ public class Activity_MainPage extends BaseFragmentActivity<BaseViewModel> imple
 
     }
 
-    @Override
-    public void onTabSelected(int position) {
-        viewPager.setCurrentItem(position);
-    }
-
-    @Override
-    public void onTabUnselected(int position) {
-
-    }
-
-    @Override
-    public void onTabReselected(int position) {
-
-    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -146,6 +118,12 @@ public class Activity_MainPage extends BaseFragmentActivity<BaseViewModel> imple
             exitBy2Click();
         }
         return false;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        viewPager.setCurrentItem(item.getOrder(),false);
+        return true;
     }
 
     private static boolean isExit = false;

@@ -12,17 +12,11 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <com.ashokvarma.bottomnavigation.BottomNavigationBar
-        android:id="@+id/bottomBar_mainPage"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
-        app:bnbActiveColor="@color/color_primary"
-        app:bnbAutoHideEnabled="false"
-        app:bnbBackgroundColor="@color/color_FFFFFF"
-        app:bnbBackgroundStyle="background_style_static"
-        app:bnbElevation="8dp"
-        app:bnbInactiveColor="@color/color_959595"
-        app:bnbMode="mode_fixed" />
+        android:layout_height="wrap_content"
+        android:background="@color/color_FFFFFF"
+        app:menu="@menu/navigation"/>
 
 </LinearLayout>
