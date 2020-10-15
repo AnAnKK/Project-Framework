@@ -28,12 +28,12 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
 
-        <meta-data
+      <!--  <meta-data
             android:name="design_width_in_dp"
             android:value="360"/>
         <meta-data
             android:name="design_height_in_dp"
-            android:value="640"/>
+            android:value="640"/>-->
 
         <!--允许绘制到oppo、vivo刘海屏机型的刘海区域 -->
         <meta-data
@@ -164,6 +164,8 @@
         <activity android:name=".app.page.activity.home.Image.Activity_RadiusImageView"
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.Activity_Marquee"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.tbs.Activity_TBSStatic"
             android:screenOrientation="portrait"/>
     </application>
 

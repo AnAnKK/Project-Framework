@@ -37,6 +37,7 @@ import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_R
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WebView;
 import com.runda.projectframework.app.page.activity.Activity_FuncList;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WeiboPage;
+import com.runda.projectframework.app.page.activity.home.tbs.Activity_TBSStatic;
 import com.runda.projectframework.app.page.activity.home.video.Activity_VideoPlayRecyclerView;
 import com.runda.projectframework.app.page.activity.login.Activity_AccountBinding;
 import com.runda.projectframework.app.page.activity.login.Activity_AccountBindingRegister;
@@ -193,4 +194,7 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_Marquee contributeActivity_Marquee();
+
+    @ContributesAndroidInjector
+    abstract Activity_TBSStatic contributeActivity_TBSStatic();
 }

@@ -49,6 +49,7 @@ import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_P
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_RefreshBasic;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WebView;
 import com.runda.projectframework.app.page.activity.home.smartrefresh.Activity_WeiboPage;
+import com.runda.projectframework.app.page.activity.home.tbs.Activity_TBSStatic;
 import com.runda.projectframework.app.page.activity.home.video.Activity_VideoPlayRecyclerView;
 import com.runda.projectframework.app.page.adapter.Adapter_FuncItem;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_MainPage_Home;
@@ -93,6 +94,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String Flexbox = "流布局";
     public static final String Marquee = "文字滚动";
     public static final String Drop = "下拉框";//
+    public static final String TBSStatic = "TBS静态集成";
 
     private String TAG = getClass().getSimpleName();
 
@@ -154,6 +156,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(Flexbox, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Marquee, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Drop, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(TBSStatic, Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
         refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -314,6 +317,17 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 public void operate(Intent intent) {
                                     intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list11);
                                     intent.putExtra("title",Drop);
+                                }
+                            });
+                            break;
+                        case TBSStatic:
+                            List<PageTextClzInfo> list12 = new ArrayList<>();
+                            list12.add(new PageTextClzInfo(TBSStatic, Activity_TBSStatic.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list12);
+                                    intent.putExtra("title",TBSStatic);
                                 }
                             });
                             break;
