@@ -3,6 +3,7 @@ package com.runda.projectframework.app.page.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.blankj.utilcode.util.NetworkUtils;
+import com.runda.projectframework.ApplicationMine;
 import com.runda.projectframework.app.base.BaseViewModel;
 import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.rxjava.RxEventManager;
@@ -12,7 +13,8 @@ import com.runda.projectframework.app.repository.Repository_User;
 import com.runda.projectframework.app.repository.bean.user.UserInfo;
 import com.runda.projectframework.app.repository.live.LiveDataWrapper;
 import com.runda.projectframework.app.repository.live.holder.WaitingHolder;
-import com.runda.projectframework.utils.CommonUtils;
+import com.runda.projectframework.utils.UserInfoUtil;
+
 import javax.inject.Inject;
 import io.reactivex.disposables.Disposable;
 
@@ -56,7 +58,10 @@ public class ViewModel_AccountBinding extends BaseViewModel {
                     @Override
                     protected void _onNext(LiveDataWrapper<UserInfo> data) {
                         if (data.isSuccess()) {
-                            CommonUtils.saveUserInfo(data.getData());
+                            UserInfo userInfo = data.getData();
+                            UserInfoUtil.setId(userInfo.getId());
+                            UserInfoUtil.setNickName(userInfo.getNickname());
+                            UserInfoUtil.setPhone(userInfo.getPhone());
                         }
                         accountBindingLiveData.postValue(data);
                         showOrDismissWaitingLiveData.postValue(new WaitingHolder(false));
@@ -88,7 +93,10 @@ public class ViewModel_AccountBinding extends BaseViewModel {
                     @Override
                     protected void _onNext(LiveDataWrapper<UserInfo> data) {
                         if (data.isSuccess()) {
-                            CommonUtils.saveUserInfo(data.getData());
+                            UserInfo userInfo = data.getData();
+                            UserInfoUtil.setId(userInfo.getId());
+                            UserInfoUtil.setNickName(userInfo.getNickname());
+                            UserInfoUtil.setPhone(userInfo.getPhone());
                         }
                         accountBindingLiveData.postValue(data);
                         showOrDismissWaitingLiveData.postValue(new WaitingHolder(false));

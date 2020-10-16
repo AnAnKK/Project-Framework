@@ -18,8 +18,8 @@ import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.adapter.Adapter_FuncItem;
 import com.runda.projectframework.app.repository.bean.PageTextClzInfo;
 import com.runda.toolbar.RDToolbar;
-import com.scwang.smart.refresh.header.FalsifyFooter;
-import com.scwang.smart.refresh.header.FalsifyHeader;
+import com.scwang.smart.refresh.footer.ClassicsFooter;
+import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
 
@@ -96,8 +96,8 @@ public class Activity_FuncList extends BaseActivity<BaseViewModel> {
     }
 
     private void setData(List<PageTextClzInfo> flist) {
-        refreshLayout.setRefreshHeader(new FalsifyHeader(this));
-        refreshLayout.setRefreshFooter(new FalsifyFooter(this));
+        refreshLayout.setRefreshHeader(new ClassicsHeader(this));
+        refreshLayout.setRefreshFooter(new ClassicsFooter(this));
         refreshLayout.setEnableLoadMore(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

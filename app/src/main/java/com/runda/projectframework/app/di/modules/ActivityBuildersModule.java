@@ -3,6 +3,7 @@ package com.runda.projectframework.app.di.modules;
 
 
 import com.runda.projectframework.app.page.Activity_MainPage;
+import com.runda.projectframework.app.page.activity.home.Activity_EditText;
 import com.runda.projectframework.app.page.activity.home.Activity_Flexbox;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
 import com.runda.projectframework.app.page.activity.home.Activity_Marquee;
@@ -43,6 +44,7 @@ import com.runda.projectframework.app.page.activity.login.Activity_AccountBindin
 import com.runda.projectframework.app.page.activity.login.Activity_AccountBindingRegister;
 import com.runda.projectframework.app.page.activity.login.Activity_Aggrement;
 import com.runda.projectframework.app.page.activity.login.Activity_ForgetPassword;
+import com.runda.projectframework.app.page.activity.login.Activity_Guide;
 import com.runda.projectframework.app.page.activity.login.Activity_Login;
 import com.runda.projectframework.app.page.activity.login.Activity_Registr;
 import com.runda.projectframework.app.page.activity.login.Activity_Splash;
@@ -197,4 +199,10 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_TBSStatic contributeActivity_TBSStatic();
+
+    @ContributesAndroidInjector
+    abstract Activity_Guide contributeActivity_Guide();
+
+    @ContributesAndroidInjector
+    abstract Activity_EditText contributeActivity_EditText();
 }

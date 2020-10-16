@@ -3,6 +3,7 @@ package com.runda.projectframework.app.page.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.blankj.utilcode.util.NetworkUtils;
+import com.runda.projectframework.ApplicationMine;
 import com.runda.projectframework.app.base.BaseViewModel;
 import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.rxjava.RxEventManager;
@@ -12,7 +13,6 @@ import com.runda.projectframework.app.repository.Repository_Common;
 import com.runda.projectframework.app.repository.Repository_User;
 import com.runda.projectframework.app.repository.bean.user.UserInfo;
 import com.runda.projectframework.app.repository.live.LiveDataWrapper;
-import com.runda.projectframework.utils.CommonUtils;
 
 import javax.inject.Inject;
 
@@ -52,9 +52,6 @@ public class ViewModel_MainPage_Mine extends BaseViewModel {
 
                     @Override
                     protected void _onNext(LiveDataWrapper<UserInfo> data) {
-                        if(data.isSuccess()){
-                            CommonUtils.saveUserInfo(data.getData());
-                        }
                         userInfoLiveData.postValue(data);
                     }
 

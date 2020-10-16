@@ -24,7 +24,7 @@ import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.Activity_MainPage;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_AccountBinding;
 import com.runda.projectframework.utils.CheckEmptyUtils;
-import com.runda.projectframework.utils.CommonUtils;
+import com.runda.projectframework.utils.PasswordCheckUtils;
 import com.runda.projectframework.utils.EventBusUtil;
 import com.runda.projectframework.utils.IntentUtil;
 import com.runda.toolbar.RDToolbar;
@@ -358,7 +358,7 @@ public class Activity_AccountBindingRegister extends BaseActivity<ViewModel_Acco
             return false;
         }
 
-        if(!CommonUtils.checkPassword(editText_password.getText().toString())){
+        if(!PasswordCheckUtils.checkPassword(editText_password.getText().toString())){
             ToastUtils.showShort(getResources().getString(R.string.incorrectPasswordFormat));
             return false;
         }

@@ -11,13 +11,15 @@ import androidx.lifecycle.ViewModelProviders;
 import com.blankj.utilcode.util.ToastUtils;
 import com.gyf.immersionbar.ImmersionBar;
 import com.jakewharton.rxbinding2.view.RxView;
+import com.runda.projectframework.ApplicationMine;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseActivity;
 import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_changePassword_Setting;
 import com.runda.projectframework.utils.CheckEmptyUtils;
-import com.runda.projectframework.utils.CommonUtils;
+import com.runda.projectframework.utils.PasswordCheckUtils;
+import com.runda.projectframework.utils.UserInfoUtil;
 import com.runda.toolbar.RDToolbar;
 import com.tencent.mmkv.MMKV;
 
@@ -109,8 +111,8 @@ public class Activity_ChangePassword_Setting extends BaseActivity<ViewModel_chan
                 .compose(RxUtil.operateDelay())
                 .subscribe(o -> {
                     if (checkBeforeRegister()) {
-                        getViewModel().changePassword(MMKV.defaultMMKV().decodeString(Constants.USER_USETTYPE),
-                                MMKV.defaultMMKV().decodeString(Constants.USER_PHONE),
+                        getViewModel().changePassword("1",
+                                UserInfoUtil.getPhone(),
                                 editText_password.getText().toString(),
                                 editText_newpassword.getText().toString());
                     }
@@ -242,7 +244,7 @@ public class Activity_ChangePassword_Setting extends BaseActivity<ViewModel_chan
             return false;
         }
 
-        if(!CommonUtils.checkPassword(editText_password.getText().toString())){
+        if(!PasswordCheckUtils.checkPassword(editText_password.getText().toString())){
             ToastUtils.showShort(getResources().getString(R.string.incorrectNewPasswordFormat));
             return false;
         }

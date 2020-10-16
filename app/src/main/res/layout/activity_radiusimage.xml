@@ -66,4 +66,16 @@
         app:riv_selected_border_color="@color/xui_config_color_gray_4"
         app:riv_selected_border_width="1px"
         app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
+
+    <com.runda.projectframework.app.widget.ScaleImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:scaleRatio="1.4"
+        android:src="@drawable/imagetest2"/>
+
 </LinearLayout>

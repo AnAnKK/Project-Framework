@@ -20,7 +20,7 @@ import com.runda.projectframework.app.base.BaseActivity;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_Register;
 import com.runda.projectframework.utils.CheckEmptyUtils;
-import com.runda.projectframework.utils.CommonUtils;
+import com.runda.projectframework.utils.PasswordCheckUtils;
 import com.runda.toolbar.RDToolbar;
 import butterknife.BindView;
 import io.reactivex.disposables.Disposable;
@@ -328,7 +328,7 @@ public class Activity_ForgetPassword extends BaseActivity<ViewModel_Register> {
             return false;
         }
 
-        if(!CommonUtils.checkPassword(editText_password.getText().toString())){
+        if(!PasswordCheckUtils.checkPassword(editText_password.getText().toString())){
             ToastUtils.showShort(getResources().getString(R.string.incorrectPasswordFormat));
             return false;
         }

@@ -71,6 +71,7 @@
     <string name="sir_noData">No Data</string>
     <string name="sir_notSigned">Not Signed\n Click to go</string>
     <string name="sir_notNetwork">Network connection is not checked \n Tap to try again</string>
+    <string name="permissionDescription">Permission Description</string>
     <!--Widget-->
     <string name="smartRefreshLayout">SmartRefreshLayout</string>
 </resources>

@@ -23,11 +23,6 @@
         app:srlAccentColor="@android:color/white"
         app:srlEnableHeaderTranslationContent="false"
         app:srlEnablePreviewInEditMode="false">
-        <com.scwang.smart.refresh.header.MaterialHeader
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="?attr/actionBarSize"/>
         <WebView
             android:id="@+id/webView"
             android:layout_width="match_parent"

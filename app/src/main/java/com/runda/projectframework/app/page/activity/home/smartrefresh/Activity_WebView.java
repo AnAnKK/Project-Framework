@@ -14,7 +14,6 @@ import com.runda.projectframework.app.base.BaseActivity;
 import com.runda.projectframework.app.base.BaseViewModel;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.toolbar.RDToolbar;
-import com.scwang.smart.refresh.header.MaterialHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
@@ -32,8 +31,6 @@ public class Activity_WebView extends BaseActivity<BaseViewModel> {
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
 
-    @BindView(R.id.header)
-    MaterialHeader header;
 
     @BindView(R.id.webView)
     WebView webView;

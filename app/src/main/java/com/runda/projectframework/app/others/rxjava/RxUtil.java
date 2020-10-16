@@ -3,18 +3,24 @@ package com.runda.projectframework.app.others.rxjava;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.text.TextUtils;
+
 import com.blankj.utilcode.util.ToastUtils;
 import com.runda.projectframework.ApplicationMine;
 import com.runda.projectframework.app.others.Constants;
+import com.runda.projectframework.app.others.event.Event;
+import com.runda.projectframework.app.others.event.EventCode;
 import com.runda.projectframework.app.repository.RepositoryException;
 import com.runda.projectframework.app.repository.RepositoryResult;
 import com.runda.projectframework.app.repository.api.APIServiceCreator;
 import com.runda.projectframework.app.repository.live.LiveDataWrapper;
-import com.runda.projectframework.utils.CommonUtils;
+import com.runda.projectframework.utils.EventBusUtil;
 import com.runda.projectframework.utils.LogUtil;
-import com.tencent.mmkv.MMKV;
+import com.runda.projectframework.utils.TokenUtils;
+
 import org.reactivestreams.Publisher;
+
 import java.util.concurrent.TimeUnit;
+
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
@@ -212,27 +218,23 @@ public class RxUtil {
     public static void getRefreshToken() {
         APIServiceCreator apiServiceCreator = new APIServiceCreator();
 
-        apiServiceCreator.getRequester().refreshToken(MMKV.defaultMMKV().decodeString(Constants.REFRESH_TOKEN, ""))
+        apiServiceCreator.getRequester().refreshToken(TokenUtils.getRefreshToken())
                 .compose(rxSchedulerHelperBP())
 
                 .subscribe(userToken -> {
                     refreshTokenSuccess = true;
-                    LogUtil.e(TAG,"刷新Token成功 == "+userToken.getData().getAccessToken());
                     if (userToken != null) {
-                        Constants.ISLOGIN = true;
-                        MMKV.defaultMMKV().encode(Constants.TOKEN, userToken.getData().getAccessToken());
-                        MMKV.defaultMMKV().encode(Constants.REFRESH_TOKEN, userToken.getData().getRefreshToken());
+                        TokenUtils.setToken(userToken.getData().getAccessToken());
+                        TokenUtils.setResreshToken(userToken.getData().getRefreshToken());
                     }
                 }, throwable -> {
                     refreshTokenSuccess = true;
-                    LogUtil.e(TAG,"RefreshToken过期 == "+throwable.getMessage());
                     if(throwable.getMessage().contains("403")){
                         ToastUtils.showShort(Constants.ERROR_STRING_TOKENVOERTIME);
-                        CommonUtils.loginOut();
+                        EventBusUtil.post(new Event(EventCode.SIGN_OUT));
                         Intent intent = new Intent();
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.setAction("com.rundasoft.educationplatform.Activity_Login");
-                        intent.putExtra("userType", MMKV.defaultMMKV().decodeString(Constants.USER_USETTYPE));
+                        intent.setAction("com.runda.projectframework.Activity_Login");
                         ApplicationMine.getInstance().startActivity(intent);
                     }
                 });

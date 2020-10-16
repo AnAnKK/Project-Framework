@@ -12,6 +12,7 @@ import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.app.others.event.Event;
 import com.runda.projectframework.app.others.event.EventCode;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_MainPage_Mine;
+import com.runda.projectframework.utils.TokenUtils;
 
 /**
  * Created by Kongdq
@@ -69,7 +70,7 @@ public class Fragment_Mine extends BaseLazyFragment<ViewModel_MainPage_Mine> {
 
     @Override
     public void start() {
-        if (Constants.ISLOGIN) {
+        if (TokenUtils.hasToken()) {
             getViewModel().getUserInfo();
         }
     }

@@ -16,6 +16,7 @@ import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseLazyFragment;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.activity.Activity_FuncList;
+import com.runda.projectframework.app.page.activity.home.Activity_EditText;
 import com.runda.projectframework.app.page.activity.home.Activity_Flexbox;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
 import com.runda.projectframework.app.page.activity.home.Activity_Marquee;
@@ -55,8 +56,8 @@ import com.runda.projectframework.app.page.adapter.Adapter_FuncItem;
 import com.runda.projectframework.app.page.viewmodel.ViewModel_MainPage_Home;
 import com.runda.projectframework.app.repository.bean.PageTextClzInfo;
 import com.runda.projectframework.utils.IntentUtil;
-import com.scwang.smart.refresh.header.FalsifyFooter;
-import com.scwang.smart.refresh.header.FalsifyHeader;
+import com.scwang.smart.refresh.footer.ClassicsFooter;
+import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
 
@@ -95,6 +96,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String Marquee = "文字滚动";
     public static final String Drop = "下拉框看github/DropDownMenu-plus";//
     public static final String TBSStatic = "TBS静态集成";
+    public static final String EditTextString = "EditText";
 
     private String TAG = getClass().getSimpleName();
 
@@ -157,8 +159,9 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(Marquee, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(Drop, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(TBSStatic, Activity_FuncList.class.getSimpleName()));
-        refreshLayout.setRefreshHeader(new FalsifyHeader(_mActivity));
-        refreshLayout.setRefreshFooter(new FalsifyFooter(_mActivity));
+        list.add(new PageTextClzInfo(EditTextString, Activity_FuncList.class.getSimpleName()));
+        refreshLayout.setRefreshHeader(new ClassicsHeader(_mActivity));
+        refreshLayout.setRefreshFooter(new ClassicsFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -328,6 +331,17 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 public void operate(Intent intent) {
                                     intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list12);
                                     intent.putExtra("title",TBSStatic);
+                                }
+                            });
+                            break;
+                        case EditTextString:
+                            List<PageTextClzInfo> list13 = new ArrayList<>();
+                            list13.add(new PageTextClzInfo(EditTextString, Activity_EditText.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list13);
+                                    intent.putExtra("title",EditTextString);
                                 }
                             });
                             break;

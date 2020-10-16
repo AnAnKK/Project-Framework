@@ -26,7 +26,9 @@ import com.runda.projectframework.app.others.callback.ErrorCallback;
 import com.runda.projectframework.app.others.callback.LoadingCallback;
 import com.runda.projectframework.app.others.callback.NoNetWorkCallback;
 import com.runda.projectframework.app.others.callback.NoSignCallback;
+import com.runda.projectframework.app.repository.bean.user.UserInfo;
 import com.runda.projectframework.utils.DynamicTimeFormat;
+import com.runda.projectframework.utils.TokenUtils;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -47,7 +49,6 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-//import com.orhanobut.logger.Logger;
 
 /**
  * Created by Kongdq
@@ -114,7 +115,6 @@ public class ApplicationMine extends Application implements
         initComponents();
     }
 
-
     @Override
     public void onLowMemory() {
         super.onLowMemory();
@@ -143,9 +143,9 @@ public class ApplicationMine extends Application implements
     private void initComponents() {
         MultiDex.install(this);
         Utils.init(this);
+        TokenUtils.init(this);
         DaggerAppComponent.builder().application(this).build().inject(this);
         EventBus.builder().addIndex(new MyEventBusIndex()).installDefaultEventBus();
-        initMMKV();
         initDKplayer();
         LoadSir.beginBuilder()
                 .addCallback(new ErrorCallback())
@@ -160,9 +160,6 @@ public class ApplicationMine extends Application implements
         MobSDK.init(this);
     }
 
-    private void initMMKV(){
-        MMKV.initialize(this);
-    }
 
     private void initDKplayer(){
         VideoViewManager.setConfig(VideoViewConfig.newBuilder()

@@ -1,14 +1,15 @@
 package com.runda.projectframework.app.repository.api;
 
 import com.runda.projectframework.app.others.Constants;
-import com.runda.projectframework.utils.LogUtil;
-import com.tencent.mmkv.MMKV;
+import com.runda.projectframework.utils.TokenUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.concurrent.TimeUnit;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.net.ssl.HostnameVerifier;
@@ -17,6 +18,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -110,9 +112,8 @@ public class APIServiceCreator {
                                 .addHeader("Content-Type", "application/json; charset=UTF-8")
                                 .addHeader("Connection", "keep-alive")
                                 .addHeader("Accept", "*/*")
-                                .addHeader("Authorization","Bearer "+ MMKV.defaultMMKV().decodeString(Constants.TOKEN,""))
+                                .addHeader("Authorization","Bearer "+ TokenUtils.getToken())
                                 .build();
-                        LogUtil.e("token ", MMKV.defaultMMKV().decodeString(Constants.TOKEN,""));
                         return chain.proceed(request);
 
                     }
