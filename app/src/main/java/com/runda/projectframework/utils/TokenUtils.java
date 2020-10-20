@@ -82,31 +82,4 @@ public final class TokenUtils {
         return MMKV.defaultMMKV().containsKey(KEY_TOKEN);
     }
 
-    /**
-     * 处理登录成功的事件
-     *
-     * @param token 账户信息
-     */
-    public static boolean handleLoginSuccess(String token) {
-        if (!StringUtils.isEmpty(token)) {
-            ToastUtils.showShort("登录成功！");
-            setToken(token);
-            return true;
-        } else {
-            ToastUtils.showShort("登录失败！");
-            return false;
-        }
-    }
-
-    /**
-     * 处理登出的事件
-     */
-    public static void handleLogoutSuccess() {
-        //登出时，清除账号信息
-        clearToken();
-        ToastUtils.showShort("登出成功！");
-        //跳转到登录页
-//        ActivityUtils.startActivity(Activity_Login.class);
-    }
-
 }

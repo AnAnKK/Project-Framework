@@ -74,4 +74,9 @@
     <string name="permissionDescription">Permission Description</string>
     <!--Widget-->
     <string name="smartRefreshLayout">SmartRefreshLayout</string>
+    <!--app更新状态-->
+    <string name="update_status_start">Downloading</string>
+    <string name="update_status_running">Downloading %d%%</string>
+    <string name="update_status_successful">Download complete, click Install</string>
+    <string name="update_status_failed">Download failed. Click to try again</string>
 </resources>

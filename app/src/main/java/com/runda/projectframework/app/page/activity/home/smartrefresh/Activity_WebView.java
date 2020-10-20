@@ -1,36 +1,47 @@
 package com.runda.projectframework.app.page.activity.home.smartrefresh;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.jakewharton.rxbinding2.view.RxView;
+import com.kingja.loadsir.callback.SuccessCallback;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseActivity;
 import com.runda.projectframework.app.base.BaseViewModel;
+import com.runda.projectframework.app.others.callback.ErrorCallback;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.toolbar.RDToolbar;
-import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.scwang.smart.refresh.layout.api.RefreshLayout;
-import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 
 import butterknife.BindView;
 import io.reactivex.disposables.Disposable;
 
+import static android.view.KeyEvent.KEYCODE_BACK;
+
 /**
- * Created by Kongdq
- * @date 2019/11/1
- * Description:
+ *
+ * @Description:    重写返回键 错误页面也会返回... (返回栈问题);所以先直接finish掉吧;
+ *  用的时候再看吧 有个轮子哥的wenview写的不错 https://github.com/getActivity/AndroidProject
+ * @Author:         An_K
+ * @CreateDate:     2020/10/16 17:26
+ * @Version:        1.0
  */
-public class Activity_WebView extends BaseActivity<BaseViewModel> {
+public class Activity_WebView extends BaseActivity<BaseViewModel>{
 
-    @BindView(R.id.refreshLayout)
-    SmartRefreshLayout refreshLayout;
+    private String url = "https://www.baidu.com/";
 
+
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
 
     @BindView(R.id.webView)
     WebView webView;
@@ -45,13 +56,13 @@ public class Activity_WebView extends BaseActivity<BaseViewModel> {
 
     @Override
     public View getRegisterLoadSir() {
-        return null;
+        return webView;
     }
 
     @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
-        ImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.color_primary).init();
+        ImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.color_35C58B).init();
     }
 
     @Override
@@ -71,36 +82,84 @@ public class Activity_WebView extends BaseActivity<BaseViewModel> {
 
     @Override
     public void onNetReload(View v) {
-
+        loadService.showCallback(SuccessCallback.class);
+        webView.loadUrl(url);
     }
 
     @Override
     public void start() {
+        loadService.showCallback(SuccessCallback.class);
+        startWebView(url);
+    }
 
-        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                webView.loadUrl("https://blog.csdn.net/QDseashore/article/details/40657717");
-            }
-        });
-        refreshLayout.autoRefresh();
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
+            // 后退网页并且拦截该事件
+            webView.goBack();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
+    private void startWebView(String url) {
+        webView.setWebViewClient(new WebViewClient());
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setDefaultTextEncodingName("UTF-8");
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setBlockNetworkImage(false);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
-        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl(url);
+
         webView.setWebViewClient(new WebViewClient(){
             @Override
-            @SuppressWarnings("deprecation")
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
+                try{
+                    if (url.startsWith("http:")||url.startsWith("https:")){
+                        view.loadUrl(url);
+                        return true;
+                    }else{
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                        return true;
+                    }
+                }catch (Exception e){
+                    return false;
+                }
+
             }
 
             @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                if(refreshLayout!=null){
-                    refreshLayout.finishRefresh();
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                super.onReceivedError(view, errorCode, description, failingUrl);
+                view.loadUrl("about:blank");
+                loadService.showCallback(ErrorCallback.class);
+            }
+        });
+
+        webView.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+
+                if(progressBar == null){
+                    return;
                 }
+                if (newProgress == 100) {
+                    progressBar.setVisibility(View.GONE);
+                } else {
+                    progressBar.setVisibility(View.VISIBLE);
+                    progressBar.setProgress(newProgress);
+                }
+
             }
         });
 
@@ -120,5 +179,6 @@ public class Activity_WebView extends BaseActivity<BaseViewModel> {
     public void initShowOrDismissWaitingEvent() {
 
     }
+
 
 }

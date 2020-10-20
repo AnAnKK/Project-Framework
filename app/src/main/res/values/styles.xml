@@ -78,6 +78,22 @@
         </attr>
     </declare-styleable>
 
+    <!-- WevView -->
+    <attr name="progress_color" format="color" />
+    <attr name="progress_height" format="dimension" />
+    <attr name="error_text_color" format="color" />
+    <attr name="error_text_size" format="dimension" />
+    <attr name="error_text" format="string" />
+
+    <declare-styleable name="loadWebView">
+        <attr name="progress_color" />
+        <attr name="progress_height" />
+        <attr name="error_text_color" />
+        <attr name="error_text_size" />
+        <attr name="error_text" />
+    </declare-styleable>
+
+
     <!-- 长按缩放的 ImageView -->
     <declare-styleable name="ScaleImageView">
         <!-- 缩放比例 -->

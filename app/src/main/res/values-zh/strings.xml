@@ -74,4 +74,9 @@
     <string name="permissionDescription">APP访问权限说明</string>
     <!--Widget-->
     <string name="smartRefreshLayout">SmartRefreshLayout</string>
+    <!--app更新状态-->
+    <string name="update_status_start">正在下载</string>
+    <string name="update_status_running">下载中 %d%%</string>
+    <string name="update_status_successful">下载完成，点击安装</string>
+    <string name="update_status_failed">下载失败，点击重试</string>
 </resources>

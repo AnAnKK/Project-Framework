@@ -1,3 +1,4 @@
+include ':RDDownload'
 include ':RDToolbar'
 include ':app'
 rootProject.name = "ProjectFramework"

@@ -17,6 +17,7 @@ import com.runda.projectframework.app.base.BaseLazyFragment;
 import com.runda.projectframework.app.others.rxjava.RxUtil;
 import com.runda.projectframework.app.page.activity.Activity_FuncList;
 import com.runda.projectframework.app.page.activity.home.Activity_EditText;
+import com.runda.projectframework.app.page.activity.home.Activity_FileUploadDownload;
 import com.runda.projectframework.app.page.activity.home.Activity_Flexbox;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
 import com.runda.projectframework.app.page.activity.home.Activity_Marquee;
@@ -97,6 +98,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String Drop = "下拉框看github/DropDownMenu-plus";//
     public static final String TBSStatic = "TBS静态集成";
     public static final String EditTextString = "EditText";
+    public static final String FileUpDownLoad = "文件上传下载";
 
     private String TAG = getClass().getSimpleName();
 
@@ -160,6 +162,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(Drop, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(TBSStatic, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(EditTextString, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(FileUpDownLoad, Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new ClassicsHeader(_mActivity));
         refreshLayout.setRefreshFooter(new ClassicsFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -253,7 +256,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                             break;
                         case Video:
                             List<PageTextClzInfo> list6 = new ArrayList<>();
-                            list6.add(new PageTextClzInfo("recyclerview视频列表", Activity_VideoPlayRecyclerView.class.getName()));
+                            list6.add(new PageTextClzInfo("recyclerview视频列表 DKPlayer", Activity_VideoPlayRecyclerView.class.getName()));
                             IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
                                 @Override
                                 public void operate(Intent intent) {
@@ -342,6 +345,17 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 public void operate(Intent intent) {
                                     intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list13);
                                     intent.putExtra("title",EditTextString);
+                                }
+                            });
+                            break;
+                        case FileUpDownLoad:
+                            List<PageTextClzInfo> list14 = new ArrayList<>();
+                            list14.add(new PageTextClzInfo(FileUpDownLoad, Activity_FileUploadDownload.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list14);
+                                    intent.putExtra("title",FileUpDownLoad);
                                 }
                             });
                             break;

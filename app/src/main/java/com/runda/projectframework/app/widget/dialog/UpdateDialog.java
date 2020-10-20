@@ -12,12 +12,16 @@ import android.widget.TextView;
 import androidx.core.content.FileProvider;
 
 import com.blankj.utilcode.util.AppUtils;
-import com.hjq.permissions.Permission;
+import com.blankj.utilcode.util.FileUtils;
+import com.blankj.utilcode.util.PathUtils;
 import com.runda.projectframework.R;
+import com.runda.projectframework.app.others.Constants;
 
 import java.io.File;
 
-import okhttp3.Call;
+import runda.download.library.DownloadListener;
+import runda.download.library.DownloadUtil;
+import runda.download.library.InputParameter;
 
 /**
  *
@@ -27,6 +31,7 @@ import okhttp3.Call;
  * @Version:        1.0
  */
 public final class UpdateDialog {
+
 
     public static final class Builder
             extends BaseDialog.Builder<Builder> {
@@ -85,7 +90,31 @@ public final class UpdateDialog {
             return this;
         }
 
+        /**
+         * 设置强制更新
+         */
+        public Builder setForceUpdate(boolean force) {
+            mForceUpdate = force;
+            mCloseView.setVisibility(force ? View.GONE : View.VISIBLE);
+            setCancelable(!force);
+            return this;
+        }
 
+        /**
+         * 设置下载 url
+         */
+        public Builder setDownloadUrl(String url) {
+            mDownloadUrl = url;
+            return this;
+        }
+
+        /**
+         * 设置文件 md5
+         */
+        public Builder setFileMd5(String md5) {
+            mFileMd5 = md5;
+            return this;
+        }
 
         @Override
         public void onClick(View v) {
@@ -99,83 +128,66 @@ public final class UpdateDialog {
                         installApk();
                     } else {
                         // 下载失败，重新下载
-//                        downloadApk();
+                        downloadApk();
                     }
                 } else if (!mDownloading) {
                     // 没有下载，开启下载
-//                    downloadApk();
+                    downloadApk();
                 }
             }
         }
 
-//        /**
-//         * 下载 Apk
-//         */
-//        @CheckNet
-//        @Permissions({Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE})
-//        private void downloadApk() {
-//            // 创建要下载的文件对象
-//            mApkFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), getString(R.string.app_name) + "_v" + mNameView.getText().toString() + ".apk");
-//            // 设置对话框不能被取消
-//            setCancelable(false);
-//
-//            EasyHttp.download(this)
-//                    .method(HttpMethod.GET)
-//                    .file(mApkFile)
-//                    .url(mDownloadUrl)
-//                    .md5(mFileMd5)
-//                    .listener(new OnDownloadListener() {
-//
-//                        @Override
-//                        public void onStart(Call call) {
-//                            // 标记为下载中
-//                            mDownloading = true;
-//                            // 标记成未下载完成
-//                            mDownloadComplete = false;
-//                            // 后台更新
-//                            mCloseView.setVisibility(View.GONE);
-//                            // 显示进度条
-//                            mProgressView.setVisibility(View.VISIBLE);
-//                            mUpdateView.setText(R.string.update_status_start);
-//                        }
-//
-//                        @Override
-//                        public void onProgress(DownloadInfo info) {
-//                            mUpdateView.setText(String.format(getString(R.string.update_status_running), info.getDownloadProgress()));
-//                            mProgressView.setProgress(info.getDownloadProgress());
-//                        }
-//
-//                        @Override
-//                        public void onComplete(DownloadInfo info) {
-//                            mUpdateView.setText(R.string.update_status_successful);
-//                            // 标记成下载完成
-//                            mDownloadComplete = true;
-//                            // 安装 Apk
-//                            installApk();
-//                        }
-//
-//                        @SuppressWarnings("ResultOfMethodCallIgnored")
-//                        @Override
-//                        public void onError(DownloadInfo info, Exception e) {
-//                            mUpdateView.setText(R.string.update_status_failed);
-//                            // 删除下载的文件
-//                            info.getFile().delete();
-//                        }
-//
-//                        @Override
-//                        public void onEnd(Call call) {
-//                            // 更新进度条
-//                            mProgressView.setProgress(0);
-//                            mProgressView.setVisibility(View.GONE);
-//                            // 标记当前不是下载中
-//                            mDownloading = false;
-//                            // 如果当前不是强制更新，对话框就恢复成可取消状态
-//                            if (!mForceUpdate) {
-//                                setCancelable(true);
-//                            }
-//                        }
-//                    }).start();
-//        }
+        /**
+         * 下载 Apk
+         */
+        private void downloadApk() {
+            mApkFile = new File(PathUtils.getExternalAppFilesPath() + "/sstx.apk");
+            setCancelable(false);
+
+            String BASE_URL = "http://www.apk.anzhi.com/";
+            String FILE_URL = "data4/apk/201809/06/f2a4dbd1b6cc2dca6567f42ae7a91f11_45629100.apk";
+
+            // 标记为下载中
+            mDownloading = true;
+            // 标记成未下载完成
+            mDownloadComplete = false;
+            // 后台更新
+            mCloseView.setVisibility(View.GONE);
+            // 显示进度条
+            mProgressView.setVisibility(View.VISIBLE);
+            mUpdateView.setText(R.string.update_status_start);
+
+            DownloadUtil.getInstance()
+                    .downloadFile(new InputParameter.Builder(BASE_URL, FILE_URL, PathUtils.getExternalAppFilesPath() + "/"+ FileUtils.getFileName(FILE_URL))
+                            .setCallbackOnUiThread(true)
+                            .build(), new DownloadListener() {
+                        @Override
+                        public void onFinish(final File file) {
+                            mProgressView.setProgress(0);
+                            mProgressView.setVisibility(View.GONE);
+                            // 标记当前不是下载中
+                            mDownloading = false;
+                            // 如果当前不是强制更新，对话框就恢复成可取消状态
+                            if (!mForceUpdate) {
+                                setCancelable(true);
+                            }
+                            mUpdateView.setText(R.string.update_status_successful);
+                            mDownloadComplete = true;
+                            installApk();
+                        }
+
+                        @Override
+                        public void onProgress(int progress, long downloadedLengthKb, long totalLengthKb) {
+                            mUpdateView.setText(String.format(getString(R.string.update_status_running), progress));
+                            mProgressView.setProgress(progress);
+                        }
+
+                        @Override
+                        public void onFailed(String errMsg) {
+                            mUpdateView.setText(R.string.update_status_failed);
+                        }
+                    });
+        }
 
         /**
          * 安装 Apk
@@ -195,5 +207,6 @@ public final class UpdateDialog {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getContext().startActivity(intent);
         }
+
     }
 }

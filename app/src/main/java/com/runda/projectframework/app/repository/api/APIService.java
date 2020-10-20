@@ -10,6 +10,7 @@ import com.runda.projectframework.app.repository.bean.post.PostLogin;
 import com.runda.projectframework.app.repository.bean.user.UserInfo;
 import com.runda.projectframework.app.repository.bean.user.UserToken;
 import io.reactivex.Flowable;
+import okhttp3.RequestBody;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -173,5 +174,14 @@ public interface APIService {
     Flowable<RepositoryResultNoData> requestSendVCode(
             @NonNull @Query("mobile") String phoneNum
     );
+
+    /**
+     * 教师端 点评
+     *
+     * @param Body
+     * @return
+     */
+    @POST("yelp/ad")
+    Flowable<RepositoryResult<Boolean>> upLoad(@Body RequestBody Body);
 
 }

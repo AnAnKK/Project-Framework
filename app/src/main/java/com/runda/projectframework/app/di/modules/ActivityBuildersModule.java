@@ -4,6 +4,7 @@ package com.runda.projectframework.app.di.modules;
 
 import com.runda.projectframework.app.page.Activity_MainPage;
 import com.runda.projectframework.app.page.activity.home.Activity_EditText;
+import com.runda.projectframework.app.page.activity.home.Activity_FileUploadDownload;
 import com.runda.projectframework.app.page.activity.home.Activity_Flexbox;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
 import com.runda.projectframework.app.page.activity.home.Activity_Marquee;
@@ -205,4 +206,7 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_EditText contributeActivity_EditText();
+
+    @ContributesAndroidInjector
+    abstract Activity_FileUploadDownload contributeActivity_FileUploadDownload();
 }

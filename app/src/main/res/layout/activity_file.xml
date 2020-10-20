@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:alpha="1"
+        android:background="@drawable/shape_immsersion_main"
+        app:title="文件上传下载"
+        app:navigationIcon="@drawable/icon_back_white"
+        app:titleTextColor="@android:color/white" />
+
+
+    <Button
+        android:id="@+id/buttonUpload"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ButtonStyleRadius96"
+        android:text="文件上传"/>
+
+    <TextView
+        android:id="@+id/textviewProgress"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_marginTop="100dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:indeterminate="false"
+        />
+    <Button
+        android:id="@+id/buttonDownload"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ButtonStyleRadius96"
+        android:text="文件下载"/>
+
+    <Button
+        android:id="@+id/cancleDownload"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ButtonStyleRadius96"
+        android:text="取消下载"/>
+</LinearLayout>

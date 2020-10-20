@@ -57,9 +57,7 @@ public class ViewModel_Login extends BaseViewModel {
                     protected void _onNext(LiveDataWrapper<UserInfo> data) {
                         if (data.isSuccess()) {
                             UserInfo userInfo = data.getData();
-                            UserInfoUtil.setId(userInfo.getId());
-                            UserInfoUtil.setNickName(userInfo.getNickname());
-                            UserInfoUtil.setPhone(userInfo.getPhone());
+                            UserInfoUtil.saveUserInfo(userInfo);
                         }
                         showOrDismissWaitingLiveData.postValue(new WaitingHolder(false));
                         signInLiveData.postValue(data);

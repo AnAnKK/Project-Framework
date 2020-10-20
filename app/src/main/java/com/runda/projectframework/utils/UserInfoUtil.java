@@ -1,5 +1,6 @@
 package com.runda.projectframework.utils;
 
+import com.runda.projectframework.app.repository.bean.user.UserInfo;
 import com.tencent.mmkv.MMKV;
 
 /**
@@ -57,7 +58,15 @@ public class UserInfoUtil {
         MMKV.defaultMMKV().remove(USER_ID);
         MMKV.defaultMMKV().remove(USER_NICKNAME);
         MMKV.defaultMMKV().remove(USER_PHONE);
+        TokenUtils.clearToken();
     }
 
 
+    public static void saveUserInfo(UserInfo userInfo) {
+        UserInfoUtil.setId(userInfo.getId());
+        UserInfoUtil.setNickName(userInfo.getNickname());
+        UserInfoUtil.setPhone(userInfo.getPhone());
+        TokenUtils.setToken(userInfo.getUserToken().getAccessToken());
+        TokenUtils.setResreshToken(userInfo.getUserToken().getRefreshToken());
+    }
 }

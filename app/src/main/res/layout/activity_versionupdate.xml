@@ -20,7 +20,18 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:background="@color/color_primary"
-        android:text="点击更新"
+        android:text="点击更新 appupdateX"
+        android:textColor="@color/color_FFFFFF"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"/>
+
+    <Button
+        android:id="@+id/buttonUpdate2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@color/color_primary"
+        android:text="点击更新自定义"
         android:textColor="@color/color_FFFFFF"
         android:gravity="center"
         android:layout_gravity="center"
