@@ -1,5 +1,9 @@
 package com.runda.projectframework.app.page.activity.home;
 
+import android.content.Context;
+import android.net.Uri;
+import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -9,19 +13,20 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.download.library.DownloadImpl;
+import com.download.library.DownloadListenerAdapter;
+import com.download.library.DownloadTask;
+import com.download.library.Extra;
 import com.gyf.immersionbar.ImmersionBar;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.base.BaseActivity;
 import com.runda.projectframework.app.base.BaseViewModel;
-import com.runda.projectframework.app.others.Constants;
 import com.runda.projectframework.utils.LogUtil;
 
 import java.io.File;
+import java.util.Locale;
 
 import butterknife.BindView;
-import runda.download.library.DownloadListener;
-import runda.download.library.DownloadUtil;
-import runda.download.library.InputParameter;
 
 /**
  *
@@ -99,7 +104,7 @@ public class Activity_FileUploadDownload extends BaseActivity<BaseViewModel>{
 
             @Override
             public void onClick(View view) {
-
+                DownloadImpl.getInstance().pause(url);
             }
         });
     }
@@ -108,38 +113,48 @@ public class Activity_FileUploadDownload extends BaseActivity<BaseViewModel>{
 
 
     private void downLoad(){
-           String BASE_URL = "http://www.apk.anzhi.com/";
-           String FILE_URL = "data4/apk/201809/06/f2a4dbd1b6cc2dca6567f42ae7a91f11_45629100.apk";
 
-        DownloadUtil.getInstance()
-                .downloadFile(new InputParameter.Builder(BASE_URL, FILE_URL, getExternalFilesDir(null).getAbsolutePath() + "/ccc.apk")
-                        .setCallbackOnUiThread(true)
-                        .build(), new DownloadListener() {
-                    @Override
-                    public void onFinish(final File file) {
-//                        download.setEnabled(true);
-//                        tvFileLocation.setText("下载的文件地址为:\n" + file.getAbsolutePath());
-//                        installAPK(file, MainActivity.this);
-                        LogUtil.e(TAG,"finish == "+file.getAbsolutePath());
-                        progressBar.setProgress(100);
-                        ToastUtils.showShort("下载完成"+file.getAbsolutePath());
-                    }
+        	File dir = new File(getExternalCacheDir() + "/download/" + "public");
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}
+		DownloadImpl.getInstance()
+                .with(getApplicationContext())
+                .url(url)
+                .target(new File(getExternalCacheDir() + "/download/" + "public" + "/" + "kkk.apk"), this.getPackageName() + ".SampleFileProvider")//自定义路径需指定目录和authority(FileContentProvide),需要相对应匹配才能启动通知，和自动打开文件
+				.setUniquePath(false)//是否唯一路径
+				.setForceDownload(true)//不管网络类型
+				.setRetry(4)//下载异常，自动重试,最多重试4次
+                .setEnableIndicator(false)
+				.setBlockMaxTime(60000L) //以8KB位单位，默认60s ，如果60s内无法从网络流中读满8KB数据，则抛出异常 。
+				.setConnectTimeOut(10000L)//连接10超时
+				.setOpenBreakPointDownload(false)//打开断点续传
+				.setParallelDownload(true)//打开多线程下载
+				.enqueue(new DownloadListenerAdapter() {
+					@Override
+					public void onStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength, Extra extra) {
+						super.onStart(url, userAgent, contentDisposition, mimetype, contentLength, extra);
+					}
 
-                    @Override
-                    public void onProgress(int progress, long downloadedLengthKb, long totalLengthKb) {
-                        tvProgress.setText(String.format("文件文件下载进度：%d%s \n\n已下载:%sKB | 总长:%sKB", progress,"%", downloadedLengthKb + "", totalLengthKb + ""));
-                        LogUtil.e(TAG,"onProgress == "+progress);
-                        progressBar.setProgress(progress);
-                    }
+					@MainThread //加上该注解，自动回调到主线程
+					@Override
+					public void onProgress(String url, long downloaded, long length, long usedTime) {
+						super.onProgress(url, downloaded, length, usedTime);
+                        int mProgress = (int) ((downloaded) / Float.valueOf(length) * 100);
+                        LogUtil.e(TAG,"downloaded == "+downloaded+"  length == "+length+"   usedTime == "+usedTime);
+                        tvProgress.setText("当前进度" +downloaded+"/"+length);
+                        progressBar.setProgress(mProgress);
+                        LogUtil.e(TAG, " progress:" + downloaded + " url:" + url);
+					}
 
-                    @Override
-                    public void onFailed(String errMsg) {
-//                        download.setEnabled(true);
-                        ToastUtils.showShort("下载失败"+errMsg);
-                    }
-                });
+					@Override
+					public boolean onResult(Throwable throwable, Uri path, String url, Extra extra) {
+                        LogUtil.e(TAG, " path:" + path + " url:" + url + " length:" + new File(path.getPath()).length() + extra.getFileMD5());
+						return super.onResult(throwable, path, url, extra);
+					}
+				});
+
     }
-
 
 
     @Override
@@ -156,4 +171,11 @@ public class Activity_FileUploadDownload extends BaseActivity<BaseViewModel>{
     public void initShowOrDismissWaitingEvent() {
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        DownloadImpl.getInstance().cancelAll();
+    }
+
 }

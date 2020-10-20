@@ -14,14 +14,15 @@ import androidx.core.content.FileProvider;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.PathUtils;
+import com.download.library.DownloadImpl;
+import com.download.library.DownloadListenerAdapter;
+import com.download.library.Extra;
 import com.runda.projectframework.R;
 import com.runda.projectframework.app.others.Constants;
+import com.runda.projectframework.utils.LogUtil;
 
 import java.io.File;
 
-import runda.download.library.DownloadListener;
-import runda.download.library.DownloadUtil;
-import runda.download.library.InputParameter;
 
 /**
  *
@@ -141,50 +142,61 @@ public final class UpdateDialog {
          * 下载 Apk
          */
         private void downloadApk() {
-            mApkFile = new File(PathUtils.getExternalAppFilesPath() + "/sstx.apk");
+            mApkFile = new File(PathUtils.getExternalAppFilesPath() + "/ttt.apk");
             setCancelable(false);
-
-            String BASE_URL = "http://www.apk.anzhi.com/";
-            String FILE_URL = "data4/apk/201809/06/f2a4dbd1b6cc2dca6567f42ae7a91f11_45629100.apk";
-
-            // 标记为下载中
-            mDownloading = true;
-            // 标记成未下载完成
-            mDownloadComplete = false;
-            // 后台更新
-            mCloseView.setVisibility(View.GONE);
-            // 显示进度条
-            mProgressView.setVisibility(View.VISIBLE);
-            mUpdateView.setText(R.string.update_status_start);
-
-            DownloadUtil.getInstance()
-                    .downloadFile(new InputParameter.Builder(BASE_URL, FILE_URL, PathUtils.getExternalAppFilesPath() + "/"+ FileUtils.getFileName(FILE_URL))
-                            .setCallbackOnUiThread(true)
-                            .build(), new DownloadListener() {
+            DownloadImpl.getInstance()
+                    .with(getContext())
+                    .url("http://shouji.360tpcdn.com/170918/93d1695d87df5a0c0002058afc0361f1/com.ss.android.article.news_636.apk")
+                    .target(mApkFile)//自定义路径需指定目录和authority(FileContentProvide),需要相对应匹配才能启动通知，和自动打开文件
+                    .setUniquePath(false)//是否唯一路径
+                    .setForceDownload(true)//不管网络类型
+                    .setRetry(4)//下载异常，自动重试,最多重试4次
+                    .setEnableIndicator(false)
+                    .setBlockMaxTime(60000L) //以8KB位单位，默认60s ，如果60s内无法从网络流中读满8KB数据，则抛出异常 。
+                    .setConnectTimeOut(10000L)//连接10超时
+                    .setOpenBreakPointDownload(false)//打开断点续传
+                    .setParallelDownload(true)//打开多线程下载
+                    .enqueue(new DownloadListenerAdapter() {
                         @Override
-                        public void onFinish(final File file) {
-                            mProgressView.setProgress(0);
-                            mProgressView.setVisibility(View.GONE);
-                            // 标记当前不是下载中
-                            mDownloading = false;
-                            // 如果当前不是强制更新，对话框就恢复成可取消状态
-                            if (!mForceUpdate) {
-                                setCancelable(true);
-                            }
-                            mUpdateView.setText(R.string.update_status_successful);
-                            mDownloadComplete = true;
-                            installApk();
+                        public void onStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength, Extra extra) {
+                            super.onStart(url, userAgent, contentDisposition, mimetype, contentLength, extra);
+                            // 标记为下载中
+                            mDownloading = true;
+                            // 标记成未下载完成
+                            mDownloadComplete = false;
+                            // 后台更新
+                            mCloseView.setVisibility(View.GONE);
+                            // 显示进度条
+                            mProgressView.setVisibility(View.VISIBLE);
+                            mUpdateView.setText(R.string.update_status_start);
                         }
 
+                        @MainThread //加上该注解，自动回调到主线程
                         @Override
-                        public void onProgress(int progress, long downloadedLengthKb, long totalLengthKb) {
+                        public void onProgress(String url, long downloaded, long length, long usedTime) {
+                            super.onProgress(url, downloaded, length, usedTime);
+                            int progress = (int) ((downloaded) / Float.valueOf(length) * 100);
                             mUpdateView.setText(String.format(getString(R.string.update_status_running), progress));
                             mProgressView.setProgress(progress);
                         }
 
                         @Override
-                        public void onFailed(String errMsg) {
-                            mUpdateView.setText(R.string.update_status_failed);
+                        public boolean onResult(Throwable throwable, Uri path, String url, Extra extra) {
+//						String md5 = Runtime.getInstance().md5(new File(path.getPath()));
+                            if(throwable == null){
+                                mProgressView.setProgress(0);
+                                mProgressView.setVisibility(View.GONE);
+                                // 标记当前不是下载中
+                                mDownloading = false;
+                                // 如果当前不是强制更新，对话框就恢复成可取消状态
+                                if (!mForceUpdate) {
+                                    setCancelable(true);
+                                }
+                                mUpdateView.setText(R.string.update_status_successful);
+                                mDownloadComplete = true;
+                                installApk();
+                            }
+                            return super.onResult(throwable, path, url, extra);
                         }
                     });
         }

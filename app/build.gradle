@@ -104,7 +104,6 @@ dependencies {
 
     //project
     implementation project(path: ':RDToolbar')
-    implementation project(path: ':RDDownload')
     //base
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'com.android.support:multidex:1.0.3'
@@ -134,6 +133,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
     // thirdParty tools
 //    implementation 'me.jessyan:autosize:1.2.1'
+    implementation 'com.download.library:Downloader:4.1.4'
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.blankj:utilcodex:1.29.0'
