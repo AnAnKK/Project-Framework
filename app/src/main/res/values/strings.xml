@@ -79,4 +79,5 @@
     <string name="update_status_running">Downloading %d%%</string>
     <string name="update_status_successful">Download complete, click Install</string>
     <string name="update_status_failed">Download failed. Click to try again</string>
+    <string name="common_loading">loading&#8230;</string>
 </resources>

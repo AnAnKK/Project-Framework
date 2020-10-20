@@ -20,6 +20,7 @@ import com.runda.projectframework.app.page.activity.home.Activity_EditText;
 import com.runda.projectframework.app.page.activity.home.Activity_FileUploadDownload;
 import com.runda.projectframework.app.page.activity.home.Activity_Flexbox;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
+import com.runda.projectframework.app.page.activity.home.Activity_LoadingDialog;
 import com.runda.projectframework.app.page.activity.home.Activity_Marquee;
 import com.runda.projectframework.app.page.activity.home.Activity_Popup;
 import com.runda.projectframework.app.page.activity.home.Activity_VersionUpdate;
@@ -99,6 +100,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
     public static final String TBSStatic = "TBS静态集成";
     public static final String EditTextString = "EditText";
     public static final String FileUpDownLoad = "文件上传下载";
+    public static final String LoadingDialog = "dialog取代Kprogress";
 
     private String TAG = getClass().getSimpleName();
 
@@ -163,6 +165,7 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
         list.add(new PageTextClzInfo(TBSStatic, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(EditTextString, Activity_FuncList.class.getSimpleName()));
         list.add(new PageTextClzInfo(FileUpDownLoad, Activity_FuncList.class.getSimpleName()));
+        list.add(new PageTextClzInfo(LoadingDialog, Activity_FuncList.class.getSimpleName()));
         refreshLayout.setRefreshHeader(new ClassicsHeader(_mActivity));
         refreshLayout.setRefreshFooter(new ClassicsFooter(_mActivity));
         refreshLayout.setEnableLoadMore(true);
@@ -356,6 +359,17 @@ public class Fragment_Home extends BaseLazyFragment<ViewModel_MainPage_Home> {
                                 public void operate(Intent intent) {
                                     intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list14);
                                     intent.putExtra("title",FileUpDownLoad);
+                                }
+                            });
+                            break;
+                        case LoadingDialog:
+                            List<PageTextClzInfo> list15 = new ArrayList<>();
+                            list15.add(new PageTextClzInfo(LoadingDialog, Activity_LoadingDialog.class.getName()));
+                            IntentUtil.startActivityWithOperation(_mActivity, Activity_FuncList.class, new IntentUtil.IntentOperation() {
+                                @Override
+                                public void operate(Intent intent) {
+                                    intent.putParcelableArrayListExtra("list", (ArrayList<? extends Parcelable>) list15);
+                                    intent.putExtra("title",LoadingDialog);
                                 }
                             });
                             break;

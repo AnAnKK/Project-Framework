@@ -7,6 +7,7 @@ import com.runda.projectframework.app.page.activity.home.Activity_EditText;
 import com.runda.projectframework.app.page.activity.home.Activity_FileUploadDownload;
 import com.runda.projectframework.app.page.activity.home.Activity_Flexbox;
 import com.runda.projectframework.app.page.activity.home.Activity_KProgressHud;
+import com.runda.projectframework.app.page.activity.home.Activity_LoadingDialog;
 import com.runda.projectframework.app.page.activity.home.Activity_Marquee;
 import com.runda.projectframework.app.page.activity.home.Activity_VersionUpdate;
 import com.runda.projectframework.app.page.activity.home.Image.Activity_RadiusImageView;
@@ -209,4 +210,7 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract Activity_FileUploadDownload contributeActivity_FileUploadDownload();
+
+    @ContributesAndroidInjector
+    abstract Activity_LoadingDialog contributeActivity_LoadingDialog();
 }

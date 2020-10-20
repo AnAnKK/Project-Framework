@@ -181,6 +181,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".app.page.activity.home.Activity_FileUploadDownload"
             android:screenOrientation="portrait"/>
+        <activity android:name=".app.page.activity.home.Activity_LoadingDialog"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
